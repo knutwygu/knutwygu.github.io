@@ -152,7 +152,7 @@ h1 {
     display: inline-block; /* 让它独占一块空间，方便做动效 */
     margin-top: 10px;      /* 和上面的小字拉开距离 */
     
-    font-size: 1.3rem;     /* 【关键】字号放大！比正文大，一眼看到 */
+    font-size: 0.8rem;     /* 【关键】字号放大！比正文大，一眼看到 */
     font-weight: bold;     /* 加粗 */
     color: #ff00de;        /* 保持骚粉色 */
     
