@@ -6,64 +6,6 @@
     <title>Specs | Knut W.Y.Gu</title>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
-    <style>
-        /* 针对 About 页面的微调，写在这里方便管理 */
-        
-        /* 像代码块一样的文本框 */
-        .data-block {
-            text-align: left; /* 左对齐，像读日志 */
-            background: rgba(0, 20, 0, 0.5);
-            border: 1px solid #0f0;
-            padding: 20px;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            position: relative;
-        }
-
-        /* 装饰用的标签头 */
-        .data-block::before {
-            content: attr(data-label); /* 读取标签名 */
-            position: absolute;
-            top: -10px;
-            left: 10px;
-            background: #000;
-            color: #ff00de; /* 骚粉色标签 */
-            padding: 0 5px;
-            font-size: 0.8rem;
-            font-weight: bold;
-        }
-
-        /* 列表项装饰 */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-        li::before {
-            content: ">>"; /* 列表前面的小箭头 */
-            position: absolute;
-            left: 0;
-            color: #0f0;
-        }
-
-        /* 专门给爱好加的 tag 样式 */
-        .tag {
-            display: inline-block;
-            background: rgba(255, 0, 222, 0.1);
-            border: 1px dashed #ff00de;
-            color: #ff00de;
-            padding: 2px 8px;
-            margin-right: 5px;
-            margin-bottom: 5px;
-            font-size: 0.85rem;
-        }
-    </style>
 </head>
 <body>
 
@@ -75,29 +17,29 @@
 
         <div class="data-block" data-label="HARDWARE_IDENTITY">
             <ul>
-                <li><span style="color:#888;">Location:</span> UC Irvine (California, US)</li>
-                <li><span style="color:#888;">Model:</span> Electrical Engineering (EE)</li>
-                <li><span style="color:#888;">Core Arch:</span> <span class="highlight">DSP Specialization</span></li>
-                <li><span style="color:#888;">Status:</span> Running...</li>
+                <li><span class="comment">Location:</span> UC Irvine (California, US)</li>
+                <li><span class="comment">Model:</span> Electrical Engineering (EE)</li>
+                <li><span class="comment">Core Arch:</span> <span class="highlight">DSP Specialization</span></li>
+                <li><span class="comment">Status:</span> Running...</li>
             </ul>
         </div>
 
         <div class="data-block" data-label="INSTALLED_DRIVERS">
-            <p style="color: #ccc; margin-bottom: 10px;">User Interests & Hobbies:</p>
+            <p style="color: #ccc; margin-bottom: 15px;">User Interests & Hobbies:</p>
             
             <div>
                 <span class="tag">LEGO Builder</span> 
-                <span style="font-size: 0.8rem; color: #666;">// Structural Assembly</span>
+                <span class="comment">// Structural Assembly</span>
             </div>
             
             <div>
                 <span class="tag">Lana Del Rey</span> 
-                <span style="font-size: 0.8rem; color: #666;">// Audio Stream Input</span>
+                <span class="comment">// Audio Stream Input</span>
             </div>
 
             <div>
                 <span class="tag">Formula 1</span> 
-                <span style="font-size: 0.8rem; color: #666;">// High-Velocity Telemetry</span>
+                <span class="comment">// High-Velocity Telemetry</span>
             </div>
         </div>
 
