@@ -191,6 +191,92 @@ h1 {
     50% { opacity: 0; }
 }
 
+/* =========================================
+   通用内容组件 (用于 About, Projects 等内页)
+   ========================================= */
+
+/* 1. 数据块：像代码框一样的容器 */
+.data-block {
+    text-align: left;
+    background: rgba(0, 20, 0, 0.5); /* 半透明黑底 */
+    border: 1px solid #0f0;          /* 绿色细边框 */
+    padding: 25px 20px;
+    margin-bottom: 30px;             /* 块与块之间的距离 */
+    font-size: 0.95rem;
+    position: relative;              /* 为了给标签做定位参考 */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+}
+
+/* 2. 数据块顶部的标签 (如 HARDWARE_IDENTITY) */
+.data-block::before {
+    content: attr(data-label); /* 自动读取 HTML 里的 data-label 属性 */
+    position: absolute;
+    top: -12px;                /* 往上提，骑在边框上 */
+    left: 15px;
+    background: #000;          /* 黑色背景盖住原本的边框线 */
+    color: #ff00de;            /* 骚粉色字体 */
+    padding: 0 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-left: 1px solid #0f0;
+    border-right: 1px solid #0f0;
+}
+
+/* 3. 列表样式：去掉圆点，改用箭头 */
+ul {
+    list-style: none; /* 去掉默认黑点 */
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    padding-left: 25px; /* 给箭头留位置 */
+    position: relative;
+    line-height: 1.6;
+}
+
+li::before {
+    content: ">>";      /* 自定义箭头 */
+    position: absolute;
+    left: 0;
+    color: #0f0;
+    font-weight: bold;
+    font-size: 0.8rem;
+    top: 2px;
+}
+
+/* 4. 标签样式 (用于 Lego, F1 等) */
+.tag {
+    display: inline-block;
+    background: rgba(255, 0, 222, 0.1); /* 淡淡的粉色背景 */
+    border: 1px dashed #ff00de;         /* 粉色虚线框 */
+    color: #ff00de;
+    padding: 2px 10px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: #ff00de;
+    color: #000;
+    cursor: default;
+}
+
+/* 5. 辅助文字颜色 (变灰，像注释一样) */
+.comment {
+    color: #666;
+    font-size: 0.85rem;
+    margin-left: 5px;
+}
+
+
+
+
+
+
 
 
 /* =========================================
