@@ -276,43 +276,7 @@ li::before {
 
 
 
-/* =========================================
-   PRACTICAL PATCHES 视觉升级补丁
-   ========================================= */
 
-
-
-/* 2. Theory 标签：赛博粉 (高亮背景) */
-.tag-theory {
-    display: inline-block;
-    background-color: #ff00de;       /* 骚粉色背景 */
-    color: #000;                     /* 黑色文字 */
-    font-weight: 800;                /* 特粗字体 */
-    font-size: 0.75rem;
-    padding: 2px 6px;
-    margin-right: 8px;
-    border: 1px solid #ff00de;
-    letter-spacing: 1px;
-}
-
-/* 3. Reality 标签：电光蓝 (高亮背景) */
-.tag-reality {
-    display: inline-block;
-    background-color: #00ffff;       /* 亮青色背景 */
-    color: #000;                     /* 黑色文字 */
-    font-weight: 800;
-    font-size: 0.75rem;
-    padding: 2px 6px;
-    margin-right: 8px;
-    border: 1px solid #00ffff;
-    letter-spacing: 1px;
-}
-
-/* 4. 这里的 strong 标签稍微提亮，配合上面的标签 */
-.detail-content strong {
-    color: #fff;
-    font-family: "Courier New", monospace;
-}
 
 
 
