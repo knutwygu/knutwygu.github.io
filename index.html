@@ -4,157 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knut Wygu | DSP Engineer</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <style>
-        /* --- 1. 背景：示波器网格 --- */
-        body {
-            background-color: #111;
-            background-image: 
-                linear-gradient(rgba(0, 255, 0, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 0, 0.1) 1px, transparent 1px);
-            background-size: 40px 40px; /* 网格大小 */
-            color: #0f0; /* 经典的示波器荧光绿 */
-            font-family: 'Share Tech Mono', monospace;
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* 给屏幕加一个四周变暗的晕影，更有以前CRT显示器的感觉 */
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle, transparent 60%, #000 100%);
-            pointer-events: none;
-        }
-
-        /* --- 2. 核心容器 --- */
-        .container {
-            z-index: 10;
-            text-align: center;
-            border: 2px solid #0f0;
-            padding: 40px 60px;
-            background: rgba(0, 20, 0, 0.8); /* 半透明黑底，为了看清字 */
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
-            position: relative;
-            max-width: 500px;
-        }
-
-        /* --- 3. 名字：带一点故障风 (Glitch) --- */
-        h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            color: #fff;
-            text-shadow: 2px 2px 0px #ff00de; /* 骚粉色阴影 */
-            letter-spacing: 2px;
-            position: relative;
-        }
-
-        /* DSP 公式装饰 */
-        .subtitle {
-            margin-top: 10px;
-            font-size: 1.2rem;
-            color: #0f0;
-        }
-
-        .math-tag {
-            color: #ff00de; /* 重点变量用粉色 */
-            font-weight: bold;
-        }
-
-        /* --- 4. 动态波形装饰 (纯CSS画的) --- */
-        .wave-box {
-            width: 100%;
-            height: 60px;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 1px dashed #050;
-        }
-        
-        .signal-line {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 200%;
-            height: 2px;
-            background: #0f0;
-            /* 这里用 CSS path 模拟一个简单的波形 */
-            box-shadow: 0 0 8px #0f0;
-            /* 模拟正弦波的形状 */
-            clip-path: polygon(
-                0% 50%, 5% 0%, 10% 50%, 15% 100%, 20% 50%, 
-                25% 0%, 30% 50%, 35% 100%, 40% 50%, 
-                45% 0%, 50% 50%, 55% 100%, 60% 50%,
-                65% 0%, 70% 50%, 75% 100%, 80% 50%,
-                85% 0%, 90% 50%, 95% 100%, 100% 50%
-            );
-            animation: moveWave 4s linear infinite;
-        }
-
-        @keyframes moveWave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* --- 5. 导航按钮 --- */
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            text-decoration: none;
-            color: #0f0;
-            border: 1px solid #0f0;
-            padding: 10px 20px;
-            font-size: 1.1rem;
-            transition: 0.2s;
-            text-transform: uppercase;
-            position: relative;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .btn:hover {
-            background: #0f0;
-            color: #000;
-            box-shadow: 0 0 15px #0f0;
-            font-weight: bold;
-        }
-
-        /* 鼠标悬停时，按钮左边出现一个小箭头 */
-        .btn:hover::before {
-            content: "y[n] = ";
-            position: absolute;
-            left: -60px;
-            color: #ff00de;
-            width: 50px;
-            text-align: right;
-        }
-
-        /* 底部 */
-        .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #484;
-        }
-
-    </style>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div style="position: absolute; top: 10%; left: 5%; opacity: 0.3; font-size: 0.8rem;">
+    <div style="position: absolute; top: 10%; left: 5%; opacity: 0.3; font-size: 0.8rem; pointer-events: none;">
         x[n] = Σ δ(n-k)
     </div>
-    <div style="position: absolute; bottom: 15%; right: 5%; opacity: 0.3; font-size: 0.8rem;">
+    <div style="position: absolute; bottom: 15%; right: 5%; opacity: 0.3; font-size: 0.8rem; pointer-events: none;">
         H(z) = Y(z)/X(z)
     </div>
 
@@ -162,7 +22,7 @@
         <h1>KNUT WYGU</h1>
         
         <div class="subtitle">
-            DSP Engineer <span style="color:#666">|</span> <span class="math-tag">FFT</span> Wizard
+            DSP Engineer <span style="color:#666">|</span> <span class="highlight">FFT</span> Wizard
         </div>
 
         <div class="wave-box">
@@ -170,10 +30,22 @@
         </div>
 
         <p style="color: #ccc; font-size: 0.95rem; line-height: 1.5;">
-            Filtering the noise from the reality.<br>
-            <span style="color: #ff00de;">Sampling Rate: 24/7</span>
+            Filtering noise from reality.<br>
+            <span class="highlight">Sampling Rate: 24/7</span>
         </p>
 
         <div class="btn-group">
             <a href="#" class="btn">Signal Processing [项目]</a>
-            <a href="#" class
+            <a href="#" class="btn">System Analysis [研究]</a>
+            <a href="#" class="btn">Random Variables [生活]</a>
+            <a href="#" class="btn">Impulse Response [简历]</a>
+        </div>
+
+        <div class="footer">
+            System Status: Stable <br>
+            <a href="mailto:你的邮箱">Input Signal (Contact)</a>
+        </div>
+    </div>
+
+</body>
+</html>
