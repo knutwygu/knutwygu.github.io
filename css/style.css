@@ -280,17 +280,7 @@ li::before {
    PRACTICAL PATCHES 视觉升级补丁
    ========================================= */
 
-/* 1. 展开后的内容区域：模拟“子进程/日志输出” */
-.detail-content {
-    background: rgba(0, 20, 0, 0.6); /* 比背景稍微亮一点，形成层级 */
-    border-left: 2px solid #444;     /* 左侧深灰竖线，像代码缩进 */
-    padding: 15px 15px 15px 20px;    /* 内部留白 */
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 0.9rem;
-    color: #bbb;                     /* 正文改成灰白色，不再是纯绿，减少视觉干扰 */
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* 内部阴影，增加深邃感 */
-}
+
 
 /* 2. Theory 标签：赛博粉 (高亮背景) */
 .tag-theory {
