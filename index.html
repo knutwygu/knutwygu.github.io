@@ -1,70 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knut W.Y.Gu | DSP & Engineering</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Knut W.Y.Gu</title>
+  <meta name="description" content="Knut W.Y.Gu — DSP specialization. Signal processing, circuits, systems, and playful engineering." />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+  <!-- Subtle background layers (pure CSS) -->
+  <div class="bg" aria-hidden="true"></div>
 
+  <header class="site-header">
     <div class="container">
-        
-        <header>
-            <h1>Knut W.Y.Gu <span class="cursor"></span></h1>
-            <p class="subtitle">Electrical Engineering // DSP Specialization // Discrete Systems</p>
-            <p class="subtitle" style="font-size: 0.8em; color: #666;">Frequency Domain Inhabitant</p>
-        </header>
+      <div class="topline">
+        <div class="brand">
+          <h1 class="name">Knut W.Y.Gu</h1>
+          <p class="tagline">
+            Electrical Engineering · <span class="accent">DSP</span> · Signals / Systems / Implementation
+          </p>
+        </div>
 
-        <nav>
-            <a href="patches.html">Practical Patches</a>
-            <a href="projects.html">Projects</a>
-            <a href="blog.html">Blog</a>
-            <a href="cv.html">CV / Resume</a>
-        </nav>
+        <div class="status-card" role="note" aria-label="Status">
+          <div class="status-row">
+            <span class="dot"></span>
+            <span class="status-text">Building cool things with math & silicon</span>
+          </div>
+          <div class="status-micro">
+            <span class="chip">FIR/IIR</span>
+            <span class="chip">FFT</span>
+            <span class="chip">Filters</span>
+            <span class="chip">Embedded</span>
+          </div>
+        </div>
+      </div>
 
-        <main>
-            <section id="intro">
-                <h2>01. Introduction</h2>
-                <p>
-                    Hello, World. I am an Electrical Engineering student specializing in 
-                    <strong>Digital Signal Processing (DSP)</strong>. 
-                </p>
-                <p>
-                    I enjoy decomposing complex signals into discrete samples and reconstructing them into something useful. 
-                    This site serves as a documentation of my learning process, my soldering burns, and my code.
-                </p>
-                <div class="dsp-block">
-                    y[n] = x[n] * h[n] <br>
-                    // Convolving ideas into reality
-                </div>
-            </section>
-
-            <section id="latest">
-                <h2>02. Latest Signal</h2>
-                <p>
-                    Currently working on interactive visualization modules. 
-                    Check out the <a href="patches.html" style="color:var(--accent-color)">Practical Patches</a> section for my latest soldering fixes and hardware hacks.
-                </p>
-            </section>
-
-            <section id="contact">
-                <h2>03. Connect</h2>
-                <p>Feel free to ping me. Latency may vary.</p>
-                <ul class="contact-list">
-                    <li>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></li>
-                    <li>GitHub: <a href="https://github.com/yourusername">@yourusername</a></li>
-                    <li>LinkedIn: <a href="#">Knut W.Y.Gu</a></li>
-                </ul>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2026 Knut W.Y.Gu. Built with raw HTML & CSS.</p>
-            <p>No frameworks were harmed in the making of this site.</p>
-        </footer>
-
+      <!-- Bookmarks / Nav -->
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link" href="pages/about.html">About</a>
+        <a class="nav-link" href="pages/projects.html">Projects</a>
+        <a class="nav-link" href="pages/publications.html">Publications</a>
+        <a class="nav-link" href="pages/notes.html">Notes</a>
+        <a class="nav-link" href="pages/teaching.html">Teaching</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
+  <main class="container">
+    <!-- Intro -->
+    <section class="panel intro">
+      <div class="panel-header">
+        <h2>Hi — I’m Knut.</h2>
+        <p class="sub">
+          I specialize in <strong>Digital Signal Processing</strong>: from theory to implementation.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <p>
+            I’m interested in making signals behave — <span class="accent">filter design</span>, spectral analysis,
+            estimation, and building robust pipelines that survive real-world noise.
+          </p>
+          <p>
+            This site is a clean hub: quick links up top, longer-form notes and projects in the pages.
+            The vibe is intentionally a little <em>cute-punk</em>: serious engineering, but not boring.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="pages/projects.html">See Projects</a>
+            <a class="btn" href="pages/notes.html">Read Notes</a>
+          </div>
+        </div>
+
+        <div class="scope">
+          <div class="scope-top">
+            <span class="scope-title">DSP Scope</span>
+            <span class="scope-mini">“measure → model → filter → deploy”</span>
+          </div>
+          <div class="scope-screen" aria-hidden="true">
+            <div class="wave"></div>
+            <div class="wave w2"></div>
+            <div class="wave w3"></div>
+            <div class="ticks"></div>
+          </div>
+          <div class="scope-foot">
+            <span class="chip">Windowing</span>
+            <span class="chip">STFT</span>
+            <span class="chip">Bode</span>
+            <span class="chip">Quantization</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Highlights</h2>
+        <p class="sub">A few anchor points (replace with your real items).</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Filter Design Toolkit</h3>
+          <p>FIR/IIR design notes, stability checks, and implementation tips.</p>
+          <a class="card-link" href="pages/notes.html">Go to Notes →</a>
+        </article>
+
+        <article class="card">
+          <h3>Signal Chain Projects</h3>
+          <p>End-to-end pipelines: acquisition, conditioning, DSP, evaluation.</p>
+          <a class="card-link" href="pages/projects.html">Go to Projects →</a>
+        </article>
+
+        <article class="card">
+          <h3>Readable Writeups</h3>
+          <p>Short, practical, and “engineer-friendly” explanations.</p>
+          <a class="card-link" href="pages/about.html">Go to About →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="panel" id="contact">
+      <div class="panel-header">
+        <h2>Contact</h2>
+        <p class="sub">Drop a note — I’m friendly.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <a class="value" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+        </div>
+
+        <div class="contact-item">
+          <div class="label">GitHub</div>
+          <a class="value" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">github.com/YOUR_GITHUB</a>
+        </div>
+
+        <div class="contact-item">
+          <div class="label">LinkedIn</div>
+          <a class="value" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">linkedin.com/in/YOUR_LINKEDIN</a>
+        </div>
+
+        <div class="contact-item">
+          <div class="label">CV</div>
+          <a class="value" href="assets/CV.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </div>
+      </div>
+
+      <p class="tiny">
+        Tip: replace placeholders like <span class="mono">YOUR_EMAIL</span>, <span class="mono">YOUR_GITHUB</span>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span class="tiny">© <span id="year"></span> Knut W.Y.Gu</span>
+      <span class="tiny mono">DSP // EE // build & break & learn</span>
+    </div>
+  </footer>
+
+  <!-- Tiny inline script only for the year; remove if you want 100% no-JS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
