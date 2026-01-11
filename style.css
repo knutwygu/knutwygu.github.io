@@ -1,140 +1,160 @@
 /* style.css */
 
 :root {
-    --bg-color: #0d0d0d;        /* 深空黑 */
-    --text-color: #e0e0e0;      /* 灰白 */
-    --accent-main: #00ff41;     /* 终端绿 (EE Classic) */
-    --accent-rogue: #ff0055;    /* 赛博粉 (Moe/Rogue twist) */
-    --accent-dsp: #00f3ff;      /* 电光蓝 (Signal) */
-    --grid-color: rgba(0, 255, 65, 0.05);
-    --font-mono: 'Courier New', Courier, monospace;
+  /* 定义配色：经典的示波器绿，搭配一点有点“痞”的品红作为强调色 */
+  --bg-color: #111;       /* 接近黑色的深灰 */
+  --text-primary: #0f0;   /* 经典的终端亮绿 */
+  --text-secondary: #aaa; /* 次要文字灰色 */
+  --accent-color: #ff00ff; /* 萌痞感的品红/霓虹紫 */
+  --grid-color: #222;     /* 背景网格线颜色 */
 }
 
 body {
-    background-color: var(--bg-color);
-    /* 示波器网格背景 */
-    background-image: 
-        linear-gradient(var(--grid-color) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-    background-size: 20px 20px;
-    color: var(--text-color);
-    font-family: var(--font-mono);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fira Code', 'Courier New', Courier, monospace; /* 程序员专用字体 */
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  
+  /* 背景添加一点像示波器背景那样的网格 */
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
+/* 页面主体容器 */
 .container {
-    width: 90%;
-    max-width: 800px;
-    padding: 40px 20px;
-    border-left: 1px solid var(--accent-main); /* 左侧一条硬朗的信号线 */
-    border-right: 1px solid var(--accent-rogue); /* 右侧一条叛逆的粉线 */
-    background: rgba(13, 13, 13, 0.8);
-    backdrop-filter: blur(2px);
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 2px solid var(--text-primary);
+  box-shadow: 5px 5px 0px var(--accent-color); /* 这里的阴影做成实心，有点像素风的痞感 */
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
-/* 头部：名字 */
+/* 头部样式 */
 header {
-    text-align: left;
-    margin-bottom: 40px;
-    border-bottom: 2px dashed var(--accent-dsp);
-    padding-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px dashed var(--text-primary);
+  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    color: var(--text-color);
-    text-transform: uppercase;
-    letter-spacing: -2px;
+  font-size: 2.5rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-h1 .surname {
-    color: var(--accent-rogue); /* 姓氏标红，带点痞气 */
-}
-
-.tagline {
-    font-size: 0.9rem;
-    color: var(--accent-dsp);
-    margin-top: 5px;
-}
-
-/* 导航栏：书签 */
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--bg-color);
-    background-color: var(--accent-main);
-    padding: 8px 16px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
-    /* 搞怪的圆角：左上右下圆，右上左下尖 */
-    border-radius: 10px 0 10px 0; 
-}
-
-nav a:hover {
-    background-color: var(--accent-rogue);
-    color: white;
-    transform: translateY(-3px) skewX(-10deg); /* 悬停时稍微歪一下 */
-    box-shadow: 4px 4px 0px var(--accent-dsp);
-}
-
-/* 内容区域 */
-main h2 {
-    color: var(--accent-dsp);
-    border-left: 5px solid var(--accent-rogue);
-    padding-left: 10px;
-    margin-top: 30px;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-/* 强调文字 */
-.highlight {
-    color: var(--accent-main);
-    font-weight: bold;
-}
-
-/* 脚注/联系方式 */
-footer {
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid #333;
-    font-size: 0.8rem;
-    color: #666;
-    display: flex;
-    justify-content: space-between;
-}
-
-footer a {
-    color: var(--accent-rogue);
-    text-decoration: none;
-}
-
-/* 一个简单的闪烁光标动画 */
+/* 那个闪烁的光标，EE人的灵魂 */
 .cursor {
-    display: inline-block;
-    width: 10px;
-    height: 1.5rem;
-    background-color: var(--accent-main);
-    animation: blink 1s infinite;
-    vertical-align: middle;
+  display: inline-block;
+  width: 15px;
+  height: 30px;
+  background-color: var(--accent-color);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+/* 导航栏按钮区 */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+/* 链接按钮样式 - 有点像示波器上的实体按键 */
+nav a {
+  text-decoration: none;
+  color: var(--bg-color);
+  background-color: var(--text-primary);
+  padding: 10px 20px;
+  font-weight: bold;
+  border: 2px solid var(--text-primary);
+  transition: all 0.2s ease;
+  position: relative;
+  top: 0;
+}
+
+/* 鼠标悬停时的“调皮”效果：颜色反转，且按钮会跳一下 */
+nav a:hover {
+  background-color: var(--bg-color);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  top: -3px; /* 向上弹跳 */
+  box-shadow: 0px 3px 0px var(--text-secondary);
+}
+
+/* 正文部分 */
+section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  border-left: 5px solid var(--text-primary);
+  padding-left: 10px;
+}
+
+p {
+  color: #ddd;
+}
+
+/* 专门为DSP准备的“代码块”或“公式块”样式 */
+.dsp-block {
+  background: #222;
+  padding: 10px;
+  border-left: 3px solid var(--accent-color);
+  font-style: italic;
+  color: #888;
+  margin: 10px 0;
+}
+
+/* 联系方式列表 */
+ul.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.contact-list li::before {
+  content: ">> "; /* 终端提示符 */
+  color: var(--accent-color);
+}
+
+ul.contact-list a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--text-primary);
+}
+
+ul.contact-list a:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+}
+
+/* 底部 */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 0.8rem;
+  color: #555;
+  border-top: 1px solid #333;
+  padding-top: 20px;
 }
