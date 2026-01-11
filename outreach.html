@@ -55,54 +55,80 @@
         </div>
 
         <div class="data-block" data-label="PRACTICAL_PATCHES">
-            <p style="color: #888; margin-bottom: 15px;">Engineering is everywhere. Click to expand:</p>
-            
-            <details>
-                <summary>Fixing a broken headphone jack (Soldering)</summary>
-                <div class="detail-content">
-                    <p style="margin-bottom: 8px;">
-                        <span class="theory-tag">THEORY:</span> 
-                        <strong>Circuit Continuity & Impedance.</strong><br>
-                        A broken wire creates an "Open Circuit" (Infinite Impedance), meaning no current flows to the driver. The 3.5mm jack is a <strong>TRS</strong> connector: Tip (Left), Ring (Right), Sleeve (Ground).
-                    </p>
-                    <p>
-                        <span class="theory-tag">REALITY:</span> 
-                        Don't throw it away. Strip the wire, match the colors (Red=Right, Blue/Green=Left, Copper=Ground). Burn off the enamel coating with solder (it acts as flux). Re-establish continuity. You just saved $20.
-                    </p>
-                </div>
-            </details>
 
-            <details>
-                <summary>Why chargers get hot (Power Dissipation)</summary>
-                <div class="detail-content">
-                    <p style="margin-bottom: 8px;">
-                        <span class="theory-tag">THEORY:</span> 
-                        <strong>Joule Heating ($P = I^2R$).</strong><br>
-                        No voltage converter is 100% efficient. Your charger steps down 120V AC to 5V DC. The lost energy is dissipated as heat due to internal resistance in the transformer and rectifier diodes.
-                    </p>
-                    <p>
-                        <span class="theory-tag">REALITY:</span> 
-                        It's normal for electronics to get warm. However, if it's too hot to touch, the internal resistance has spiked (likely a failing capacitor). <span class="highlight">Safety Tip:</span> Never charge your phone under a pillow; you are blocking the heat dissipation path!
-                    </p>
-                </div>
-            </details>
+    <div style="border-bottom: 1px dashed rgba(0, 255, 0, 0.3); padding-bottom: 20px; margin-bottom: 20px;">
+        <h4 style="margin: 0 0 15px 0; color: #ff00de; font-size: 1rem;">
+            >> LAYER_01: PHYSICAL_LOGS
+        </h4>
+        
+        <ul>
+            <li>
+                <span class="tag">SOLDERING</span>
+                Fixing a broken headphone jack
+                <span class="comment">// Audio output restored.</span>
+            </li>
+            <li>
+                <span class="tag">3D_PRINT</span>
+                Custom case for Raspberry Pi
+                <span class="comment">// Structure reinforcement.</span>
+            </li>
+            </ul>
+    </div>
 
-            <details>
-                <summary>Logic gates inside your coffee machine</summary>
-                <div class="detail-content">
-                    <p style="margin-bottom: 8px;">
-                        <span class="theory-tag">THEORY:</span> 
-                        <strong>Finite State Machine (FSM).</strong><br>
-                        The machine operates on simple Boolean Logic. It uses an <strong>AND Gate</strong> structure: <br>
-                        <code>IF (Water_Level == HIGH) AND (Button == PRESSED) THEN (Pump = ON)</code>.
-                    </p>
-                    <p>
-                        <span class="theory-tag">REALITY:</span> 
-                        Next time it doesn't work, think like a debugger. Is the input sensor (water tank) failing? Or is the switch (button) bouncing? It's not magic; it's just a conditional statement waiting for True inputs.
-                    </p>
-                </div>
-            </details>
-        </div>
+
+    <div>
+        <h4 style="margin: 0 0 15px 0; color: #0f0; font-size: 1rem;">
+            >> LAYER_02: COGNITIVE_SIMULATIONS
+        </h4>
+
+        <details>
+            <summary>Simulation_01: Legacy System Conflict</summary>
+            <div class="detail-content">
+                <p><strong>Scenario:</strong> Current workflow conflicts with core values.</p>
+                <p><strong>Select Strategy:</strong></p>
+                
+                <details style="border-style: dotted; margin-left: 15px; margin-bottom: 5px;">
+                    <summary style="color: #aaa;">[A] Force Overwrite</summary>
+                    <div class="detail-content">
+                        <span class="tag" style="border-color: #f00; color: #f00; background: rgba(255,0,0,0.1);">CRITICAL_ERROR</span> 
+                        <br>System Crash. Environment rejection detected.
+                    </div>
+                </details>
+
+                <details style="border-style: dotted; margin-left: 15px;">
+                    <summary style="color: #aaa;">[B] Apply Adapter Pattern</summary>
+                    <div class="detail-content">
+                        <span class="tag">SUCCESS</span> 
+                        <br>Compatibility achieved. Core stability maintained.
+                    </div>
+                </details>
+            </div>
+        </details>
+
+        <details>
+            <summary>Daily_Micro_Ops</summary>
+            <div class="detail-content">
+                <span class="theory-tag">ROUTINE</span>
+                <span class="comment">// Execute the following checks:</span>
+                <ul style="margin-top: 10px;">
+                    <li>
+                        <input type="checkbox" id="check1"> 
+                        <label for="check1">Identify an emotional "Bug" (Anxiety/Lag)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check2"> 
+                        <label for="check2">Check Logs: What triggered the exception?</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="check3"> 
+                        <label for="check3">Hotfix: Reframe with "Observer Mode"</label>
+                    </li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
+</div>
 
 
         <div style="margin-top: 30px;">
