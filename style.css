@@ -1,0 +1,140 @@
+/* style.css */
+
+:root {
+    --bg-color: #0d0d0d;        /* 深空黑 */
+    --text-color: #e0e0e0;      /* 灰白 */
+    --accent-main: #00ff41;     /* 终端绿 (EE Classic) */
+    --accent-rogue: #ff0055;    /* 赛博粉 (Moe/Rogue twist) */
+    --accent-dsp: #00f3ff;      /* 电光蓝 (Signal) */
+    --grid-color: rgba(0, 255, 65, 0.05);
+    --font-mono: 'Courier New', Courier, monospace;
+}
+
+body {
+    background-color: var(--bg-color);
+    /* 示波器网格背景 */
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 40px 20px;
+    border-left: 1px solid var(--accent-main); /* 左侧一条硬朗的信号线 */
+    border-right: 1px solid var(--accent-rogue); /* 右侧一条叛逆的粉线 */
+    background: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(2px);
+}
+
+/* 头部：名字 */
+header {
+    text-align: left;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed var(--accent-dsp);
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+h1 .surname {
+    color: var(--accent-rogue); /* 姓氏标红，带点痞气 */
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--accent-dsp);
+    margin-top: 5px;
+}
+
+/* 导航栏：书签 */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--bg-color);
+    background-color: var(--accent-main);
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    /* 搞怪的圆角：左上右下圆，右上左下尖 */
+    border-radius: 10px 0 10px 0; 
+}
+
+nav a:hover {
+    background-color: var(--accent-rogue);
+    color: white;
+    transform: translateY(-3px) skewX(-10deg); /* 悬停时稍微歪一下 */
+    box-shadow: 4px 4px 0px var(--accent-dsp);
+}
+
+/* 内容区域 */
+main h2 {
+    color: var(--accent-dsp);
+    border-left: 5px solid var(--accent-rogue);
+    padding-left: 10px;
+    margin-top: 30px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* 强调文字 */
+.highlight {
+    color: var(--accent-main);
+    font-weight: bold;
+}
+
+/* 脚注/联系方式 */
+footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer a {
+    color: var(--accent-rogue);
+    text-decoration: none;
+}
+
+/* 一个简单的闪烁光标动画 */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1.5rem;
+    background-color: var(--accent-main);
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
