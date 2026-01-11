@@ -137,16 +137,109 @@ h1 {
     font-weight: bold;
 }
 
-/* --- 6. 页脚 --- */
+/* --- 6. 页脚优化版 --- */
 .footer {
-    margin-top: 35px;
-    font-size: 0.8rem;
+    margin-top: 40px;
+    font-size: 0.8rem; /* 这里的字号只控制 "System Status" 这种小字 */
     color: #484;
     border-top: 1px solid #131;
-    padding-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 30px;
 }
 
+/* 核心：联系方式链接 */
 .footer a {
-    color: #ff00de;
-    text-decoration: none;
+    display: inline-block; /* 让它独占一块空间，方便做动效 */
+    margin-top: 10px;      /* 和上面的小字拉开距离 */
+    
+    font-size: 0.8rem;     /* 【关键】字号放大！比正文大，一眼看到 */
+    font-weight: bold;     /* 加粗 */
+    color: #ff00de;        /* 保持骚粉色 */
+    
+    text-decoration: none; /* 去掉默认下划线 */
+    border-bottom: none; /* 自己画一条虚线，更有工程感 */
+   
+    
+    transition: all 0.3s ease; /* 鼠标放上去的过渡动画 */
+}
+
+/* 鼠标放上去的效果 (Hover) */
+.footer a:hover {
+    color: #fff;           /* 文字变白 */
+    background-color: rgba(255, 0, 222, 0.2); /* 背景出现淡淡的粉光 */
+    box-shadow: 0 0 15px #ff00de; /* 整体发光 */
+    border-bottom: 2px solid #fff; /* 虚线变实线 */
+    transform: translateY(-2px);   /* 微微上浮，很有按键感 */
+}
+
+/* 【核心特效】左边一闪一闪的箭头 */
+.footer a::before {
+    content: "> ";         /* 插入箭头 */
+    color: #0f0;           /* 箭头用荧光绿，和粉色字形成撞色对比 */
+    margin-right: 5px;
+    animation: blink 1s step-end infinite; /* 1秒闪一次，step-end让它像数字信号一样开关，而不是渐变 */
+}
+
+/* 鼠标放上去时，让箭头也跟着变色或加速闪烁 */
+.footer a:hover::before {
+    color: #fff;
+    animation: blink 0.5s step-end infinite; /* 鼠标放上去闪得更快，制造紧张感/兴奋感 */
+}
+
+/* 定义闪烁动画 */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   移动端适配 (Mobile Responsive)
+   把这段放在文件最后，优先级最高
+   ========================================= */
+@media screen and (max-width: 768px) {
+    
+    /* 1. 调整容器：让它在手机上占满一点，不要留那么多黑边 */
+    .container {
+        width: 85%;       /* 宽度稍微变宽 */
+        padding: 25px 20px; /* 【关键】大幅减小内边距，原来是 40px 60px 太挤了 */
+        margin: 10px auto; /* 上下留少一点空隙 */
+    }
+
+    /* 2. 缩小标题：防止名字换行 */
+    h1 {
+        font-size: 2.2rem; /* 原来是 3.5rem，手机上改小 */
+        letter-spacing: 1px;
+    }
+
+    /* 3. 缩小副标题 */
+    .subtitle {
+        font-size: 1rem;
+        margin-top: 5px;
+    }
+
+    /* 4. 调整波形图高度 */
+    .wave-box {
+        height: 40px;
+        margin: 15px 0;
+    }
+
+    /* 5. 按钮调整：手机上好点一点 */
+    .btn {
+        padding: 10px 15px;
+        font-size: 1rem; 
+    }
+    
+    /* 6. 页脚文字缩小一点 */
+    .footer a {
+        font-size: 1.1rem;
+    }
 }
