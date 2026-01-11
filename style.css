@@ -272,6 +272,83 @@ li::before {
     margin-left: 5px;
 }
 
+/* =========================================
+   交互式折叠菜单 (Details / Summary)
+   ========================================= */
+
+details {
+    margin-bottom: 15px; /* 每项之间的间距 */
+    border: 1px dashed rgba(0, 255, 0, 0.3); /* 平时是暗淡的框 */
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* 鼠标放上去时，框变亮 */
+details:hover {
+    border-color: #0f0;
+    background: rgba(0, 20, 0, 0.3);
+}
+
+/* 当被展开时，边框变成实线，且常亮 */
+details[open] {
+    border: 1px solid #0f0;
+    background: rgba(0, 20, 0, 0.6);
+}
+
+/* 标题部分 (也就是原本的 >> Title) */
+summary {
+    cursor: pointer;      /* 鼠标变成小手 */
+    font-weight: bold;
+    color: #0f0;
+    list-style: none;     /* 去掉浏览器默认的三角箭头 */
+    position: relative;
+    padding-left: 25px;   /* 给自定义箭头留位置 */
+}
+
+/* 隐藏 Chrome/Safari 默认的小三角 */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* 自定义箭头：默认是向右的 >> */
+summary::before {
+    content: ">>";
+    position: absolute;
+    left: 0;
+    color: #ff00de;       /* 骚粉色箭头 */
+    transition: transform 0.2s;
+}
+
+/* 当展开时，箭头旋转向下 */
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* 展开后的详细内容 */
+.detail-content {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dotted #444; /* 顶部分割线 */
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* 强调理论部分的标签 */
+.theory-tag {
+    display: inline-block;
+    background: #003300;
+    color: #0f0;
+    font-size: 0.8rem;
+    padding: 2px 6px;
+    margin-right: 5px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+
+
+
 
 
 
