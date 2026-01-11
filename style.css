@@ -137,33 +137,57 @@ h1 {
     font-weight: bold;
 }
 
-/* --- 6. 页脚 --- */
+/* --- 6. 页脚优化版 --- */
 .footer {
-    margin-top: 35px;
-    font-size: 0.8rem;
+    margin-top: 40px;
+    font-size: 0.8rem; /* 这里的字号只控制 "System Status" 这种小字 */
     color: #484;
     border-top: 1px solid #131;
-    padding-top: 10px;
+    padding-top: 15px;
+    padding-bottom: 30px;
 }
 
+/* 核心：联系方式链接 */
 .footer a {
-    color: #ff00de;       /* 保持骚粉色 */
-    text-decoration: none; /* 先去掉默认下划线 */
-    border-bottom: 1px dashed #ff00de; /* 加一条虚线底边，比实线更有科技感 */
-    padding-bottom: 2px;
-    transition: all 0.3s ease;
-    position: relative;   /* 为了定位光标 */
+    display: inline-block; /* 让它独占一块空间，方便做动效 */
+    margin-top: 10px;      /* 和上面的小字拉开距离 */
+    
+    font-size: 1.3rem;     /* 【关键】字号放大！比正文大，一眼看到 */
+    font-weight: bold;     /* 加粗 */
+    color: #ff00de;        /* 保持骚粉色 */
+    
+    text-decoration: none; /* 去掉默认下划线 */
+    border-bottom: 2px dashed #ff00de; /* 自己画一条虚线，更有工程感 */
+    padding-bottom: 3px;   /* 虚线和字的距离 */
+    
+    transition: all 0.3s ease; /* 鼠标放上去的过渡动画 */
 }
 
-/* 鼠标放上去的效果 */
+/* 鼠标放上去的效果 (Hover) */
 .footer a:hover {
-    background-color: rgba(255, 0, 222, 0.2); /* 背景微微发亮 */
-    color: #fff; /* 文字变白 */
-    border-bottom: 1px solid #fff; /* 虚线变实线 */
+    color: #fff;           /* 文字变白 */
+    background-color: rgba(255, 0, 222, 0.2); /* 背景出现淡淡的粉光 */
+    box-shadow: 0 0 15px #ff00de; /* 整体发光 */
+    border-bottom: 2px solid #fff; /* 虚线变实线 */
+    transform: translateY(-2px);   /* 微微上浮，很有按键感 */
 }
 
-/* 在前面加一个闪烁的箭头 > */
+/* 【核心特效】左边一闪一闪的箭头 */
 .footer a::before {
-    content: "> ";
-    animation: blink 1s infinite; /* 调用之前的闪烁动画 */
+    content: "> ";         /* 插入箭头 */
+    color: #0f0;           /* 箭头用荧光绿，和粉色字形成撞色对比 */
+    margin-right: 5px;
+    animation: blink 1s step-end infinite; /* 1秒闪一次，step-end让它像数字信号一样开关，而不是渐变 */
+}
+
+/* 鼠标放上去时，让箭头也跟着变色或加速闪烁 */
+.footer a:hover::before {
+    color: #fff;
+    animation: blink 0.5s step-end infinite; /* 鼠标放上去闪得更快，制造紧张感/兴奋感 */
+}
+
+/* 定义闪烁动画 */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
