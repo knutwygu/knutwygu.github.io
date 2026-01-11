@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knut Wygu | EE & Kant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 全局样式：像一块刚通电的电路板 --- */
+        body {
+            background-color: #0d1117; /* GitHub Dark Mode 的深空灰 */
+            color: #58a6ff; /* 极客蓝 */
+            font-family: 'Fira Code', monospace; /* 代码字体 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* --- 主容器：限制宽度，防止在大屏幕上散掉 --- */
+        .container {
+            width: 90%;
+            max-width: 600px;
+            border: 2px solid #30363d; /* 边框 */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.2); /* 淡淡的蓝光 */
+        }
+
+        /* --- 名字：萌痞的核心 --- */
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ff7b72; /* 骚气的粉红色，打破沉闷 */
+            text-shadow: 2px 2px 0px #000;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 2.5rem;
+            background-color: #ff7b72;
+            animation: blink 1s infinite;
+            vertical-align: bottom;
+        }
+
+        /* --- 简介部分 --- */
+        .bio {
+            color: #8b949e; /* 灰色注释感 */
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* --- 导航按钮：像键盘按键 --- */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: block;
+            padding: 15px;
+            background-color: #161b22;
+            color: #7ee787; /* 经典的终端绿 */
+            text-decoration: none;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .btn:hover {
+            background-color: #21262d;
+            transform: scale(1.02); /* 鼠标放上去会弹一下 */
+            box-shadow: 0 0 10px rgba(126, 231, 135, 0.4); /* 发光 */
+            color: #fff;
+        }
+
+        /* 给按钮加一点小图标感 */
+        .btn::before {
+            content: "> ";
+            color: #ff7b72;
+        }
+
+        /* --- 底部 --- */
+        .footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #484f58;
+        }
+        
+        /* 光标闪烁动画 */
+        @keyframes blink {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Knut Wygu<span class="cursor"></span></h1>
+        
+        <div class="bio">
+            // EE Student @ UCI <br>
+            // Analyzing Circuits & Kantian Philosophy <br>
+            <span style="color: #d2a8ff;">const mood = "Always Hungry";</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#" class="btn">PROJETCS [项目集]</a>
+            <a href="#" class="btn">RESEARCH [学术研究]</a>
+            <a href="#" class="btn">ART & HOBBY [乱七八糟]</a>
+            <a href="#" class="btn">RESUME [简历/CV]</a>
+        </div>
+
+        <div class="footer">
+            Designed by Knut. Built with Caffeine. <br>
+            <a href="mailto:你的邮箱@uci.edu" style="color: #8b949e; text-decoration: underline;">Ping Me</a>
+        </div>
+    </div>
+
+</body>
+</html>
