@@ -147,6 +147,23 @@ h1 {
 }
 
 .footer a {
-    color: #ff00de;
-    text-decoration: none;
+    color: #ff00de;       /* 保持骚粉色 */
+    text-decoration: none; /* 先去掉默认下划线 */
+    border-bottom: 1px dashed #ff00de; /* 加一条虚线底边，比实线更有科技感 */
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+    position: relative;   /* 为了定位光标 */
+}
+
+/* 鼠标放上去的效果 */
+.footer a:hover {
+    background-color: rgba(255, 0, 222, 0.2); /* 背景微微发亮 */
+    color: #fff; /* 文字变白 */
+    border-bottom: 1px solid #fff; /* 虚线变实线 */
+}
+
+/* 在前面加一个闪烁的箭头 > */
+.footer a::before {
+    content: "> ";
+    animation: blink 1s infinite; /* 调用之前的闪烁动画 */
 }
