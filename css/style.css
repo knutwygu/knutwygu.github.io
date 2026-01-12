@@ -248,49 +248,62 @@ h1 {
    交互优化：让标题看起来“可点击”
    ========================================= */
 
-summary {
-    cursor: pointer;             /* [关键] 鼠标放上去变成小手 */
-    list-style: none;            /* 隐藏默认三角 */
-    position: relative;
-    padding: 5px 0 5px 25px;     /* [关键] 左边留出 25px 给箭头，不然会重叠 */
-    transition: all 0.2s ease;   /* 让变色有过渡动画，不生硬 */
-    color: #0f0;                 /* 默认绿色标题 */
-}
+/* 基础容器样式 */
+  details {
+    margin-bottom: 1rem;
+    font-family: 'Courier New', Courier, monospace; /* 终端风格字体 */
+    cursor: pointer;
+  }
 
-/* 隐藏 Chrome/Safari 默认的小三角 */
-summary::-webkit-details-marker {
+
+/* --- 核心样式开始 --- */
+  
+  summary {
+    display: flex;          /* 1. 使用Flex布局 */
+    align-items: center;    /* 垂直居中 */
+    gap: 8px;               /* 1. 这里控制箭头和文字的距离 (可随意调整) */
+    
+    list-style: none;       /* 隐藏默认的小三角 */
+    color: #00ff00;         /* 3. 默认绿色 */
+    font-weight: bold;
+    
+    /* 动画过渡：包含颜色变化和位移 */
+    transition: all 0.3s ease; 
+    user-select: none;      /* 防止双击选中文字 */
+  }
+
+  /* 隐藏不同浏览器的默认箭头 */
+  summary::-webkit-details-marker {
     display: none;
-}
+  }
 
-/* [新增] 手动添加赛博朋克箭头 */
-summary::before {
-    content: "▶";               /* 这里可以换成 ">>" 或者 "+" */
-    position: absolute;
-    left: 0;
-    top: 8px;                   /* 根据字体大小微调垂直位置 */
-    color: #ff00de;             /* 箭头颜色：赛博粉 */
-    font-size: 0.8rem;
-    transition: transform 0.2s ease; /* 旋转动画 */
-}
+  /* 自定义箭头 (使用伪元素) */
+  summary::before {
+    content: '▶';           /* 或者使用 '►' */
+    font-size: 0.8em;
+    display: inline-block;
+    
+    /* 箭头的独立动画：只负责旋转 */
+    transition: transform 0.3s ease; 
+  }
 
-/* [新增] 鼠标悬停 (Hover) 时的特效 */
-summary:hover {
-    color: #ff00de;              /* 鼠标放上去变赛博粉 */
-    text-shadow: 0 0 8px rgba(255, 0, 222, 0.6); /* 文字发光 */
-    padding-left: 5px;           /* 稍微往右动一下，模拟“被选中”的动态感 */
-}
+  /* --- 2. & 4. 鼠标悬停/交互效果 --- */
+  /* 当鼠标放在 summary 上时：变红 + 向前浮动 */
+  summary:hover {
+    color: #ff0000;             /* 变红色 */
+    transform: translateX(5px); /* 2. 文字和箭头作为一个整体向前动 */
+  }
+  
+  /* 点击时的按压效果 (可选，增强交互感) */
+  summary:active {
+    transform: translateX(8px); /* 点击时稍微再往前一点 */
+  }
 
-/* 展开后的标题保持高亮（可选，如果你想让展开的标题一直亮着） */
-details[open] summary {
-    color: #00ffff;              /* 展开状态变电光青 */
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
-}
-
-/* [交互] 展开时，箭头旋转 90度 */
-details[open] summary::before {
-    transform: rotate(90deg);   /* 箭头向下指 */
-    color: #00ffff;             /* 箭头也变青色 */
-}
+  /* --- 3. 打开状态 (Open) --- */
+  /* 当details打开时，箭头旋转90度 */
+  details[open] summary::before {
+    transform: rotate(90deg);   /* 3. 向下90度 */
+  }
 
 
 
