@@ -263,8 +263,6 @@ h1 {
 
 
 
-
-
 /* =========================================
    交互优化：让标题看起来“可点击”
    ========================================= */
@@ -320,6 +318,53 @@ details[open] summary::before {
 }
 
 
+/* =========================================
+   ROBOT COMPANIONS (电脑端背景机器人)
+   ========================================= */
+
+/* 机器人的公共属性 */
+.bg-robot {
+    position: fixed;
+    z-index: 1; /* 放在晕影(z-index:1)和内容(z-index:10)之间，或者更底层 */
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.15; /* [关键] 透明度：0.15 (非常淡，不抢戏) */
+    pointer-events: none; /* 让鼠标穿透，不影响点击 */
+}
+
+/* --- 机器人 A：左上角，标准蓝图，偶尔眨眼 --- */
+.robot-idle {
+    width: 250px;
+    height: 250px;
+    top: 5%;
+    left: 2%;
+    animation: floatSlow 6s ease-in-out infinite;
+    /* SVG 图片：标准笑脸机器人 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cstyle%3E .eye %7B animation: blink 4s infinite; %7D @keyframes blink %7B 0%25, 95%25 %7B transform: scaleY(1); %7D 98%25 %7B transform: scaleY(0.1); %7D 100%25 %7B transform: scaleY(1); %7D %7D %3C/style%3E%3Cpath d='M30 20 L70 20 L70 70 L30 70 Z' fill='none' stroke='%230f0' stroke-width='1'/%3E%3Cline x1='25' y1='40' x2='30' y2='40' stroke='%230f0' stroke-width='1'/%3E%3Cline x1='70' y1='40' x2='75' y2='40' stroke='%230f0' stroke-width='1'/%3E%3Crect x='28' y='18' width='44' height='54' fill='none' stroke='%230f0' stroke-width='0.5' stroke-dasharray='2 2'/%3E%3Crect class='eye' x='38' y='35' width='8' height='8' fill='none' stroke='%230f0' stroke-width='1'/%3E%3Crect class='eye' x='54' y='35' width='8' height='8' fill='none' stroke='%230f0' stroke-width='1'/%3E%3Cline x1='40' y1='55' x2='60' y2='55' stroke='%230f0' stroke-width='1'/%3E%3Cline x1='30' y1='10' x2='30' y2='20' stroke='%230f0' stroke-width='1'/%3E%3Cline x1='70' y1='10' x2='70' y2='20' stroke='%230f0' stroke-width='1'/%3E%3Crect x='28' y='6' width='4' height='4' fill='%230f0'/%3E%3C/svg%3E");
+}
+
+/* --- 机器人 B：右下角，维修工，满头大汗 --- */
+.robot-fix {
+    width: 300px;
+    height: 300px;
+    bottom: 5%;
+    right: 2%;
+    animation: floatFast 5s ease-in-out infinite;
+    /* SVG 图片：维修机器人 + 警告标志 + 汗水波浪 */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cstyle%3E .sweat %7B animation: drop 1s infinite; %7D @keyframes drop %7B 0%25 %7B opacity:0; transform:translateY(-5px); %7D 50%25 %7B opacity:1; %7D 100%25 %7B opacity:0; transform:translateY(5px); %7D %7D %3C/style%3E%3Cpath d='M40 30 L80 30 L80 80 L40 80 Z' fill='none' stroke='%230f0' stroke-width='1'/%3E%3Crect x='45' y='45' width='10' height='10' fill='none' stroke='%230f0'/%3E%3Crect x='65' y='45' width='10' height='10' fill='none' stroke='%230f0'/%3E%3Cpath d='M50 70 Q60 75 70 70' fill='none' stroke='%230f0'/%3E%3Cpath class='sweat' d='M35 35 Q30 40 35 45' fill='none' stroke='%230f0' stroke-width='1'/%3E%3Cpath class='sweat' d='M85 35 Q90 40 85 45' fill='none' stroke='%230f0' stroke-width='1' style='animation-delay:0.5s'/%3E%3Ctext x='10' y='20' fill='%230f0' font-family='monospace' font-size='8' opacity='0.7'%3EWARNING: OVERHEAT%3C/text%3E%3Crect x='5' y='10' width='110' height='15' fill='none' stroke='%230f0' stroke-dasharray='2 2' opacity='0.5'/%3E%3Cline x1='40' y1='80' x2='20' y2='100' stroke='%230f0' stroke-width='1'/%3E%3Cline x1='80' y1='80' x2='100' y2='100' stroke='%230f0' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+/* 定义浮动动画 */
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes floatFast {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
 
 
 
@@ -338,28 +383,56 @@ details[open] summary::before {
    ========================================= */
 @media screen and (max-width: 768px) {
 
-        /* --- 1. 布局与边距微调 --- */
-    .container {
-        /* [核心修改 1] 强制最小高度：至少占屏幕高度的 80% */
-        /* 这样内容少的页面，框也会拉长，不会缩成一小条 */
-        min-height: 80vh !important; 
+        /* 1. 手机上隐藏电脑版背景机器人 */
+    .bg-robot {
+        display: none !important;
+    }
 
-        /* [核心修改 2] 统一的上下留白：上下各留 5% 的格子底 */
-        /* 5vh = 屏幕高度的 5%，保证了格子底永远露出来 */
-        margin: 7vh auto !important; 
+    /* 2. 修改 .container，让机器人有位置趴着 */
+    .container {
+        /* [重要] 增加顶部外边距，给机器人头部留出空间，否则会被切掉 */
+        margin-top: 120px !important; 
         
-        /* 保持之前的宽度设置 */
+        /* 保持你原来的设置 */
+        min-height: 80vh !important;
         width: 88% !important;
         max-width: 88% !important;
-        
-        /* 保持之前的内边距 */
-        padding: 30px 20px 30px 20px !important; 
-        
-        /* [核心修改 3] 使用 Flex 布局，确保拉长后布局不乱 */
-        /* 这能让你的 "Return to Main" 按钮自动沉底 */
+        padding: 30px 20px 30px 20px !important;
         display: flex !important;
         flex-direction: column !important;
         
+        /* 必须是 relative，这样伪元素才能定位 */
+        position: relative !important; 
+        
+        /* 确保 overflow 不是 hidden，否则机器人会被砍头 */
+        overflow: visible !important; 
+    }
+
+    /* 3. [核心] 手机端机器人：趴在框顶上 */
+    .container::before {
+        content: "";
+        position: absolute;
+        
+        /* 尺寸：根据框的大小调整 */
+        width: 140px;
+        height: 100px;
+        
+        /* 定位：趴在顶部线框上 */
+        /* top: -98px 意味着向上提，刚好脚踩在边框上 */
+        top: -98px; 
+        
+        /* 居中 */
+        left: 50%;
+        transform: translateX(-50%);
+        
+        /* 背景图：画了手的机器人 SVG */
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 100'%3E%3Cstyle%3E .eyes %7B animation: look 4s infinite; %7D @keyframes look %7B 0%,40%25,100%25 %7B transform: translateX(0); %7D 50%25,90%25 %7B transform: translateX(4px); %7D %7D %3C/style%3E%3C!-- 身体 --%3E%3Cpath d='M40 30 L100 30 L100 100 L40 100 Z' fill='%23001400' stroke='%230f0' stroke-width='2'/%3E%3C!-- 眼睛框 --%3E%3Crect x='50' y='45' width='40' height='20' fill='none' stroke='%230f0' stroke-width='1'/%3E%3C!-- 眼珠子 (会动) --%3E%3Crect class='eyes' x='55' y='50' width='8' height='8' fill='%230f0'/%3E%3Crect class='eyes' x='75' y='50' width='8' height='8' fill='%230f0'/%3E%3C!-- 天线 --%3E%3Cline x1='35' y1='10' x2='45' y2='30' stroke='%230f0' stroke-width='2'/%3E%3Cline x1='105' y1='10' x2='95' y2='30' stroke='%230f0' stroke-width='2'/%3E%3Ccircle cx='35' cy='10' r='3' fill='%230f0'/%3E%3Ccircle cx='105' cy='10' r='3' fill='%230f0'/%3E%3C!-- 左手 (抓着框) --%3E%3Cpath d='M20 90 Q30 80 40 98' fill='none' stroke='%230f0' stroke-width='3'/%3E%3Ccircle cx='20' cy='90' r='4' fill='%230f0'/%3E%3C!-- 右手 (抓着框) --%3E%3Cpath d='M120 90 Q110 80 100 98' fill='none' stroke='%230f0' stroke-width='3'/%3E%3Ccircle cx='120' cy='90' r='4' fill='%230f0'/%3E%3C/svg%3E");
+        
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: contain;
+        
+        z-index: 20; /* 保证它盖在边框上 */
     }
 
 
