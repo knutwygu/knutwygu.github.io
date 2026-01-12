@@ -390,7 +390,7 @@ details[open] summary::before {
     /* [新增] 专门针对 Unit ID, Protocol 等列表项的字体放大 */
     .container ul li, 
     .container li {
-        font-size: 1.15rem !important; /* [关键] 比正文(0.95)大，比标题(1.8)小 */
+        font-size: 1.3rem !important; /* [关键] 比正文(0.95)大，比标题(1.8)小 */
         line-height: 1.4;              /* 行高稍微紧凑一点，不像正文那么松 */
         margin-bottom: 8px;            /* 列表项之间留点空隙 */
         font-weight: bold;             /* 稍微加粗，强调这是参数指标 */
