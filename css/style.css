@@ -248,62 +248,55 @@ h1 {
    交互优化：让标题看起来“可点击”
    ========================================= */
 
-/* 基础容器样式 */
-  details {
-    margin-bottom: 1rem;
-    font-family: 'Courier New', Courier, monospace; /* 终端风格字体 */
+/* summary 容器：整体控制 */
+summary {
     cursor: pointer;
-  }
-
-
-/* --- 核心样式开始 --- */
-  
-  summary {
-    display: flex;          /* 1. 使用Flex布局 */
-    align-items: center;    /* 垂直居中 */
-    gap: 8px;               /* 1. 这里控制箭头和文字的距离 (可随意调整) */
+    list-style: none;           /* 隐藏默认三角 */
     
-    list-style: none;       /* 隐藏默认的小三角 */
-    color: #00ff00;         /* 3. 默认绿色 */
-    font-weight: bold;
+    /* [核心修改] 使用 Flex 布局 */
+    display: flex;              
+    align-items: center;        /* 垂直居中 */
+    justify-content: center;    /* [关键] 保持文字和箭头整体居中 */
+    gap: 8px;                   /* [关键] 只有这里控制箭头和文字的距离，现在是8px，很近 */
     
-    /* 动画过渡：包含颜色变化和位移 */
-    transition: all 0.3s ease; 
-    user-select: none;      /* 防止双击选中文字 */
-  }
+    padding: 10px 0;            /* 上下留白 */
+    transition: all 0.2s ease;  /* 整体过渡动画 */
+    color: #0f0;                /* 默认：荧光绿 */
+}
 
-  /* 隐藏不同浏览器的默认箭头 */
-  summary::-webkit-details-marker {
+/* 隐藏 Chrome/Safari 默认的小三角 */
+summary::-webkit-details-marker {
     display: none;
-  }
+}
 
-  /* 自定义箭头 (使用伪元素) */
-  summary::before {
-    content: '▶';           /* 或者使用 '►' */
-    font-size: 0.8em;
-    display: inline-block;
-    
-    /* 箭头的独立动画：只负责旋转 */
-    transition: transform 0.3s ease; 
-  }
+/* 箭头元素 */
+summary::before {
+    content: "▶";               
+    font-size: 0.8rem;
+    transition: transform 0.2s ease; /* 单独控制旋转动画 */
+    /* 注意：这里不需要写颜色，因为它会自动继承父元素 summary 的颜色 */
+}
 
-  /* --- 2. & 4. 鼠标悬停/交互效果 --- */
-  /* 当鼠标放在 summary 上时：变红 + 向前浮动 */
-  summary:hover {
-    color: #ff0000;             /* 变红色 */
-    transform: translateX(5px); /* 2. 文字和箭头作为一个整体向前动 */
-  }
-  
-  /* 点击时的按压效果 (可选，增强交互感) */
-  summary:active {
-    transform: translateX(8px); /* 点击时稍微再往前一点 */
-  }
+/* [交互 1 & 2 & 4] 鼠标悬停 (Hover) 时的整体特效 */
+/* 当鼠标放上去，或者点击交互时 */
+summary:hover {
+    color: #ff00de;             /* 整体变色：赛博粉 (包括箭头) */
+    text-shadow: 0 0 8px rgba(255, 0, 222, 0.6); /* 发光 */
+    transform: translateX(5px); /* [关键] 整体向右浮动 5px (箭头和文字一起动) */
+}
 
-  /* --- 3. 打开状态 (Open) --- */
-  /* 当details打开时，箭头旋转90度 */
-  details[open] summary::before {
-    transform: rotate(90deg);   /* 3. 向下90度 */
-  }
+/* [交互 3] 展开后的状态 (Open) */
+details[open] summary {
+    color: #00ffff;             /* 展开后变色：电光青 */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+    /* 保持 hover 的位移吗？通常展开后不需要保持位移，
+       如果希望展开状态下也保持向右一点，可以加 transform: translateX(5px); */
+}
+
+/* [交互 3] 展开后，箭头单独旋转 */
+details[open] summary::before {
+    transform: rotate(90deg);   /* 箭头向下指 */
+}
 
 
 
