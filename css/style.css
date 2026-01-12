@@ -35,13 +35,15 @@ body::after {
     z-index: 10;
     text-align: center;
     border: 2px solid #0f0;
-    padding: 40px 60px;
+    padding: 50px 30px 50px 30px;
     background: rgba(0, 20, 0, 0.85); /* 深色半透明背景 */
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    width: 90%;
     max-width: 600px;
-    width: 85%;
-    margin: 20px;
+    
+    margin: 20px auto;
     border-radius: 4px; /* 稍微一点圆角 */
+    position: relative; /* 确保内部定位正常 */
 }
 
 /* --- 3. 排版样式 --- */
@@ -311,112 +313,60 @@ details[open] summary::before {
 
 
 /* =========================================
-   移动端适配 (Mobile Responsive)
-   把这段放在文件最后，优先级最高
-   ========================================= */
-@media screen and (max-width: 768px) {
-    
-    /* 1. 调整容器：让它在手机上占满一点，不要留那么多黑边 */
-    .container {
-        width: 85%;       /* 宽度稍微变宽 */
-        padding: 25px 20px; /* 【关键】大幅减小内边距，原来是 40px 60px 太挤了 */
-        margin: 10px auto; /* 上下留少一点空隙 */
-    }
-
-    /* 2. 缩小标题：防止名字换行 */
-    h1 {
-        font-size: 2.2rem; /* 原来是 3.5rem，手机上改小 */
-        letter-spacing: 1px;
-    }
-
-    /* 3. 缩小副标题 */
-    .subtitle {
-        font-size: 1rem;
-        margin-top: 5px;
-    }
-
-    /* 4. 调整波形图高度 */
-    .wave-box {
-        height: 40px;
-        margin: 15px 0;
-    }
-
-    /* 5. 按钮调整：手机上好点一点 */
-    .btn {
-        padding: 10px 15px;
-        font-size: 1rem; 
-    }
-
-
-
-    /* =========================================
-   MOBILE ADAPTATION (手机端专用适配)
-   把这段放在 CSS 文件的最后面
+   移动端终极适配 (Mobile Only)
+   请放在 CSS 文件最底部，覆盖上面所有设置
    ========================================= */
 @media screen and (max-width: 768px) {
 
-    /* 1. 全局容器调整：防止左右晃动 */
+    /* 1. 全局与容器调整 */
     body {
-        padding: 10px;          /* 手机屏幕小，边距改小 */
-        overflow-x: hidden;     /* 禁止左右横向滚动 */
-        font-size: 14px;        /* 字体稍微调小一点，适配窄屏 */
+        padding: 0;
+        overflow-x: hidden; /* 禁止左右滑动 */
     }
 
-    /* 假设你的主要内容包裹在一个容器里 (比如 .container 或 main) */
-    .container, main, #app {
-        width: 100% !important; /* 强制占满手机宽度 */
-        max-width: 100%;
-        margin: 0 auto;
-        padding: 0 5px;         /* 内容左右留一点缝隙 */
+    .container {
+        /* [再次确保] 手机上宽度是屏幕的 90% */
+        width: 90vw; 
+        max-width: 90vw;
+        margin: 20px auto;
+        
+        /* [再次确保] 名字离顶部的距离(50px) 和 按钮离底部的距离(50px) */
+        padding: 50px 20px 50px 20px; 
     }
 
-    /* 2. 图片与视频自适应：防止撑破屏幕 */
-    img, video, iframe {
-        max-width: 100% !important;
-        height: auto;
+    /* 2. 标题适配 */
+    h1 {
+        font-size: 2.2rem; /* 名字改小一点，防止折行 */
+        line-height: 1.2;
+        margin-bottom: 10px;
     }
 
-    /* 3. 代码块/长文本适配：允许内部滑动 */
-    pre, code {
-        white-space: pre-wrap;  /* 强制换行，防止代码把页面撑宽 */
-        word-wrap: break-word;
-        font-size: 0.85rem;     /* 手机上代码字小一点才看得全 */
-    }
-
-    /* =========================================
-       SUMMARY / 箭头组件 (手机端特化)
-       ========================================= */
-    summary {
-        /* 保持 Flex 布局，保证对齐 */
-        display: flex;
-        align-items: center;    
-        justify-content: flex-start; /* 手机上通常左对齐更好看，如果想居中改 center */
-        gap: 6px;               /* 手机屏幕小，间距稍微紧凑一点 */
-        padding: 12px 0;        /* 增大手指点击区域 (Touch Target) */
-        font-size: 1rem;
-    }
-
-    /* 手机没有 Hover (悬停)，只有点击 (Active)
-       为了体验一致，我们把 hover 的效果也加在 active 上 */
+    /* 3. 交互颜色简化 (解决你的第4个问题) */
+    
+    /* 手机上取消鼠标悬停(Hover)的粉色和位移特效 */
+    summary:hover, 
     summary:active {
-        color: #ff00de;
-        text-shadow: 0 0 8px rgba(255, 0, 222, 0.6);
-        transform: translateX(5px); /* 手机点下去的时候，也会向前动一下 */
+        color: #0f0;          /* 保持绿色 */
+        text-shadow: none;    /* 去掉粉色发光 */
+        transform: none;      /* 去掉向右位移 */
     }
-    
-    /* 保持原来的悬停效果 (部分手机长按会触发 hover) */
-    summary:hover {
-        color: #ff00de;
-        transform: translateX(5px);
-    }
-    
-    /* 展开状态保持不变 */
+
+    /* 手机上点击展开后(Open) -> 变为青色 */
     details[open] summary {
+        color: #00ffff;       /* 只有展开时变色 */
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+    
+    /* 展开后箭头向下旋转 */
+    details[open] summary::before {
+        transform: rotate(90deg);
         color: #00ffff;
     }
-}
-    /* 6. 页脚文字缩小一点 */
-    .footer a {
-        font-size: 1.1rem;
+    
+    /* 4. 代码和长文本防止撑开屏幕 */
+    pre, code, .detail-content {
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        max-width: 100%;
     }
 }
