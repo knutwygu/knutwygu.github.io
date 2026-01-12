@@ -1,4 +1,4 @@
-<script>
+
     (function() {
         // --- 配置区域：赛博渐变 K 图标 ---
         // 渐变色：起始 #ff00de (赛博粉) -> 结束 #00ffff (电光青)
@@ -26,4 +26,4 @@
         }
         link.href = iconUrl;
     })();
-</script>
+
