@@ -35,7 +35,7 @@ body::after {
     z-index: 10;
     text-align: center;
     border: 2px solid #0f0;
-    padding: 50px 30px 50px 30px;
+    padding: 40px 60px;
     background: rgba(0, 20, 0, 0.85); /* 深色半透明背景 */
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
     width: 90%;
@@ -312,72 +312,77 @@ details[open] summary::before {
 
 
 
+
 /* =========================================
-   移动端终极修复 (Mobile Only Fixes)
-   请替换掉原文件最后的 @media 部分
+   移动端专属适配 (Mobile Fine-tuning)
+   请确保这段代码在 CSS 文件的最末尾
    ========================================= */
 @media screen and (max-width: 768px) {
 
-    /* --- 1. 修复边框太近 (Width Fix) --- */
+    /* --- 1. 布局与边距微调 --- */
     .container {
-        /* 原来是90vw太宽了，改用85%并配合 border-box */
-        width: 85% !important; 
-        max-width: 85% !important;
+        /* [修改] 稍微改小一点点边距，比上次的50px小，比原本的紧凑 */
+        padding: 30px 20px !important; 
         
-        /* 增加外边距，确保上下左右都有黑边 */
-        margin: 30px auto !important; 
-        
-        /* 调整内边距：上下大，左右小 */
-        padding: 40px 20px !important; 
-        
-        box-sizing: border-box; /* 确保 padding 不会撑大宽度 */
+        /* 宽度控制：留出一点黑边，但不要太多 */
+        width: 88% !important;
+        max-width: 88% !important;
+        margin: 15px auto !important;
     }
 
-    /* --- 2. 修复文字排版混乱 (Layout Fix) --- */
+    /* --- 2. 字体比例缩放 --- */
+    /* [修改] 名字大大减小，从 3.5rem -> 1.8rem，看起来更精致 */
+    h1 {
+        font-size: 1.8rem !important; 
+        line-height: 1.1;
+        margin-bottom: 15px;
+    }
+
+    /* 副标题也按比例微调 */
+    .subtitle {
+        font-size: 0.9rem !important;
+    }
+
+    /* --- 3. 复杂的对齐逻辑 (核心需求) --- */
     
-    /* [核心] 强制正文左对齐！截图里混乱是因为居中对齐了 */
-    .detail-content, 
-    .container p, 
-    .node-content {
-        text-align: left !important;  /* 必须左对齐，像写代码一样整齐 */
-        line-height: 1.8 !important;  /* 增加行距，呼吸感更强 */
-        font-size: 0.95rem;           /* 稍微改小字号，避免换行过多 */
-        margin-top: 10px;
+    /* A. 默认保持居中：适用于 主页菜单、Unit ID 列表、System Specs 标题等 */
+    .container, ul, li, h2, h3, .section-title {
+        text-align: center;
     }
 
-    /* 修复 THEORY / REALITY 标签的位置 */
-    .theory-tag, .reality-tag {
-        display: inline-block;        /* 保持块状 */
-        margin-top: 20px;             /* 离上面内容远一点 */
-        margin-bottom: 8px;           /* 离下面文字近一点 */
-        float: none;                  /* 禁止浮动，防止错位 */
+    /* B. [例外] 具体的文本内容强制左对齐，方便阅读 */
+    /* 针对：折叠里的解释(node-content)、详情(detail)、长段落(p) */
+    .node-content, 
+    .detail-content,
+    .content-section p { 
+        text-align: left !important;  /* 强制左对齐 */
+        font-size: 0.95rem;           /* 字体微调，适合手机阅读 */
+        line-height: 1.6;             /* 增加行高，不拥挤 */
+        margin-left: 5px;             /* 左边稍微留点缝隙 */
+        margin-right: 5px;
     }
 
-    /* 让标题保持居中，但正文左对齐 */
-    h1, h2, h3, .subtitle, summary {
-        text-align: center !important;
+    /* 特殊修复：About页面的列表 (Unit ID, Location...) 保持居中 */
+    /* 因为你希望 "Unit ID:..." 这种像标题一样的东西不要左对齐 */
+    #about ul, #about li {
+        text-align: center !important; 
+        list-style: none; /* 确保没圆点 */
     }
 
-    /* --- 3. 其他移动端优化 --- */
-    body {
-        padding: 0;
-        overflow-x: hidden;
-    }
-    
-    /* 手机上summary不需要缩进，让它居中显眼 */
+    /* --- 4. 交互组件优化 --- */
     summary {
-        justify-content: center; 
+        justify-content: center; /* 折叠标题居中 */
+        font-size: 1rem;
     }
-    
-    /* 手机上去除复杂的 hover 颜色特效 */
+
+    /* 手机上去掉复杂的 Hover 颜色，保持简约 */
     summary:hover, summary:active {
         color: #0f0;
         text-shadow: none;
         transform: none;
     }
     
-    /* 只有点开时变色 */
     details[open] summary {
-        color: #00ffff;
+        color: #00ffff; /* 展开变色 */
     }
 }
