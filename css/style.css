@@ -261,7 +261,7 @@ summary {
     justify-content: center;    /* [关键] 保持文字和箭头整体居中 */
     gap: 8px;                   /* [关键] 只有这里控制箭头和文字的距离，现在是8px，很近 */
     
-    padding: 10px 0;            /* 上下留白 */
+    padding: 8px 0;            /* 上下留白 */
     transition: all 0.2s ease;  /* 整体过渡动画 */
     color: #0f0;                /* 默认：荧光绿 */
 }
@@ -327,7 +327,7 @@ details[open] summary::before {
 
         /* [核心修改 2] 统一的上下留白：上下各留 5% 的格子底 */
         /* 5vh = 屏幕高度的 5%，保证了格子底永远露出来 */
-        margin: 5vh auto !important; 
+        margin: 10vh auto !important; 
         
         /* 保持之前的宽度设置 */
         width: 88% !important;
@@ -361,7 +361,7 @@ details[open] summary::before {
 
     /* 副标题也按比例微调 */
     .subtitle {
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
         text-align: center;            /* 副标题通常居中好看 */
     }
 
