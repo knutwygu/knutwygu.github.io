@@ -252,13 +252,25 @@ summary {
     cursor: pointer;             /* [关键] 鼠标放上去变成小手 */
     list-style: none;            /* 隐藏默认三角 */
     position: relative;
-    padding: 5px 0;              /* 增加一点点击区域，更好点 */
+    padding: 5px 0 5px 25px;     /* [关键] 左边留出 25px 给箭头，不然会重叠 */
     transition: all 0.2s ease;   /* 让变色有过渡动画，不生硬 */
+    color: #0f0;                 /* 默认绿色标题 */
 }
 
 /* 隐藏 Chrome/Safari 默认的小三角 */
 summary::-webkit-details-marker {
     display: none;
+}
+
+/* [新增] 手动添加赛博朋克箭头 */
+summary::before {
+    content: "▶";               /* 这里可以换成 ">>" 或者 "+" */
+    position: absolute;
+    left: 0;
+    top: 8px;                   /* 根据字体大小微调垂直位置 */
+    color: #ff00de;             /* 箭头颜色：赛博粉 */
+    font-size: 0.8rem;
+    transition: transform 0.2s ease; /* 旋转动画 */
 }
 
 /* [新增] 鼠标悬停 (Hover) 时的特效 */
@@ -274,7 +286,11 @@ details[open] summary {
     text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
 }
 
-
+/* [交互] 展开时，箭头旋转 90度 */
+details[open] summary::before {
+    transform: rotate(90deg);   /* 箭头向下指 */
+    color: #00ffff;             /* 箭头也变青色 */
+}
 
 
 
