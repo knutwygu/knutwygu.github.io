@@ -5,7 +5,7 @@
         <defs>
             <linearGradient id='hard_split' x1='0%' y1='0%' x2='100%' y2='100%'>
                 <stop offset='35%' style='stop-color:#ff00de;stop-opacity:1' />
-                <stop offset='50%' style='stop-color:#00ffff;stop-opacity:1' />
+                <stop offset='52%' style='stop-color:#00ffff;stop-opacity:1' />
             </linearGradient>
         </defs>
         <rect width='100' height='100' fill='%23050505'/>
