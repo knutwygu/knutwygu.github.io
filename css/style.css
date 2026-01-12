@@ -336,11 +336,13 @@ details[open] summary::before {
         font-size: 1.8rem !important; 
         line-height: 1.1;
         margin-bottom: 15px;
+        text-align: center;
     }
 
     /* 副标题也按比例微调 */
     .subtitle {
-        font-size: 0.9rem !important;
+        font-size: 1.3rem !important;
+        text-align: center;            /* 副标题通常居中好看 */
     }
 
     /* --- 3. 复杂的对齐逻辑 (核心需求) --- */
@@ -362,12 +364,7 @@ details[open] summary::before {
         margin-right: 5px;
     }
 
-    /* 特殊修复：About页面的列表 (Unit ID, Location...) 保持居中 */
-    /* 因为你希望 "Unit ID:..." 这种像标题一样的东西不要左对齐 */
-    #about ul, #about li {
-        text-align: center !important; 
-        list-style: none; /* 确保没圆点 */
-    }
+    
 
     /* --- 4. 交互组件优化 --- */
     summary {
@@ -386,34 +383,4 @@ details[open] summary::before {
         color: #00ffff; /* 展开变色 */
     }
 
-
-    /* ... 放在 @media 内部的最后面 ... */
-
-    /* -------------------------------------------------------
-       分类 1：参数型列表 (System Specs / Unit ID) 
-       位置：只针对 #about 页面
-       样式：字体大、居中、加粗 (像电脑端一样)
-       ------------------------------------------------------- */
-    #about li {
-        font-size: 1.3rem !important;  /* [关键] 保持大字体，比正文大 */
-        font-weight: bold !important;   /* 加粗 */
-        text-align: center !important;  /* 参数居中显示 */
-        margin-bottom: 8px;
-        list-style: none;               /* 确保没有圆点 */
-    }
-
-    /* -------------------------------------------------------
-       分类 2：内容型列表 (Root Access / Office Hours / Cold Emailing)
-       位置：针对 #diversity (Open Access) 页面
-       样式：字体小、左对齐 (和正文一致，方便阅读)
-       ------------------------------------------------------- */
-    #diversity li, 
-    #projects li {
-        font-size: 0.95rem !important;  /* [关键] 回归正文大小 */
-        font-weight: normal !important; /* 不加粗 */
-        text-align: left !important;    /* [关键] 强制左对齐 */
-        line-height: 1.6 !important;    /* 增加行距 */
-        margin-bottom: 12px;
-        padding-left: 5px;              /* 稍微缩进一点 */
-    }
 }
