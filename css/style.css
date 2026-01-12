@@ -198,6 +198,56 @@ h1 {
 
 
 
+/* =========================================
+   PRACTICAL PATCHES 颜色补丁 (终极版)
+   ========================================= */
+
+/* 1. THEORY 标签：赛博粉底 + 黑字 */
+.theory-tag {
+    display: inline-block;
+    background-color: #ff00de;  /* 骚粉色背景 */
+    color: #000;                /* 黑色文字 */
+    font-weight: 800;           /* 特粗字体 */
+    padding: 2px 6px;
+    margin-right: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border: 1px solid #ff00de;
+}
+
+/* 2. REALITY 标签：电光青底 + 黑字 */
+.reality-tag {
+    display: inline-block;
+    background-color: #00ffff;  /* 青色背景 */
+    color: #000;                /* 黑色文字 */
+    font-weight: 800;
+    padding: 2px 6px;
+    margin-right: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border: 1px solid #00ffff;
+}
+
+/* 3. 展开的内容区域：纯白文字，带左侧缩进线 */
+.detail-content {
+    color: #ffffff;             /* [关键] 文字变白 */
+    background: rgba(0, 0, 0, 0.3); /* 微微加深的背景，增加对比度 */
+    margin-top: 10px;
+    padding: 15px;
+    border-left: 2px solid #444; /* 左侧深灰竖线，像代码块 */
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* 让详情里的加粗文字保持亮白 */
+.detail-content strong {
+    color: #fff;
+    text-decoration: underline decoration-dotted #666;
+}
+
+
+
+
 
 
 
