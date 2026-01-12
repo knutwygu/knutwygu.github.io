@@ -236,7 +236,7 @@ h1 {
     padding: 15px;
     border-left: 2px solid #444; /* 左侧深灰竖线，像代码块 */
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 /* 让详情里的加粗文字保持亮白 */
