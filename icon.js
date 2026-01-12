@@ -9,7 +9,7 @@
             </linearGradient>
         </defs>
         <rect width='100' height='100' fill='%23050505'/>
-        <text x='50%' y='62%' font-family='Courier New, monospace' font-weight='900' font-size='80' fill='url(#hard_split)' text-anchor='middle' dominant-baseline='middle'>K</text>
+        <text x='50%' y='52%' font-family='Courier New, monospace' font-weight='900' font-size='150' fill='url(#hard_split)' text-anchor='middle' dominant-baseline='central'>K</text>
     </svg>`.trim();
 
     // 生成 SVG 的 Data URI (给电脑/安卓)
