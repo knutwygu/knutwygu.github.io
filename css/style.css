@@ -343,6 +343,20 @@ details[open] summary::before {
         
     }
 
+    /* [核心修复] 让内容区域自动撑满剩余高度 */
+    .content-section {
+        /* 1. 让自己变成弹性盒子，允许内部元素沉底 */
+        display: flex !important;
+        flex-direction: column !important;
+        
+        /* 2. [关键] 占据父容器 (.container) 剩下的所有空间 */
+        /* 这样它就会从 Header 下面一直延伸到边框底部 */
+        flex: 1 !important; 
+        
+        /* 3. 确保宽度占满 */
+        width: 100% !important;
+    }
+
     /* [配套修改] 确保返回按钮或页脚永远沉在框的最底部 */
     /* 即使内容很少，框被强行拉长了，按钮也会乖乖呆在最下面 */
     .return-container, 
