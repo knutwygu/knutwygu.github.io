@@ -320,48 +320,51 @@ details[open] summary::before {
 
 
 /* =========================================
-   ROBOT COMPANIONS (电脑端背景机器人 - 绝对兼容版)
+   ROBOT STYLES (桌面端样式)
+   注意：手机端的样式在最下面的 @media 里
    ========================================= */
 
-/* 1. 机器人的公共属性 */
-.bg-robot {
+/* 1. 机器人容器通用设置 */
+.robot-wrapper {
     position: fixed;
-    z-index: 5;
-    background-repeat: no-repeat;
-    background-size: contain;
-    /* [修改] 稍微调高透明度到 0.25，确保你在屏幕上能看清 */
-    opacity: 0.25; 
-    pointer-events: none;
+    z-index: 5;          /* 保证在背景之上 */
+    pointer-events: none; /* 让鼠标穿透，不影响点击 */
+    opacity: 0.25;       /* 默认透明度，淡淡的 */
+    transition: opacity 0.3s;
 }
 
-/* 2. 机器人 A：左上角 (标准蓝图) */
-.robot-idle {
-    width: 260px;
-    height: 360px;
-    top: 5%;
-    left: 2%;
-    animation: blueprintFloat 8s ease-in-out infinite;
-    
-    /* [修复] 纯净版 SVG，无 style 标签，无中文，颜色直接写在元素上 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300'%3E%3C!-- 头 --%3E%3Crect x='70' y='20' width='60' height='35' rx='5' fill='none' stroke='%230f0' stroke-width='2'/%3E%3Ccircle cx='90' cy='35' r='6' fill='none' stroke='%230f0' stroke-width='1.5'/%3E%3Ccircle cx='110' cy='35' r='6' fill='none' stroke='%230f0' stroke-width='1.5'/%3E%3C!-- 身体 --%3E%3Crect x='60' y='65' width='80' height='90' fill='none' stroke='%230f0' stroke-width='2'/%3E%3C!-- CPU --%3E%3Crect x='75' y='80' width='30' height='30' fill='none' stroke='%230f0' stroke-width='1.5'/%3Ctext x='78' y='98' fill='%230f0' font-family='monospace' font-weight='bold' font-size='10'%3ECPU%3C/text%3E%3C!-- 电池 --%3E%3Crect x='115' y='110' width='20' height='10' fill='none' stroke='%230f0' stroke-width='1.5'/%3Ctext x='115' y='130' fill='%230f0' font-family='monospace' font-size='8'%3EBATT%3C/text%3E%3C!-- 尺寸线 --%3E%3Cline x1='40' y1='20' x2='40' y2='250' stroke='%230f0' stroke-width='1' stroke-dasharray='5,5'/%3Ctext x='35' y='150' fill='%230f0' font-family='monospace' font-size='12' transform='rotate(-90 35,150)'%3EHEIGHT: 800mm%3C/text%3E%3C/svg%3E");
+/* 2. 左上角机器人 (图纸) */
+.desktop-left {
+    top: 50px;
+    left: 20px;
+    width: 280px;
+    height: auto;
+    animation: floatRobot 6s ease-in-out infinite;
 }
 
-/* 3. 机器人 B：右下角 (维修状态) */
-.robot-fix {
-    width: 350px;
-    height: 300px;
-    bottom: 5%;
-    right: 2%;
-    animation: glitchShake 0.2s linear infinite alternate;
-    
-    /* [修复] 纯净版 SVG，清晰的警告框和维修场景 */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 350 250'%3E%3C!-- 警告框 --%3E%3Crect x='140' y='10' width='160' height='30' fill='none' stroke='%230f0' stroke-width='1.5' stroke-dasharray='4,4'/%3Ctext x='150' y='30' fill='%230f0' font-family='monospace' font-weight='bold' font-size='14'%3EWARNING: OVERHEAT%3C/text%3E%3C!-- 散热波浪 --%3E%3Cpath d='M110 30 Q115 20 110 10 M120 30 Q125 20 120 10 M130 30 Q135 20 130 10' fill='none' stroke='%230f0' stroke-width='2'/%3E%3C!-- 维修工 --%3E%3Crect x='50' y='50' width='50' height='50' fill='none' stroke='%230f0' stroke-width='2'/%3E%3Crect x='70' y='30' width='40' height='25' fill='none' stroke='%230f0' stroke-width='2'/%3E%3C!-- 扳手 --%3E%3Cpath d='M110 60 L130 60 M130 55 L130 65' fill='none' stroke='%230f0' stroke-width='3'/%3E%3C!-- 躺平的故障机器人 --%3E%3Cg transform='translate(120, 150) rotate(10)'%3E%3Crect x='0' y='0' width='90' height='50' fill='none' stroke='%230f0' stroke-width='2'/%3E%3Crect x='90' y='10' width='40' height='30' fill='none' stroke='%230f0' stroke-width='2'/%3E%3Ctext x='10' y='30' fill='%230f0' font-family='monospace' font-size='10'%3ESYSTEM FAIL%3C/text%3E%3Cpath d='M20 10 L40 10 M20 20 L50 20' fill='none' stroke='%230f0' stroke-width='1' stroke-dasharray='2,2'/%3E%3C/g%3E%3C/svg%3E");
+/* 3. 右下角机器人 (维修) */
+.desktop-right {
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    height: auto;
+    animation: shakeRobot 0.2s linear infinite alternate;
 }
 
-/* 动画定义 (保持不变) */
-@keyframes blueprintFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-@keyframes glitchShake { 0% { transform: translate(0, 0); } 100% { transform: translate(0.5px, 0.5px); } }
+/* 电脑端机器人动画 */
+@keyframes floatRobot { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(-15px); } 
+}
+@keyframes shakeRobot { 
+    0% { transform: translate(0, 0); } 
+    100% { transform: translate(1px, 1px); } 
+}
 
+/* 默认隐藏手机版机器人 (在电脑上不显示) */
+.mobile-top {
+    display: none;
+}
 
 
 
@@ -381,9 +384,28 @@ details[open] summary::before {
    ========================================= */
 @media screen and (max-width: 768px) {
 
-        /* 1. 手机上隐藏电脑版背景机器人 */
-    .bg-robot {
+        /* --- 1. 机器人控制 (适配 robots.js) --- */
+
+    /* 隐藏电脑版的两个大机器人 */
+    .desktop-left, .desktop-right {
         display: none !important;
+    }
+
+    /* 旧代码清理：防止旧的 CSS 干扰 */
+    .bg-robot { display: none !important; }
+    .container::before { content: none !important; display: none !important; }
+
+    /* [新增] 设置手机版机器人的位置 (对应 robots.js 里的 .mobile-top) */
+    .mobile-top {
+        display: block !important;
+        position: absolute;
+        top: -105px;       /* 趴在框顶 */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 140px;
+        height: auto;
+        z-index: 20;
+        opacity: 1;        /* 手机上不透明，清晰可见 */
     }
 
     /* 2. 修改 .container，让机器人有位置趴着 */
@@ -406,23 +428,7 @@ details[open] summary::before {
         overflow: visible !important; 
     }
 
-   /* 3. [核心] 手机端机器人：趴在框顶上 */
-    .container::before {
-        content: "";
-        position: absolute;
-        width: 140px;
-        height: 110px;
-        top: -105px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-size: contain;
-        z-index: 20;
-
-        /* [修复] 纯净版 SVG，歪头小机器人 */
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 110'%3E%3C!-- 天线 --%3E%3Cpath d='M60 25 L50 5 M70 20 L85 5' fill='none' stroke='%230f0' stroke-width='2'/%3E%3Ccircle cx='50' cy='5' r='3' fill='%230f0'/%3E%3Ccircle cx='85' cy='5' r='3' fill='%230f0'/%3E%3C!-- 头 --%3E%3Cg transform='rotate(-5 70 60)'%3E%3Crect x='45' y='25' width='50' height='45' rx='8' fill='none' stroke='%230f0' stroke-width='2'/%3E%3Ccircle cx='60' cy='45' r='8' fill='none' stroke='%230f0' stroke-width='1.5'/%3E%3Ccircle cx='60' cy='45' r='3' fill='%230f0'/%3E%3Ccircle cx='84' cy='44' r='3' fill='%230f0'/%3E%3Cpath d='M80 40 Q88 40 88 48 Q80 48 80 48' fill='none' stroke='%230f0' stroke-width='1.5'/%3E%3C/g%3E%3C!-- 手 --%3E%3Cpath d='M35 95 Q40 85 45 95 M105 95 Q100 85 95 95' fill='none' stroke='%230f0' stroke-width='3'/%3E%3C/svg%3E");
-    }
+   
 
 
     /* [配套修改] 确保返回按钮或页脚永远沉在框的最底部 */
