@@ -4,8 +4,8 @@
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
         <defs>
             <linearGradient id='hard_split' x1='0%' y1='0%' x2='100%' y2='100%'>
-                <stop offset='40%' style='stop-color:#ff00de;stop-opacity:1' />
-                <stop offset='45%' style='stop-color:#00ffff;stop-opacity:1' />
+                <stop offset='35%' style='stop-color:#ff00de;stop-opacity:1' />
+                <stop offset='50%' style='stop-color:#00ffff;stop-opacity:1' />
             </linearGradient>
         </defs>
         <rect width='100' height='100' fill='%23050505'/>
