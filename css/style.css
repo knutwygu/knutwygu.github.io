@@ -327,27 +327,37 @@ details[open] summary::before {
 
         /* [核心修改 2] 统一的上下留白：上下各留 5% 的格子底 */
         /* 5vh = 屏幕高度的 5%，保证了格子底永远露出来 */
-        margin: 10vh auto !important; 
+        margin: 7vh auto !important; 
         
         /* 保持之前的宽度设置 */
         width: 88% !important;
         max-width: 88% !important;
         
         /* 保持之前的内边距 */
-        padding: 30px 20px !important; 
+        padding: 30px 20px 30px 20px !important; 
         
         /* [核心修改 3] 使用 Flex 布局，确保拉长后布局不乱 */
         /* 这能让你的 "Return to Main" 按钮自动沉底 */
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important; /* 内容从顶部开始排 */
+        
     }
 
     /* [配套修改] 确保返回按钮或页脚永远沉在框的最底部 */
     /* 即使内容很少，框被强行拉长了，按钮也会乖乖呆在最下面 */
     .return-container, 
     .footer {
-        margin-top: auto !important;
+        /* [核心] 自动占据上方剩余空间，把自己推到容器的最底部 */
+        margin-top: auto !important; 
+        
+        /* 按钮和上方正文的最小间距 (防止内容多时贴太近) */
+        padding-top: 30px !important; 
+        
+        /* 底部清零，完全依赖 .container 的 35px padding-bottom 来保持距离 */
+        padding-bottom: 0 !important; 
+        margin-bottom: 0 !important;
+        
+        width: 100%;
     }
 
     /* --- 2. 字体比例缩放 --- */
