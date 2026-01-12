@@ -199,30 +199,30 @@ h1 {
    PRACTICAL PATCHES 颜色补丁 (终极版)
    ========================================= */
 
-/* 1. THEORY 标签：赛博粉底 + 黑字 */
+/* 1. THEORY 标签：空心赛博粉 + 粉字 */
 .theory-tag {
     display: inline-block;
-    background-color: #ff00de;  /* 骚粉色背景 */
-    color: #000;                /* 黑色文字 */
-    font-weight: 800;           /* 特粗字体 */
-    padding: 2px 6px;
-    margin-right: 8px;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    border: 1px solid #ff00de;
-}
-
-/* 2. REALITY 标签：电光青底 + 黑字 */
-.reality-tag {
-    display: inline-block;
-    background-color: #00ffff;  /* 青色背景 */
-    color: #000;                /* 黑色文字 */
+    background-color: transparent;  /* [修改] 去掉背景色，变透明 */
+    color: #ff00de;                 /* [修改] 文字变成赛博粉 */
     font-weight: 800;
     padding: 2px 6px;
     margin-right: 8px;
     font-size: 0.8rem;
     letter-spacing: 1px;
-    border: 1px solid #00ffff;
+    border: 1px solid #ff00de;      /* 边框保持粉色，形成框框感 */
+}
+
+/* 2. REALITY 标签：空心电光青 + 青字 */
+.reality-tag {
+    display: inline-block;
+    background-color: transparent;  /* [修改] 去掉背景色，变透明 */
+    color: #00ffff;                 /* [修改] 文字变成电光青 */
+    font-weight: 800;
+    padding: 2px 6px;
+    margin-right: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border: 1px solid #00ffff;      /* 边框保持青色 */
 }
 
 /* 3. 展开的内容区域：纯白文字，带左侧缩进线 */
@@ -384,5 +384,15 @@ details[open] summary::before {
     
     details[open] summary {
         color: #00ffff; /* 展开变色 */
+    }
+
+
+    /* [新增] 专门针对 Unit ID, Protocol 等列表项的字体放大 */
+    .container ul li, 
+    .container li {
+        font-size: 1.15rem !important; /* [关键] 比正文(0.95)大，比标题(1.8)小 */
+        line-height: 1.4;              /* 行高稍微紧凑一点，不像正文那么松 */
+        margin-bottom: 8px;            /* 列表项之间留点空隙 */
+        font-weight: bold;             /* 稍微加粗，强调这是参数指标 */
     }
 }
