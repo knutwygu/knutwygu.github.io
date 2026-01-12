@@ -319,53 +319,49 @@ details[open] summary::before {
    ========================================= */
 @media screen and (max-width: 768px) {
 
-    /* --- 1. 布局与边距微调 --- */
+        /* --- 1. 布局与边距微调 --- */
     .container {
-        position: relative !important; /* [关键] 让内部的绝对定位以我为基准 */
+        /* [核心修改 1] 强制最小高度：至少占屏幕高度的 80% */
+        /* 这样内容少的页面，框也会拉长，不会缩成一小条 */
+        min-height: 80vh !important; 
+
+        /* [核心修改 2] 统一的上下留白：上下各留 5% 的格子底 */
+        /* 5vh = 屏幕高度的 5%，保证了格子底永远露出来 */
+        margin: 7vh auto !important; 
         
-        /* 最小高度 80%，保证短页面也有长度 */
-        min-height: 80vh !important;
-        
-        /* [关键] 底部留白 = 按钮高度 + 间距。防止正文太长时被按钮盖住 */
-        padding-bottom: 100px !important; 
-        
-        /* 顶部留白，保持对称 */
-        padding-top: 30px !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        
-        /* 宽度设置 */
+        /* 保持之前的宽度设置 */
         width: 88% !important;
         max-width: 88% !important;
-        margin: 7vh auto !important;
         
-        /* 关闭 Flex，避免干扰绝对定位 */
-        display: block !important;
+        /* 保持之前的内边距 */
+        padding: 30px 20px 30px 20px !important; 
+        
+        /* [核心修改 3] 使用 Flex 布局，确保拉长后布局不乱 */
+        /* 这能让你的 "Return to Main" 按钮自动沉底 */
+        display: flex !important;
+        flex-direction: column !important;
+        
     }
 
-    
 
     /* [配套修改] 确保返回按钮或页脚永远沉在框的最底部 */
     /* 即使内容很少，框被强行拉长了，按钮也会乖乖呆在最下面 */
     .return-container, 
     .footer {
-        /* [核心 3] 绝对定位：无视所有中间内容，直接找 .container 的边框 */
-        position: absolute !important;
+        /* [核心] 自动占据上方剩余空间，把自己推到容器的最底部 */
+        margin-top: auto !important; 
         
-        /* [核心 4] 死死钉在距离底部 35px 的位置 */
-        /* 这样就和你顶部的 padding-top: 35px 形成了完美对称 */
-        bottom: 30px !important;
+        /* 按钮和上方正文的最小间距 (防止内容多时贴太近) */
+        padding-top: 30px !important; 
         
-        /* 左右撑开，对齐正文 (配合父容器的 padding 20px) */
-        left: 20px !important;
-        right: 20px !important;
-        width: auto !important; /* 让 left/right 生效 */
+        /* 底部清零，完全依赖 .container 的 35px padding-bottom 来保持距离 */
+        padding-bottom: 0 !important; 
+        margin-bottom: 0 !important;
         
-        /* 清除之前的干扰代码 */
-        margin: 0 !important;
-        padding: 0 !important;
-        background: transparent; /* 确保背景不遮挡 */
+        width: 100%;
     }
+
+
 
     
     /* --- 2. 字体比例缩放 --- */
