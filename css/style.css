@@ -46,6 +46,25 @@ body::after {
     position: relative; /* 确保内部定位正常 */
 }
 
+/* --- 电脑端专用：Return 按钮容器 --- */
+.return-container {
+    /* [核心] 距离上方正文 30px */
+    margin-top: 30px; 
+    
+    /* [核心] 距离下方边框 30px */
+    /* 注意：这里会叠加上父容器原本的 padding，如果觉得底部太空，可以把这里改为 0 */
+    margin-bottom: 30px; 
+
+    /* 电脑端不需要绝对定位，让它自然跟随在文字后面 */
+    position: relative; 
+    
+    /* 确保占满宽度，方便排版 */
+    width: 100%;
+    
+    /* 左对齐还是居中？电脑端通常左对齐看起来更整齐，也可以改成 center */
+    text-align: center; 
+}
+
 /* --- 3. 排版样式 --- */
 /* 标题 */
 h1 {
