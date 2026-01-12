@@ -319,53 +319,52 @@ details[open] summary::before {
 
 
 
+
 /* =========================================
-   ROBOT STYLES (桌面端样式)
-   注意：手机端的样式在最下面的 @media 里
+   ROBOT IMAGES (通用 + 电脑端设置)
    ========================================= */
 
-/* 1. 机器人容器通用设置 */
-.robot-wrapper {
-    position: fixed;
-    z-index: 5;          /* 保证在背景之上 */
-    pointer-events: none; /* 让鼠标穿透，不影响点击 */
-    opacity: 0.25;       /* 默认透明度，淡淡的 */
-    transition: opacity 0.3s;
+/* 1. 所有机器人的公共属性 (核心是去黑底) */
+.bg-robot-img {
+    position: fixed;         /* 默认固定在屏幕上 */
+    z-index: 5;
+    pointer-events: none;    /* 让鼠标穿透 */
+    mix-blend-mode: screen;  /* [魔法] 把黑色背景变透明，只留发光线条 */
+    opacity: 0.8;            /* 调整亮度 */
 }
 
-/* 2. 左上角机器人 (图纸) */
+/* 2. [电脑端] 左上角图纸 */
 .desktop-left {
     top: 50px;
     left: 20px;
-    width: 280px;
+    width: 300px;  /* 可以在这里调整大小 */
     height: auto;
-    animation: floatRobot 6s ease-in-out infinite;
+    animation: floatImg 6s ease-in-out infinite;
 }
 
-/* 3. 右下角机器人 (维修) */
+/* 3. [电脑端] 右下角维修 */
 .desktop-right {
     bottom: 20px;
     right: 20px;
-    width: 320px;
+    width: 350px;  /* 可以在这里调整大小 */
     height: auto;
-    animation: shakeRobot 0.2s linear infinite alternate;
+    animation: shakeImg 0.2s linear infinite alternate;
 }
 
-/* 电脑端机器人动画 */
-@keyframes floatRobot { 
-    0%, 100% { transform: translateY(0); } 
-    50% { transform: translateY(-15px); } 
-}
-@keyframes shakeRobot { 
-    0% { transform: translate(0, 0); } 
-    100% { transform: translate(1px, 1px); } 
-}
-
-/* 默认隐藏手机版机器人 (在电脑上不显示) */
+/* 4. [默认隐藏] 手机版机器人在电脑上不显示 */
 .mobile-top {
     display: none;
 }
 
+/* 动画定义 */
+@keyframes floatImg { 
+    0%, 100% { transform: translateY(0); } 
+    50% { transform: translateY(-10px); } 
+}
+@keyframes shakeImg { 
+    0% { transform: translate(0, 0); } 
+    100% { transform: translate(0.5px, 0.5px); } 
+}
 
 
 
@@ -384,34 +383,30 @@ details[open] summary::before {
    ========================================= */
 @media screen and (max-width: 768px) {
 
-        /* --- 1. 机器人控制 (适配 robots.js) --- */
+       /* --- 机器人显示逻辑 --- */
 
-    /* 隐藏电脑版的两个大机器人 */
+    /* 1. 隐藏电脑端的两个大图 */
     .desktop-left, .desktop-right {
         display: none !important;
     }
 
-    /* 旧代码清理：防止旧的 CSS 干扰 */
-    .bg-robot { display: none !important; }
-    .container::before { content: none !important; display: none !important; }
-
-    /* [新增] 设置手机版机器人的位置 (对应 robots.js 里的 .mobile-top) */
+    /* 2. 显示手机端的小图 */
     .mobile-top {
         display: block !important;
-        position: absolute;
-        top: -105px;       /* 趴在框顶 */
+        position: absolute;   /* 手机上要跟随框框，所以是 absolute */
+        top: -115px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
         left: 50%;
-        transform: translateX(-50%);
-        width: 140px;
+        transform: translateX(-50%); /* 居中 */
+        width: 150px;         /* 图片宽度 */
         height: auto;
-        z-index: 20;
-        opacity: 1;        /* 手机上不透明，清晰可见 */
+        opacity: 1;           /* 手机上保持高亮 */
+        mix-blend-mode: screen; /* 去黑底 */
     }
 
     /* 2. 修改 .container，让机器人有位置趴着 */
     .container {
         /* [重要] 增加顶部外边距，给机器人头部留出空间，否则会被切掉 */
-        margin-top: 120px !important; 
+        margin-top: 130px !important; 
         
         /* 保持你原来的设置 */
         min-height: 80vh !important;
