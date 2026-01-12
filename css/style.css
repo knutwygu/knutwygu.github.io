@@ -313,60 +313,71 @@ details[open] summary::before {
 
 
 /* =========================================
-   移动端终极适配 (Mobile Only)
-   请放在 CSS 文件最底部，覆盖上面所有设置
+   移动端终极修复 (Mobile Only Fixes)
+   请替换掉原文件最后的 @media 部分
    ========================================= */
 @media screen and (max-width: 768px) {
 
-    /* 1. 全局与容器调整 */
+    /* --- 1. 修复边框太近 (Width Fix) --- */
+    .container {
+        /* 原来是90vw太宽了，改用85%并配合 border-box */
+        width: 85% !important; 
+        max-width: 85% !important;
+        
+        /* 增加外边距，确保上下左右都有黑边 */
+        margin: 30px auto !important; 
+        
+        /* 调整内边距：上下大，左右小 */
+        padding: 40px 20px !important; 
+        
+        box-sizing: border-box; /* 确保 padding 不会撑大宽度 */
+    }
+
+    /* --- 2. 修复文字排版混乱 (Layout Fix) --- */
+    
+    /* [核心] 强制正文左对齐！截图里混乱是因为居中对齐了 */
+    .detail-content, 
+    .container p, 
+    .node-content {
+        text-align: left !important;  /* 必须左对齐，像写代码一样整齐 */
+        line-height: 1.8 !important;  /* 增加行距，呼吸感更强 */
+        font-size: 0.95rem;           /* 稍微改小字号，避免换行过多 */
+        margin-top: 10px;
+    }
+
+    /* 修复 THEORY / REALITY 标签的位置 */
+    .theory-tag, .reality-tag {
+        display: inline-block;        /* 保持块状 */
+        margin-top: 20px;             /* 离上面内容远一点 */
+        margin-bottom: 8px;           /* 离下面文字近一点 */
+        float: none;                  /* 禁止浮动，防止错位 */
+    }
+
+    /* 让标题保持居中，但正文左对齐 */
+    h1, h2, h3, .subtitle, summary {
+        text-align: center !important;
+    }
+
+    /* --- 3. 其他移动端优化 --- */
     body {
         padding: 0;
-        overflow-x: hidden; /* 禁止左右滑动 */
+        overflow-x: hidden;
     }
-
-    .container {
-        /* [再次确保] 手机上宽度是屏幕的 90% */
-        width: 90vw; 
-        max-width: 90vw;
-        margin: 20px auto;
-        
-        /* [再次确保] 名字离顶部的距离(50px) 和 按钮离底部的距离(50px) */
-        padding: 50px 20px 50px 20px; 
-    }
-
-    /* 2. 标题适配 */
-    h1 {
-        font-size: 2.2rem; /* 名字改小一点，防止折行 */
-        line-height: 1.2;
-        margin-bottom: 10px;
-    }
-
-    /* 3. 交互颜色简化 (解决你的第4个问题) */
     
-    /* 手机上取消鼠标悬停(Hover)的粉色和位移特效 */
-    summary:hover, 
-    summary:active {
-        color: #0f0;          /* 保持绿色 */
-        text-shadow: none;    /* 去掉粉色发光 */
-        transform: none;      /* 去掉向右位移 */
+    /* 手机上summary不需要缩进，让它居中显眼 */
+    summary {
+        justify-content: center; 
     }
-
-    /* 手机上点击展开后(Open) -> 变为青色 */
+    
+    /* 手机上去除复杂的 hover 颜色特效 */
+    summary:hover, summary:active {
+        color: #0f0;
+        text-shadow: none;
+        transform: none;
+    }
+    
+    /* 只有点开时变色 */
     details[open] summary {
-        color: #00ffff;       /* 只有展开时变色 */
-        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-    }
-    
-    /* 展开后箭头向下旋转 */
-    details[open] summary::before {
-        transform: rotate(90deg);
         color: #00ffff;
-    }
-    
-    /* 4. 代码和长文本防止撑开屏幕 */
-    pre, code, .detail-content {
-        word-wrap: break-word;
-        white-space: pre-wrap;
-        max-width: 100%;
     }
 }
