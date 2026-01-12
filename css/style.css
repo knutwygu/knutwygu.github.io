@@ -325,10 +325,10 @@ details[open] summary::before {
 /* 机器人的公共属性 */
 .bg-robot {
     position: fixed;
-    z-index: 1; /* 放在底层背景 */
+    z-index: 5; /* 放在底层背景 */
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: 0.15; /* [关键] 透明度极低，似有若无 */
+    opacity: 1.0; /* [关键] 透明度极低，似有若无 */
     pointer-events: none;
 }
 
