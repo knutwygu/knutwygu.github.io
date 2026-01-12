@@ -346,7 +346,75 @@ details[open] summary::before {
         padding: 10px 15px;
         font-size: 1rem; 
     }
+
+
+
+    /* =========================================
+   MOBILE ADAPTATION (手机端专用适配)
+   把这段放在 CSS 文件的最后面
+   ========================================= */
+@media screen and (max-width: 768px) {
+
+    /* 1. 全局容器调整：防止左右晃动 */
+    body {
+        padding: 10px;          /* 手机屏幕小，边距改小 */
+        overflow-x: hidden;     /* 禁止左右横向滚动 */
+        font-size: 14px;        /* 字体稍微调小一点，适配窄屏 */
+    }
+
+    /* 假设你的主要内容包裹在一个容器里 (比如 .container 或 main) */
+    .container, main, #app {
+        width: 100% !important; /* 强制占满手机宽度 */
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 5px;         /* 内容左右留一点缝隙 */
+    }
+
+    /* 2. 图片与视频自适应：防止撑破屏幕 */
+    img, video, iframe {
+        max-width: 100% !important;
+        height: auto;
+    }
+
+    /* 3. 代码块/长文本适配：允许内部滑动 */
+    pre, code {
+        white-space: pre-wrap;  /* 强制换行，防止代码把页面撑宽 */
+        word-wrap: break-word;
+        font-size: 0.85rem;     /* 手机上代码字小一点才看得全 */
+    }
+
+    /* =========================================
+       SUMMARY / 箭头组件 (手机端特化)
+       ========================================= */
+    summary {
+        /* 保持 Flex 布局，保证对齐 */
+        display: flex;
+        align-items: center;    
+        justify-content: flex-start; /* 手机上通常左对齐更好看，如果想居中改 center */
+        gap: 6px;               /* 手机屏幕小，间距稍微紧凑一点 */
+        padding: 12px 0;        /* 增大手指点击区域 (Touch Target) */
+        font-size: 1rem;
+    }
+
+    /* 手机没有 Hover (悬停)，只有点击 (Active)
+       为了体验一致，我们把 hover 的效果也加在 active 上 */
+    summary:active {
+        color: #ff00de;
+        text-shadow: 0 0 8px rgba(255, 0, 222, 0.6);
+        transform: translateX(5px); /* 手机点下去的时候，也会向前动一下 */
+    }
     
+    /* 保持原来的悬停效果 (部分手机长按会触发 hover) */
+    summary:hover {
+        color: #ff00de;
+        transform: translateX(5px);
+    }
+    
+    /* 展开状态保持不变 */
+    details[open] summary {
+        color: #00ffff;
+    }
+}
     /* 6. 页脚文字缩小一点 */
     .footer a {
         font-size: 1.1rem;
