@@ -152,7 +152,7 @@ h1 {
     display: inline-block; /* 让它独占一块空间，方便做动效 */
     margin-top: 10px;      /* 和上面的小字拉开距离 */
     
-    font-size: 0.8rem;     /* 【关键】字号放大！比正文大，一眼看到 */
+    font-size: 1.0rem;     /* 【关键】字号放大！比正文大，一眼看到 */
     font-weight: bold;     /* 加粗 */
     color: #ff00de;        /* 保持骚粉色 */
     
@@ -191,11 +191,6 @@ h1 {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
-
-
-
-
-
 
 
 /* =========================================
@@ -244,6 +239,42 @@ h1 {
     color: #fff;
     text-decoration: underline decoration-dotted #666;
 }
+
+
+
+
+
+/* =========================================
+   交互优化：让标题看起来“可点击”
+   ========================================= */
+
+summary {
+    cursor: pointer;             /* [关键] 鼠标放上去变成小手 */
+    list-style: none;            /* 隐藏默认三角 */
+    position: relative;
+    padding: 5px 0;              /* 增加一点点击区域，更好点 */
+    transition: all 0.2s ease;   /* 让变色有过渡动画，不生硬 */
+}
+
+/* 隐藏 Chrome/Safari 默认的小三角 */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* [新增] 鼠标悬停 (Hover) 时的特效 */
+summary:hover {
+    color: #ff00de;              /* 鼠标放上去变赛博粉 */
+    text-shadow: 0 0 8px rgba(255, 0, 222, 0.6); /* 文字发光 */
+    padding-left: 5px;           /* 稍微往右动一下，模拟“被选中”的动态感 */
+}
+
+/* 展开后的标题保持高亮（可选，如果你想让展开的标题一直亮着） */
+details[open] summary {
+    color: #00ffff;              /* 展开状态变电光青 */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+
 
 
 
