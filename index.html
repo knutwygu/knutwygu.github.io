@@ -43,7 +43,27 @@
         </div>
     </div>
 
-    <script src="robots.js"></script>
+    <img src="images/robot-blueprint.png" class="bg-robot-img desktop-left" alt="Blueprint Robot">
+
+    <img src="images/robot-fix.png" class="bg-robot-img desktop-right" alt="Repair Robot">
+
+    <script>
+        // 自动把手机图片插入到 container 顶部
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            // 只在手机且 container 存在时插入
+            if(container && window.innerWidth <= 768) {
+                const img = document.createElement('img');
+                img.src = 'images/robot-mobile.png';
+                img.className = 'bg-robot-img mobile-top';
+                img.alt = 'Peeking Robot';
+                container.insertBefore(img, container.firstChild);
+            }
+        });
+    </script>
+
+    <script src="icon.js"></script>
+</body>
 
     <script src="icon.js"></script>
 
