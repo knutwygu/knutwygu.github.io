@@ -536,7 +536,7 @@ details[open] summary::before {
         
         /* [核心修复 3] 调整字号比例 */
         /* 3.2vw 意味着字号是屏幕宽度的 3.2%，在 iPhone 上大约 12-13px */
-        font-size: 3.2vw !important; 
+        font-size: 2.8vw !important; 
         
         /* 减小内边距，给文字腾出空间 */
         padding: 12px 4px !important; 
@@ -556,10 +556,15 @@ details[open] summary::before {
 
     /* 单独针对 return 容器里的按钮进行重置 */
     .return-container .btn {
-        width: auto !important;       /* [核心] 取消 100% 宽度，改为自动适应文字 */
-        display: inline-flex;         /* 保持弹性布局对齐 */
-        padding: 10px 30px;           /* 可以稍微调整内边距，让它看起来不像主菜单那么“胖” */
-        min-width: 200px;             /* (可选) 给个最小宽度，防止字太少按钮太短不好看 */
+        width: auto !important;           /* [核心] 取消100%宽度，根据文字自适应 */
+        display: inline-flex !important;  /* 变为行内弹性盒子，收缩边框 */
+        min-width: 0 !important;          /* 清除最小宽度限制 */
+        margin: 0 auto !important;        /* 确保居中 */
+        padding: 10px 30px !important;    /* 稍微调整一下内边距，让它好看点 */
+    
+    /* 解决之前的“两行”问题，防止它被意外压缩 */
+        white-space: nowrap !important;   
+        flex-wrap: nowrap !important;
     }
 
 }
