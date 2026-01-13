@@ -99,13 +99,13 @@
                 <div class="detail-content">
                     <p style="margin-bottom: 15px;">
                         <span class="theory-tag">THEORY</span> 
-                        <strong>Finite State Machine (FSM).</strong><br>
-                        The machine operates on simple Boolean Logic. It uses an <strong>AND Gate</strong> structure: <br>
-                        <code>IF (Water_Level == HIGH) AND (Button == PRESSED) THEN (Pump = ON)</code>.
+                        <strong>Boolean Logic (Y = A · B).</strong><br>
+                        Your machine is effectively a simple computer. It uses a hardware <strong>AND Gate</strong> structure for safety: <br>
+                        <code>IF (Water_Level == 1) AND (Button == 1) THEN (Pump = ON)</code>. If either input is 0, the system stays idle.
                     </p>
                     <p>
                         <span class="reality-tag">REALITY</span> 
-                        Next time it doesn't work, think like a debugger. Is the input sensor (water tank) failing? Or is the switch (button) bouncing? It's not magic; it's just a conditional statement waiting for True inputs.
+                        Next time it fails, think like a debugger: which input is sending a "False" signal? <span class="highlight">Pro Tip:</span> The water tank's magnetic float sensor often gets stuck due to scale buildup. A quick shake is usually all it needs to flip that sensor bit back to "1"!
                     </p>
                 </div>
             </details>
