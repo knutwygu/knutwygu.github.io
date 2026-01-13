@@ -157,9 +157,9 @@ h1 {
 .btn .btn-desc {
     font-size: 0.8em;  /* 字号缩小为原来的 75% */
     opacity: 1;       /*稍微降低透明度，让后面的 [About] 更亮 */
-    margin-right: 3px;  /* 和后面的括号保持一点距离 */
+    margin-right: 5px;  /* 和后面的括号保持一点距离 */
     text-transform: uppercase; /* 可选：变成全大写，更有机械感 */
-    letter-spacing: 0.5px; /* 可选：增加一点字间距 */
+    letter-spacing: 1px; /* 可选：增加一点字间距 */
     font-weight: normal; /* 确保它不加粗，对比更明显 */
 }
 
@@ -537,7 +537,7 @@ details[open] summary::before {
         
         /* [核心修复 3] 调整字号比例 */
         /* 3.2vw 意味着字号是屏幕宽度的 3.2%，在 iPhone 上大约 12-13px */
-        font-size: 2.8vw !important; 
+        font-size: 2.4vw !important; 
         
         /* 减小内边距，给文字腾出空间 */
         padding: 12px 4px !important; 
