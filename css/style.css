@@ -381,7 +381,7 @@ details[open] summary::before {
 }
 @keyframes shakeImg { 
     0% { transform: translate(0, 0); } 
-    100% { transform: translate(0.5px, 0.5px); } 
+    100% { transform: translate(0.7px, 0.7px); } 
 }
 
 
