@@ -305,6 +305,65 @@ h1 {
 
 
 /* =========================================
+   Resume Page Special (简历页专用)
+   ========================================= */
+
+/* 酷炫的下载按钮容器 */
+.download-section {
+    margin: 40px 0;
+    text-align: center;
+    position: relative;
+}
+
+/* 下载按钮本体 */
+.download-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #0f0;
+    background: #000;
+    border: 2px solid #0f0;    /* 加粗边框 */
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    overflow: hidden;          /* 藏住里面的扫描线 */
+}
+
+/* 按钮内部的扫描线动画 */
+.download-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.4), transparent);
+    animation: scan-btn 2s infinite;
+}
+
+/* 鼠标悬停效果 */
+.download-btn:hover {
+    background: #0f0;
+    color: #000;
+    box-shadow: 0 0 25px #0f0;
+    transform: scale(1.05);
+}
+
+/* 扫描动画定义 */
+@keyframes scan-btn {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+}
+
+
+
+
+
+/* =========================================
    PRACTICAL PATCHES 颜色补丁 (终极版)
    ========================================= */
 
@@ -650,6 +709,13 @@ details[open] summary::before {
         font-size: 0.95rem;     /* 稍微调小字号 */
         text-align: left;       /* 再次强制左对齐 */
         word-wrap: break-word;  /* 防止长单词撑破屏幕 */
+    }
+
+
+    .download-btn {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1rem;
     }
 
 }
