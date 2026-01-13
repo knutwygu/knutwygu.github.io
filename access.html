@@ -65,16 +65,16 @@
             </p>
             
             <details>
-                <summary>Fixing a broken headphone jack (Soldering)</summary>
+                <summary>Audio System Debugging (Ground Loop Elimination)</summary>
                 <div class="detail-content">
                     <p style="margin-bottom: 15px;">
                         <span class="theory-tag">THEORY</span> 
-                        <strong>Circuit Continuity & Impedance.</strong><br>
-                        A broken wire creates an "Open Circuit" (Infinite Impedance), meaning no current flows to the driver. The 3.5mm jack is a <strong>TRS</strong> connector: Tip (Left), Ring (Right), Sleeve (Ground).
+                        <strong>Ground Potential Differences.</strong><br>
+                        "Ground" is rarely a perfect equipotential surface. Connecting multiple AC-powered devices via unbalanced cables creates a conductive loop between chassis grounds. This potential difference drives current through the cable shield, inducing audible 60Hz mains hum into the analog signal path.
                     </p>
                     <p>
                         <span class="reality-tag">REALITY</span> 
-                        Don't throw it away. Strip the wire, match the colors (Red=Right, Blue/Green=Left, Copper=Ground). Burn off the enamel coating with solder (it acts as flux). Re-establish continuity. You just saved $20.
+                        Faced with persistent buzz in a monitor setup, I identified a ground loop between the PC and amplifier. The solution was integrating a <span class="highlight">passive audio isolation transformer</span>. This magnetically coupled the AC signal while breaking the galvanic DC ground connection, instantly dropping the noise floor.
                     </p>
                 </div>
             </details>
