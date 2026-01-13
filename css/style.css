@@ -350,7 +350,7 @@ details[open] summary::before {
     right: 40px;
     width: 340px;  /* 可以在这里调整大小 */
     height: auto;
-    animation: shakeImg 0.7s linear infinite alternate;
+    animation: shakeImg 0.4s linear infinite alternate;
 }
 
 /* 4. [默认隐藏] 手机版机器人在电脑上不显示 */
