@@ -65,16 +65,16 @@
             </p>
             
             <details>
-                <summary>Audio System Debugging (Ground Loop Elimination)</summary>
+                <summary>Why speakers hum (Ground Loops)</summary>
                 <div class="detail-content">
                     <p style="margin-bottom: 15px;">
                         <span class="theory-tag">THEORY</span> 
-                        <strong>Ground Potential Differences.</strong><br>
-                        "Ground" is rarely a perfect equipotential surface. Connecting multiple AC-powered devices via unbalanced cables creates a conductive loop between chassis grounds. This potential difference drives current through the cable shield, inducing audible 60Hz mains hum into the analog signal path.
+                        <strong>Ground Potential Difference (V = IR).</strong><br>
+                        "Ground" is rarely 0V everywhere. When devices connect to different outlets, they form a giant conductive loop. This loop acts like an antenna, picking up 60Hz AC noise that gets amplified as that annoying "buzz."
                     </p>
                     <p>
                         <span class="reality-tag">REALITY</span> 
-                        Faced with persistent buzz in a monitor setup, I identified a ground loop between the PC and amplifier. The solution was integrating a <span class="highlight">passive audio isolation transformer</span>. This magnetically coupled the AC signal while breaking the galvanic DC ground connection, instantly dropping the noise floor.
+                        It's not a ghost in the machine; it's physics. The best fix isn't expensive cables, but breaking the loop with a <span class="highlight">Ground Loop Isolator</span>. <span class="highlight">Pro Tip:</span> Before buying gear, try plugging your PC and speakers into the <strong>same power strip</strong> to minimize the loop area!
                     </p>
                 </div>
             </details>
