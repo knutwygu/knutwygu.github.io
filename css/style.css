@@ -396,7 +396,7 @@ details[open] summary::before {
     .mobile-top {
         display: block !important;
         position: absolute;   /* 手机上要跟随框框，所以是 absolute */
-        top: -130px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
+        top: 35px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
         left: 50%;
         transform: translateX(-50%); /* 居中 */
         width: 180px;         /* 图片宽度 */
@@ -404,7 +404,7 @@ details[open] summary::before {
         opacity: 1;           /* 手机上保持高亮 */
         filter: brightness(1.2);
         mix-blend-mode: screen; /* 去黑底 */
-        z-index: 20;
+        z-index: 9999;
     }
 
     /* 2. 修改 .container，让机器人有位置趴着 */
