@@ -131,6 +131,16 @@ h1 {
     margin-top: 30px;
 }
 
+/* 针对按钮内的描述文字 (System Specifications 等) */
+.btn .btn-desc {
+    font-size: 0.75em;  /* 字号缩小为原来的 75% */
+    opacity: 0.8;       /*稍微降低透明度，让后面的 [About] 更亮 */
+    margin-right: 5px;  /* 和后面的括号保持一点距离 */
+    text-transform: uppercase; /* 可选：变成全大写，更有机械感 */
+    letter-spacing: 1px; /* 可选：增加一点字间距 */
+    font-weight: normal; /* 确保它不加粗，对比更明显 */
+}
+
 .btn {
     text-decoration: none;
     color: #0f0;
@@ -141,7 +151,9 @@ h1 {
     text-transform: uppercase;
     position: relative;
     background: rgba(0, 0, 0, 0.6);
-    display: block; /* 确保占满宽度 */
+    display: inline-flex; /* 确保占满宽度 */
+    align-items: baseline; /* 或者 center，看你喜欢 */
+    gap: 4px;
 }
 
 .btn:hover {
