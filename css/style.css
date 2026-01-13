@@ -154,7 +154,9 @@ h1 {
     display: inline-flex; /* 确保占满宽度 */
     align-items: center; /* 或者 center，看你喜欢 */
     justify-content: center;  /* 【关键】让内容在水平方向居中 */
-    gap: 4px;
+
+    /* --- 新增这行 --- */
+    white-space: nowrap; /* [核心] 强制文字都在一行，死也不换行 */
     /* 以下是为了确保兼容性，建议加上 */
     width: 100%;              /* 如果你是垂直排列的按钮，这会让按钮占满容器 */
     box-sizing: border-box;   /* 防止 padding 把按钮撑大 */
@@ -364,7 +366,7 @@ details[open] summary::before {
 .desktop-right {
     bottom: 40px;
     right: 40px;
-    width: 340px;  /* 可以在这里调整大小 */
+    width: 320px;  /* 可以在这里调整大小 */
     height: auto;
     animation: shakeImg 0.4s linear infinite alternate;
 }
@@ -381,7 +383,7 @@ details[open] summary::before {
 }
 @keyframes shakeImg { 
     0% { transform: translate(0, 0); } 
-    100% { transform: translate(0.7px, 0.7px); } 
+    100% { transform: translate(1px, 1px); } 
 }
 
 
@@ -469,7 +471,7 @@ details[open] summary::before {
     /* --- 2. 字体比例缩放 --- */
     /* [修改] 名字大大减小，从 3.5rem -> 1.8rem，看起来更精致 */
     h1 {
-        font-size: 1.8rem !important; 
+        font-size: 2.4rem !important; 
         line-height: 1.1;
         margin-bottom: 15px;
         text-align: center;
@@ -477,7 +479,7 @@ details[open] summary::before {
 
     /* 副标题也按比例微调 */
     .subtitle {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
         text-align: center;            /* 副标题通常居中好看 */
     }
 
@@ -518,5 +520,26 @@ details[open] summary::before {
     details[open] summary {
         color: #00ffff; /* 展开变色 */
     }
+
+
+    /* [新增/修改] 按钮自动缩放逻辑 */
+    .btn {
+        /* 3.8vw 意味着字号是屏幕宽度的 3.8%。
+           在 iPhone (375px) 上大约是 14px，刚好一行放得下。
+           你可以根据实际效果微调这个数字 (3.5vw - 4.2vw 之间)。
+        */
+        font-size: 3.8vw !important; 
+        
+        /* 减小手机上的内边距，把空间留给文字 */
+        padding: 12px 8px !important; 
+        
+        /* 确保 gap 也按比例缩小 */
+        gap: 3px; 
+    }
+
+    /* 因为 .btn-desc 是用 em (相对单位) 定义的 (0.75em)，
+       所以它会自动跟随上面的 font-size: 3.8vw 进行同比例缩小，
+       不需要额外单独写 .btn-desc 的样式！
+    */
 
 }
