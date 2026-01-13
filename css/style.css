@@ -537,7 +537,7 @@ details[open] summary::before {
         
         /* [核心修复 3] 调整字号比例 */
         /* 3.2vw 意味着字号是屏幕宽度的 3.2%，在 iPhone 上大约 12-13px */
-        font-size: 2.4vw !important; 
+        font-size: 2.8vw !important; 
         
         /* 减小内边距，给文字腾出空间 */
         padding: 12px 4px !important; 
