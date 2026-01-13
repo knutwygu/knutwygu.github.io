@@ -233,6 +233,77 @@ h1 {
 }
 
 
+
+/* =========================================
+   Standard Content Layout (通用内容排版系统)
+   ========================================= */
+
+/* 1. 内容区块容器：控制整体宽度，防止文字太宽很难看 */
+.content-block {
+    max-width: 550px;        /* 限制最大宽度，让内容在电脑上精致居中 */
+    margin: 0 auto 40px auto;/* 上下留白，左右自动居中 */
+    text-align: left;        /* [核心] 强制左对齐！这是解决手机端混乱的关键 */
+    padding: 0 10px;         /* 给左右留点呼吸空间 */
+}
+
+/* 2. 小标题样式 (例如: [UNIT_METRICS]) */
+.content-header {
+    font-size: 1.1rem;
+    color: #fff;             /* 白色标题 */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-align: center;      /* [核心] 标题本身居中，保持视觉平衡 */
+    border-bottom: 1px dashed #333; /* 虚线底边，增加科技感 */
+    padding-bottom: 5px;
+}
+
+/* 小标题里的粉色高亮 */
+.content-header .highlight {
+    color: #ff00de;
+    font-weight: bold;
+}
+
+/* 3. 科技感列表 (替代默认的圆点) */
+.tech-list {
+    list-style: none;        /* 去掉默认黑点 */
+    padding: 0;
+    margin: 0;
+}
+
+.tech-list li {
+    position: relative;
+    padding-left: 25px;      /* 给前面的符号留位置 */
+    margin-bottom: 12px;     /* 条目之间的间距 */
+    line-height: 1.6;        /* 增加行高，防止文字挤在一起 */
+    color: #0f0;             /* 默认绿色 */
+    font-size: 1rem;
+}
+
+/* 自定义列表符号 (使用 :: ) */
+.tech-list li::before {
+    content: "::";           /* 这是一个很酷的代码风格符号 */
+    position: absolute;
+    left: 0;
+    color: #ff00de;          /* 符号用粉色，撞色好看 */
+    font-weight: bold;
+}
+
+/* 列表里的白色强调字 */
+.tech-list strong {
+    color: #fff;
+    font-weight: normal;     /* 不需要太粗，颜色区分即可 */
+}
+
+/* 列表里的注释文字 (灰色) */
+.tech-list .comment {
+    color: #888;
+    font-size: 0.9em;
+    margin-left: 5px;
+}
+
+
+
 /* =========================================
    PRACTICAL PATCHES 颜色补丁 (终极版)
    ========================================= */
@@ -566,6 +637,19 @@ details[open] summary::before {
     /* 解决之前的“两行”问题，防止它被意外压缩 */
         white-space: nowrap !important;   
         flex-wrap: nowrap !important;
+    }
+
+
+    /* [新增] 手机端内容块优化 */
+    .content-block {
+        width: 100% !important; /* 手机上占满容器 */
+        padding: 0 !important;  /* 去掉多余内边距 */
+    }
+
+    .tech-list li {
+        font-size: 0.95rem;     /* 稍微调小字号 */
+        text-align: left;       /* 再次强制左对齐 */
+        word-wrap: break-word;  /* 防止长单词撑破屏幕 */
     }
 
 }
