@@ -338,8 +338,8 @@ details[open] summary::before {
 /* 2. [电脑端] 左上角图纸 */
 .desktop-left {
     top: 60px;
-    left: 20px;
-    width: 280px;  /* 可以在这里调整大小 */
+    left: 50px;
+    width: 250px;  /* 可以在这里调整大小 */
     height: auto;
     animation: floatImg 6s ease-in-out infinite;
 }
@@ -350,7 +350,7 @@ details[open] summary::before {
     right: 40px;
     width: 340px;  /* 可以在这里调整大小 */
     height: auto;
-    animation: shakeImg 0.4s linear infinite alternate;
+    animation: shakeImg 0.5s linear infinite alternate;
 }
 
 /* 4. [默认隐藏] 手机版机器人在电脑上不显示 */
@@ -396,20 +396,20 @@ details[open] summary::before {
     .mobile-top {
         display: block !important;
         position: absolute;   /* 手机上要跟随框框，所以是 absolute */
-        top: -110px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
+        top: -130px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
         left: 50%;
         transform: translateX(-50%); /* 居中 */
-        width: 150px;         /* 图片宽度 */
+        width: 180px;         /* 图片宽度 */
         height: auto;
         opacity: 1;           /* 手机上保持高亮 */
         mix-blend-mode: lighten; /* 去黑底 */
-        z-index: 20;
+        z-index: 5;
     }
 
     /* 2. 修改 .container，让机器人有位置趴着 */
     .container {
         /* [重要] 增加顶部外边距，给机器人头部留出空间，否则会被切掉 */
-        margin-top: 130px !important; 
+        margin-top: 150px !important; 
         
         /* 保持你原来的设置 */
         min-height: 80vh !important;
