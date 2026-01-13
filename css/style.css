@@ -133,7 +133,7 @@ h1 {
 
 /* 针对按钮内的描述文字 (System Specifications 等) */
 .btn .btn-desc {
-    font-size: 0.75em;  /* 字号缩小为原来的 75% */
+    font-size: 0.8em;  /* 字号缩小为原来的 75% */
     opacity: 1;       /*稍微降低透明度，让后面的 [About] 更亮 */
     margin-right: 5px;  /* 和后面的括号保持一点距离 */
     text-transform: uppercase; /* 可选：变成全大写，更有机械感 */
@@ -153,7 +153,11 @@ h1 {
     background: rgba(0, 0, 0, 0.6);
     display: inline-flex; /* 确保占满宽度 */
     align-items: center; /* 或者 center，看你喜欢 */
+    justify-content: center;  /* 【关键】让内容在水平方向居中 */
     gap: 4px;
+    /* 以下是为了确保兼容性，建议加上 */
+    width: 100%;              /* 如果你是垂直排列的按钮，这会让按钮占满容器 */
+    box-sizing: border-box;   /* 防止 padding 把按钮撑大 */
 }
 
 .btn:hover {
