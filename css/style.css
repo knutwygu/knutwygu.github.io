@@ -396,7 +396,7 @@ details[open] summary::before {
     .mobile-top {
         display: block !important;
         position: absolute;   /* 手机上要跟随框框，所以是 absolute */
-        top: 35px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
+        top: 65px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
         left: 50%;
         transform: translateX(-50%); /* 居中 */
         width: 180px;         /* 图片宽度 */
