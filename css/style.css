@@ -454,10 +454,10 @@ details[open] summary::before {
     .return-container, 
     .footer {
         /* [核心] 自动占据上方剩余空间，把自己推到容器的最底部 */
-        margin-top: auto !important; 
+        margin-top: 30px !important; 
         
         /* 按钮和上方正文的最小间距 (防止内容多时贴太近) */
-        padding-top: 30px !important; 
+        padding-top: 20px !important; 
         
         /* 底部清零，完全依赖 .container 的 35px padding-bottom 来保持距离 */
         padding-bottom: 0 !important; 
