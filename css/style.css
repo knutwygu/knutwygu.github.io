@@ -428,7 +428,7 @@ details[open] summary::before {
     /* 2. 修改 .container，让机器人有位置趴着 */
     .container {
         /* [重要] 增加顶部外边距，给机器人头部留出空间，否则会被切掉 */
-        margin-top: 150px !important; 
+        margin-top: 130px !important; 
         
         /* 保持你原来的设置 */
         min-height: 80vh !important;
@@ -524,22 +524,34 @@ details[open] summary::before {
 
     /* [新增/修改] 按钮自动缩放逻辑 */
     .btn {
-        /* 3.8vw 意味着字号是屏幕宽度的 3.8%。
-           在 iPhone (375px) 上大约是 14px，刚好一行放得下。
-           你可以根据实际效果微调这个数字 (3.5vw - 4.2vw 之间)。
-        */
-        font-size: 3.8vw !important; 
+        /* [核心修复 1] 强制一行显示 */
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important; /* 改用 center，布局更稳 */
+        justify-content: center !important;
         
-        /* 减小手机上的内边距，把空间留给文字 */
-        padding: 12px 8px !important; 
+        /* [核心修复 2] 彻底锁死文字不换行 */
+        white-space: nowrap !important;
         
-        /* 确保 gap 也按比例缩小 */
-        gap: 3px; 
+        /* [核心修复 3] 调整字号比例 */
+        /* 3.2vw 意味着字号是屏幕宽度的 3.2%，在 iPhone 上大约 12-13px */
+        font-size: 3.2vw !important; 
+        
+        /* 减小内边距，给文字腾出空间 */
+        padding: 12px 4px !important; 
+        
+        /* 确保宽度占满 */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    /* 因为 .btn-desc 是用 em (相对单位) 定义的 (0.75em)，
-       所以它会自动跟随上面的 font-size: 3.8vw 进行同比例缩小，
-       不需要额外单独写 .btn-desc 的样式！
-    */
+    /* 确保按钮里的描述文字 (System Specs 等) 也乖乖听话 */
+    .btn .btn-desc {
+        font-size: 0.85em !important; /* 相对父级字体缩小一点 */
+        margin-right: 6px !important;
+        white-space: nowrap !important; /* 也是强制不换行 */
+        
+    }
 
 }
