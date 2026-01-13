@@ -131,15 +131,6 @@ h1 {
     margin-top: 30px;
 }
 
-/* 针对按钮内的描述文字 (System Specifications 等) */
-.btn .btn-desc {
-    font-size: 0.8em;  /* 字号缩小为原来的 75% */
-    opacity: 1;       /*稍微降低透明度，让后面的 [About] 更亮 */
-    margin-right: 5px;  /* 和后面的括号保持一点距离 */
-    text-transform: uppercase; /* 可选：变成全大写，更有机械感 */
-    letter-spacing: 1px; /* 可选：增加一点字间距 */
-    font-weight: normal; /* 确保它不加粗，对比更明显 */
-}
 
 .btn {
     text-decoration: none;
@@ -160,6 +151,16 @@ h1 {
     /* 以下是为了确保兼容性，建议加上 */
     width: 100%;              /* 如果你是垂直排列的按钮，这会让按钮占满容器 */
     box-sizing: border-box;   /* 防止 padding 把按钮撑大 */
+}
+
+/* 针对按钮内的描述文字 (System Specifications 等) */
+.btn .btn-desc {
+    font-size: 0.8em;  /* 字号缩小为原来的 75% */
+    opacity: 1;       /*稍微降低透明度，让后面的 [About] 更亮 */
+    margin-right: 3px;  /* 和后面的括号保持一点距离 */
+    text-transform: uppercase; /* 可选：变成全大写，更有机械感 */
+    letter-spacing: 0.5px; /* 可选：增加一点字间距 */
+    font-weight: normal; /* 确保它不加粗，对比更明显 */
 }
 
 .btn:hover {
@@ -432,8 +433,8 @@ details[open] summary::before {
         
         /* 保持你原来的设置 */
         min-height: 80vh !important;
-        width: 88% !important;
-        max-width: 88% !important;
+        width: 85% !important;
+        max-width: 85% !important;
         padding: 30px 20px 30px 20px !important;
         display: flex !important;
         flex-direction: column !important;
