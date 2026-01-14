@@ -543,24 +543,24 @@ details[open] summary::before {
     pointer-events: none;    /* 让鼠标穿透 */
     mix-blend-mode: lighten;  /* [魔法] 把黑色背景变透明，只留发光线条 */
     /* 稍微增强对比度，让绿色线条更亮 */
-    filter: contrast(1.2) brightness(1.1);
-    opacity: 0.9;            /* 调整亮度 */
+    filter: contrast(1.2) brightness(0.7);
+    opacity: 0.5;            /* 调整亮度 */
 }
 
 /* 2. [电脑端] 左上角图纸 */
 .desktop-left {
-    top: 60px;
-    left: 70px;
-    width: 240px;  /* 可以在这里调整大小 */
+    top: 70px;
+    left: 80px;
+    width: 200px;  /* 可以在这里调整大小 */
     height: auto;
     animation: floatImg 6s ease-in-out infinite;
 }
 
 /* 3. [电脑端] 右下角维修 */
 .desktop-right {
-    bottom: 40px;
-    right: 40px;
-    width: 320px;  /* 可以在这里调整大小 */
+    bottom: 50px;
+    right: 50px;
+    width: 300px;  /* 可以在这里调整大小 */
     height: auto;
     animation: shakeImg 0.4s linear infinite alternate;
 }
