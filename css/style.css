@@ -318,10 +318,15 @@ h1 {
 
 /* 下载按钮本体 (常态) */
 .download-btn {
-    display: inline-flex;      /* 用 flex 保证图标和文字对齐 */
+    display: flex;      /* 用 flex 保证图标和文字对齐 */
     align-items: center;
     justify-content: center;
     gap: 8px;                 /* 图标和字的间距 */
+
+    /* [修改 2] 强制撑满宽度 */
+    width: 100%;               
+    /* [修改 3] 这一句很重要，防止边框把按钮撑爆 */
+    box-sizing: border-box;
     
     text-decoration: none;
     /* [核心改动] 基础颜色改为电光青 */
@@ -745,11 +750,11 @@ details[open] summary::before {
 
     /* 单独针对 return 容器里的按钮进行重置 */
     .return-container .btn {
-        width: auto !important;           /* [核心] 取消100%宽度，根据文字自适应 */
-        display: inline-flex !important;  /* 变为行内弹性盒子，收缩边框 */
+        width: 100% !important;           /* [核心] 取消100%宽度，根据文字自适应 */
+        display: flex !important;  /* 变为行内弹性盒子，收缩边框 */
         min-width: 0 !important;          /* 清除最小宽度限制 */
         margin: 0 auto !important;        /* 确保居中 */
-        padding: 10px 30px !important;    /* 稍微调整一下内边距，让它好看点 */
+        padding: 10px 0 !important;    /* 稍微调整一下内边距，让它好看点 */
     
     /* 解决之前的“两行”问题，防止它被意外压缩 */
         white-space: nowrap !important;   
