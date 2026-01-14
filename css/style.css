@@ -774,10 +774,22 @@ details[open] summary::before {
         width: 100%;
         box-sizing: border-box;
         font-size: 1.0rem; /* 手机上稍微小一点 */
-        padding: 12px 20px;
+        padding: 12px 15px;
     }
     .download-btn::before {
         font-size: 1.2rem;
+    }
+
+
+    /* [精准修复] 只修改 Resume 页面的标题距离，不影响其他页面 */
+    .resume-subtitle {
+        margin-bottom: 15px !important; /* 强制覆盖掉那 40px */
+    }
+
+    /* 下载按钮区域的调整保持不变 */
+    .download-section {
+        margin-top: 10px !important;
+        margin-bottom: 20px !important;
     }
 
 }
