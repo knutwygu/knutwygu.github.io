@@ -304,60 +304,118 @@ h1 {
 
 
 
-/* =========================================
-   Resume Page Special (简历页专用)
+ /* =========================================
+   Resume Page Special (简历页专用 - 电光青版)
    ========================================= */
 
 /* 酷炫的下载按钮容器 */
 .download-section {
-    margin: 40px 0;
+    margin: 40px 0 30px 0; /* 调整一下边距 */
     text-align: center;
     position: relative;
+    z-index: 20; /* 确保在最上层 */
 }
 
-/* 下载按钮本体 */
+/* 下载按钮本体 (常态) */
 .download-btn {
-    display: inline-block;
+    display: inline-flex;      /* 用 flex 保证图标和文字对齐 */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;                 /* 图标和字的间距 */
+    
     text-decoration: none;
-    color: #0f0;
-    background: #000;
-    border: 2px solid #0f0;    /* 加粗边框 */
-    padding: 15px 40px;
-    font-size: 1.2rem;
+    /* [核心改动] 基础颜色改为电光青 */
+    color: #00ffff;            
+    background: rgba(0, 20, 25, 0.8); /* 深青色半透明背景，比纯黑更有质感 */
+    border: 2px solid #00ffff;    /* 青色边框 */
+    
+    padding: 16px 40px;           /* 稍微大一点点 */
+    font-size: 1.3rem;            /* 字号加大 */
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    
+    /* [核心动画] 借鉴页脚：平滑过渡 */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    
+    /* 常态下的微弱呼吸光 */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
     overflow: hidden;          /* 藏住里面的扫描线 */
 }
 
-/* 按钮内部的扫描线动画 */
+/* [新增] 按钮前面的下载图标 (用纯 CSS 画一个箭头) */
+.download-btn::before {
+    content: "↓";  /* 向下的箭头 */
+    font-size: 1.4rem;
+    margin-right: 5px;
+    display: inline-block;
+    /* [核心动画] 常态下缓慢上下浮动 */
+    animation: floatArrow 2s ease-in-out infinite alternate;
+}
+
+/* 按钮内部的扫描线动画 (改为青色) */
 .download-btn::after {
     content: "";
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
+    left: -150%; /* 起始位置更靠左，防止露馅 */
+    width: 150%; /* 宽度加大 */
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.4), transparent);
-    animation: scan-btn 2s infinite;
+    /* 青色扫描光束 */
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.8), transparent);
+    transform: skewX(-20deg); /* 倾斜一点看起来更动感 */
+    /* 常态下慢速扫描 */
+    animation: scan-btn 4s infinite linear;
 }
 
-/* 鼠标悬停效果 */
+
+/* --- 鼠标悬停超级特效 (Hover State) --- */
 .download-btn:hover {
-    background: #0f0;
-    color: #000;
-    box-shadow: 0 0 25px #0f0;
-    transform: scale(1.05);
+    /* 1. 文字变白，背景变亮青色 (借鉴页脚) */
+    color: #ffffff;
+    background: rgba(0, 255, 255, 0.25); 
+    border-color: #ffffff; /* 边框也变白 */
+    
+    /* 2. 强烈的双重发光 (外部爆发 + 内部高亮) */
+    box-shadow: 
+        0 0 40px rgba(0, 255, 255, 0.8),  /* 外部大光晕 */
+        inset 0 0 20px rgba(0, 255, 255, 0.6); /* 内部高亮 */
+        
+    /* 3. 文字本身发光 */
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #00ffff;
+
+    /* 4. 整体上浮 (借鉴页脚，但幅度更大) */
+    transform: translateY(-4px) scale(1.02);
 }
 
-/* 扫描动画定义 */
-@keyframes scan-btn {
-    0% { left: -100%; }
-    50%, 100% { left: 100%; }
+/* 鼠标悬停时，内部扫描线加速! */
+.download-btn:hover::after {
+    animation: scan-btn 1s infinite linear; /* 速度提升4倍 */
+    opacity: 1;
 }
+
+/* 鼠标悬停时，箭头停止浮动，固定住 */
+.download-btn:hover::before {
+    animation: none;
+    transform: translateY(2px); /* 稍微往下按一点，表示准备下载 */
+}
+
+
+/* --- 动画定义 --- */
+/* 扫描线动画 */
+@keyframes scan-btn {
+    0% { left: -150%; }
+    100% { left: 150%; }
+}
+
+/* 箭头上下浮动动画 */
+@keyframes floatArrow {
+    0% { transform: translateY(-2px); }
+    100% { transform: translateY(2px); }
+}
+
+
 
 
 
@@ -715,7 +773,11 @@ details[open] summary::before {
     .download-btn {
         width: 100%;
         box-sizing: border-box;
-        font-size: 1rem;
+        font-size: 1.1rem; /* 手机上稍微小一点 */
+        padding: 14px 20px;
+    }
+    .download-btn::before {
+        font-size: 1.2rem;
     }
 
 }
