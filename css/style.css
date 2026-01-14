@@ -700,7 +700,9 @@ details[open] summary::before {
 
     /* --- 4. 交互组件优化 --- */
     summary {
-        justify-content: center; /* 折叠标题居中 */
+        justify-content: flex-start !important; /* [核心] 取消居中，让箭头和文字靠左 */
+        text-align: left !important;            /* 确保多行文字本身也是左对齐 */
+        padding-left: 5px !important;           /* 稍微留一点点左边距，防止贴着屏幕边 */
         font-size: 1rem;
     }
 
@@ -730,7 +732,7 @@ details[open] summary::before {
         
         /* [核心修复 3] 调整字号比例 */
         /* 3.2vw 意味着字号是屏幕宽度的 3.2%，在 iPhone 上大约 12-13px */
-        font-size: 2.8vw !important; 
+        font-size: 0.95rem !important; 
         
         /* 减小内边距，给文字腾出空间 */
         padding: 12px 4px !important; 
