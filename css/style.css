@@ -310,7 +310,7 @@ h1 {
 
 /* 酷炫的下载按钮容器 */
 .download-section {
-    margin: 40px 0 30px 0; /* 调整一下边距 */
+    margin: 30px 0; /* 调整一下边距 */
     text-align: center;
     position: relative;
     z-index: 20; /* 确保在最上层 */
@@ -321,7 +321,7 @@ h1 {
     display: inline-flex;      /* 用 flex 保证图标和文字对齐 */
     align-items: center;
     justify-content: center;
-    gap: 10px;                 /* 图标和字的间距 */
+    gap: 8px;                 /* 图标和字的间距 */
     
     text-decoration: none;
     /* [核心改动] 基础颜色改为电光青 */
@@ -329,8 +329,8 @@ h1 {
     background: rgba(0, 20, 25, 0.8); /* 深青色半透明背景，比纯黑更有质感 */
     border: 2px solid #00ffff;    /* 青色边框 */
     
-    padding: 16px 40px;           /* 稍微大一点点 */
-    font-size: 1.3rem;            /* 字号加大 */
+    padding: 12px 35px;           /* 稍微大一点点 */
+    font-size: 1.1rem;            /* 字号加大 */
     font-weight: bold;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -340,15 +340,15 @@ h1 {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
     
     /* 常态下的微弱呼吸光 */
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2), inset 0 0 10px rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2), inset 0 0 8px rgba(0, 255, 255, 0.1);
     overflow: hidden;          /* 藏住里面的扫描线 */
 }
 
 /* [新增] 按钮前面的下载图标 (用纯 CSS 画一个箭头) */
 .download-btn::before {
     content: "↓";  /* 向下的箭头 */
-    font-size: 1.4rem;
-    margin-right: 5px;
+    font-size: 1.2rem;
+    margin-right: 3px;
     display: inline-block;
     /* [核心动画] 常态下缓慢上下浮动 */
     animation: floatArrow 2s ease-in-out infinite alternate;
@@ -379,14 +379,14 @@ h1 {
     
     /* 2. 强烈的双重发光 (外部爆发 + 内部高亮) */
     box-shadow: 
-        0 0 40px rgba(0, 255, 255, 0.8),  /* 外部大光晕 */
-        inset 0 0 20px rgba(0, 255, 255, 0.6); /* 内部高亮 */
+        0 0 30px rgba(0, 255, 255, 0.8),  /* 外部大光晕 */
+        inset 0 0 15px rgba(0, 255, 255, 0.6); /* 内部高亮 */
         
     /* 3. 文字本身发光 */
-    text-shadow: 0 0 10px #ffffff, 0 0 20px #00ffff;
+    text-shadow: 0 0 8px #ffffff, 0 0 15px #00ffff;
 
     /* 4. 整体上浮 (借鉴页脚，但幅度更大) */
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-3px) scale(1.02);
 }
 
 /* 鼠标悬停时，内部扫描线加速! */
@@ -773,8 +773,8 @@ details[open] summary::before {
     .download-btn {
         width: 100%;
         box-sizing: border-box;
-        font-size: 1.1rem; /* 手机上稍微小一点 */
-        padding: 14px 20px;
+        font-size: 1.0rem; /* 手机上稍微小一点 */
+        padding: 12px 20px;
     }
     .download-btn::before {
         font-size: 1.2rem;
