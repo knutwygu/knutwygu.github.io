@@ -559,7 +559,7 @@ details[open] summary::before {
 /* 3. [电脑端] 右下角维修 */
 .desktop-right {
     bottom: 50px;
-    right: 30px;
+    right: 20px;
     width: 280px;  /* 可以在这里调整大小 */
     height: auto;
     animation: shakeImg 0.4s linear infinite alternate;
