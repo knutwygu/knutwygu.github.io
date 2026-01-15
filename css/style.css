@@ -608,7 +608,7 @@ details[open] summary::before {
     .mobile-top {
         display: block !important;
         position: absolute;   /* 手机上要跟随框框，所以是 absolute */
-        top: 40px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
+        top: 30px;          /* 往上提，刚好趴在框上 (根据图片微调这个值) */
         left: 50%;
         transform: translateX(-50%); /* 居中 */
         width: 180px;         /* 图片宽度 */
@@ -622,7 +622,7 @@ details[open] summary::before {
     /* 2. 修改 .container，让机器人有位置趴着 */
     .container {
         /* [重要] 增加顶部外边距，给机器人头部留出空间，否则会被切掉 */
-        margin-top: 130px !important; 
+        margin-top: 120px !important; 
         
         /* 保持你原来的设置 */
         min-height: 80vh !important;
