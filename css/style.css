@@ -131,7 +131,6 @@ h1 {
     margin-top: 30px;
 }
 
-
 .btn {
     text-decoration: none;
     color: #0f0;
@@ -199,7 +198,6 @@ h1 {
     text-decoration: none; /* 去掉默认下划线 */
     border-bottom: none; /* 自己画一条虚线，更有工程感 */
    
-    
     transition: all 0.3s ease; /* 鼠标放上去的过渡动画 */
 }
 
@@ -231,7 +229,6 @@ h1 {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
 }
-
 
 
 /* =========================================
@@ -301,7 +298,6 @@ h1 {
     font-size: 0.9em;
     margin-left: 5px;
 }
-
 
 
  /* =========================================
@@ -374,7 +370,6 @@ h1 {
     animation: scan-btn 4s infinite linear;
 }
 
-
 /* --- 鼠标悬停超级特效 (Hover State) --- */
 .download-btn:hover {
     /* 1. 文字变白，背景变亮青色 (借鉴页脚) */
@@ -406,7 +401,6 @@ h1 {
     transform: translateY(2px); /* 稍微往下按一点，表示准备下载 */
 }
 
-
 /* --- 动画定义 --- */
 /* 扫描线动画 */
 @keyframes scan-btn {
@@ -419,11 +413,6 @@ h1 {
     0% { transform: translateY(-2px); }
     100% { transform: translateY(2px); }
 }
-
-
-
-
-
 
 
 /* =========================================
@@ -472,7 +461,6 @@ h1 {
     color: #fff;
     text-decoration: underline decoration-dotted #666;
 }
-
 
 
 /* =========================================
@@ -530,8 +518,6 @@ details[open] summary::before {
 }
 
 
-
-
 /* =========================================
    ROBOT IMAGES (通用 + 电脑端设置)
    ========================================= */
@@ -581,8 +567,122 @@ details[open] summary::before {
 }
 
 
+/* =========================================
+   PROJECT PAGE (Mission Log) - 项目页专用样式
+   ========================================= */
 
+/* 1. 项目卡片容器 */
+.project-card {
+    border: 1px solid #0f0;
+    background: rgba(0, 20, 0, 0.4);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
 
+/* 鼠标悬停时，卡片边缘发光 */
+.project-card:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    border-color: #fff;
+}
+
+/* 2. 卡片标题/按钮区域 (默认手机布局：垂直排列) */
+.project-summary {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    /* 移除默认三角 (兼容性处理) */
+    list-style: none; 
+}
+.project-summary::-webkit-details-marker {
+    display: none;
+}
+
+/* 项目名称 */
+.project-title {
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 状态标签 (Completed / In Progress) */
+.status-badge {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border: 1px solid #ff00de;
+    color: #ff00de;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* 简介文字 */
+.project-brief {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left; /* 强制左对齐 */
+}
+
+/* 3. 展开后的详细内容区 */
+.project-details {
+    padding: 20px;
+    border-top: 1px dashed #333;
+    background: rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+/* 4. 视频/图片容器 */
+.media-container {
+    width: 100%;
+    margin: 20px 0;
+    border: 2px solid #333;
+    background: #000;
+    position: relative;
+}
+
+/* 视频本身 */
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 图片网格 (如果有图的话) */
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+.image-grid img {
+    width: 100%;
+    border: 1px solid #0f0;
+    opacity: 0.8;
+    transition: 0.2s;
+}
+.image-grid img:hover {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+/* [电脑端优化] 屏幕宽度大于 769px 时，标题横向排列 */
+@media screen and (min-width: 769px) {
+    .project-summary {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .project-brief {
+        flex: 1;
+        margin-left: 20px;
+        text-align: right; /* 电脑上简介靠右，更有设计感 */
+    }
+}
 
 
 
