@@ -9,11 +9,10 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/style.css">
     
     <style>
-        /* 项目页专用微调：视频容器 */
+        /* 视频容器微调 */
         .media-container {
             width: 100%;
             margin: 15px 0;
@@ -23,16 +22,6 @@
         video {
             width: 100%;
             display: block;
-        }
-        /* 状态标签样式 */
-        .status-badge {
-            font-size: 0.7rem;
-            padding: 1px 6px;
-            border: 1px solid #ff00de;
-            color: #ff00de;
-            border-radius: 2px;
-            margin-left: 8px;
-            vertical-align: middle;
         }
     </style>
 </head>
@@ -46,55 +35,84 @@
         
         <h1>SIGNAL PROCESSING</h1>
         <div class="subtitle" style="margin-bottom: 40px;">
-            Archive: <span class="highlight">ENGINEERING PORTFOLIO</span>
+            Archive: <span class="highlight">ENGINEERING_LOGS</span>
         </div>
 
         <div class="content-block">
             <div class="content-header">
-                [ <span class="highlight">MISSION_LOG</span> ]
+                [ <span class="highlight">MISSION_STATEMENT</span> ]
             </div>
-            <p style="line-height: 1.6; color: #ddd; margin-bottom: 0;">
-                Bridging the gap between <span class="highlight">Analog Theory</span> and <span class="highlight">Digital Reality</span>. <br>
-                Below is a catalogue of deployed systems and experimental builds.
-            </p>
+            <ul class="tech-list">
+                <li>
+                    <strong>Objective</strong> // Bridge the gap between Circuit Theory and Embedded Systems.
+                </li>
+                <li>
+                    <strong>Focus</strong> // Analog Signal Conditioning & Real-time DSP.
+                </li>
+            </ul>
         </div>
 
         <div class="content-block">
             <div class="content-header">
                 [ <span class="highlight">DEPLOYED_UNITS</span> ]
             </div>
+            
             <p style="color: #888; margin-bottom: 15px; font-size: 0.9rem;">
-                Click project ID to expand details:
+                Select unit to access schematics:
             </p>
 
             <details open>
                 <summary>
-                    LED_REACTIVE_SYS 
-                    <span class="status-badge">COMPLETED</span>
+                    <strong>PROJECT_01</strong> // Music Reactive LED System
                 </summary>
+                
                 <div class="detail-content">
-                    <p style="margin-bottom: 15px;">
-                        <span class="theory-tag">OBJECTIVE</span> 
-                        <strong>Hybrid Music Visualizer.</strong><br>
-                        Designed a system to visualize audio transients in real-time, bridging Analog Signal Conditioning with Digital Signal Processing (DSP).
-                    </p>
-
+                    
                     <div class="media-container">
                         <video controls poster="images/project1_cover.jpg">
                             <source src="videos/demo_led.mp4" type="video/mp4">
-                            [ERROR] VIDEO FEED NOT FOUND.
+                            [ERROR] VISUAL FEED MISSING.
                         </video>
                     </div>
 
-                    <p>
-                        <span class="reality-tag">ACHIEVEMENT</span> 
-                        Unlike commercial modules, this build uses a custom Op-Amp preamplifier (LM358) feeding into an STM32 MCU for FFT analysis. <br>
-                        <span class="highlight">Result:</span> Latency < 10ms with dynamic gain control.
-                    </p>
+                    <div style="margin-bottom: 10px; color: #fff; border-bottom: 1px dashed #444; padding-bottom:5px;">
+                        [ SYSTEM_ARCHITECTURE ]
+                    </div>
+                    
+                    <ul class="tech-list">
+                        <li>
+                            <strong>Core Concept</strong> // Hybrid Analog-Digital Processing.
+                        </li>
+                        <li>
+                            <strong>Analog Front-End</strong> // Custom LM358 Op-Amp Pre-amplifier (Not "black box" modules).
+                        </li>
+                        <li>
+                            <strong>Signal Chain</strong> // Electret Mic -> Active Crossover -> ADC -> FFT -> WS2812B.
+                        </li>
+                        <li>
+                            <strong>Performance</strong> // < 10ms Latency with Transient Analysis.
+                        </li>
+                    </ul>
 
-                    <div style="margin-top: 20px; text-align: center;">
+                    <div style="margin-bottom: 10px; margin-top: 20px; color: #fff; border-bottom: 1px dashed #444; padding-bottom:5px;">
+                        [ EXECUTION_LOG ]
+                    </div>
+
+                    <ul class="tech-list">
+                        <li>
+                            <strong>Phase 1</strong> // Analog Filter Design & Simulation (LTSpice).
+                        </li>
+                        <li>
+                            <strong>Phase 2</strong> // Breadboard Prototyping & DSP Firmware.
+                        </li>
+                        <li>
+                            <strong>Phase 3</strong> // Perfboard Fabrication & Enclosure Assembly.
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: 25px; text-align: center;">
                         <a href="docs/Project_Proposal.pdf" class="download-btn" target="_blank" style="font-size: 0.9rem; padding: 10px;">
-                            DOWNLOAD SPECS :: PDF
+                            DOWNLOAD PROPOSAL :: PDF
                         </a>
                     </div>
                 </div>
@@ -102,14 +120,17 @@
 
             <details>
                 <summary>
-                    PROJECT_02_PENDING
-                    <span class="status-badge" style="border-color:#555; color:#555;">TBD</span>
+                    <strong>PROJECT_02</strong> // [ REDACTED ]
                 </summary>
                 <div class="detail-content">
-                    <p style="color:#888;">
-                        // SYSTEM LOG: This slot is reserved for future compilation.<br>
-                        // STATUS: Research & Development phase.
-                    </p>
+                    <ul class="tech-list">
+                        <li>
+                            <strong>Status</strong> // Research & Development.
+                        </li>
+                        <li>
+                            <strong>ETA</strong> // Pending Compilation...
+                        </li>
+                    </ul>
                 </div>
             </details>
 
