@@ -670,18 +670,66 @@ video {
     transform: scale(1.02);
 }
 
-/* [电脑端优化] 屏幕宽度大于 769px 时，标题横向排列 */
-@media screen and (min-width: 769px) {
-    .project-summary {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .project-brief {
-        flex: 1;
-        margin-left: 20px;
-        text-align: right; /* 电脑上简介靠右，更有设计感 */
-    }
+/* =========================================
+   PROPOSAL BUTTON (Text Only / Project Page)
+   ========================================= */
+
+.proposal-btn {
+    /* 布局设置 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    /* [核心] 去掉边框、背景、阴影 */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    
+    /* 文字样式 */
+    text-decoration: none;
+    color: #00ffff;       /* 电光青色 */
+    font-size: 1.0rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    
+    /* 平滑过渡 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 箭头图标 (保留向下跳动的动画) */
+.proposal-btn::before {
+    content: "↓"; 
+    font-size: 1.3rem;
+    margin-right: 3px;
+    display: inline-block;
+    color: #00ffff;
+    
+    /* 动画：上下浮动 */
+    animation: floatArrow 1.5s ease-in-out infinite alternate;
+}
+
+/* 鼠标悬停 / 点击效果 */
+.proposal-btn:hover {
+    color: #ffffff;           /* 文字变白 */
+    background: transparent;  /* 背景保持透明 */
+    transform: scale(1.15);   /* [核心] 整体变大 */
+    
+    /* 添加一点白色发光，增加通电感 */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); 
+}
+
+/* 悬停时箭头也变白 */
+.proposal-btn:hover::before {
+    color: #ffffff;
+}
+
+/* 确保动画定义存在 (如果 style.css 里已经有这几行可以不复制) */
+@keyframes floatArrow {
+    0% { transform: translateY(-3px); }
+    100% { transform: translateY(3px); }
 }
 
 
@@ -740,8 +788,6 @@ video {
     }
 
    
-
-
     /* [配套修改] 确保返回按钮或页脚永远沉在框的最底部 */
     /* 即使内容很少，框被强行拉长了，按钮也会乖乖呆在最下面 */
     .return-container, 
@@ -760,8 +806,6 @@ video {
     }
 
 
-
-    
     /* --- 2. 字体比例缩放 --- */
     /* [修改] 名字大大减小，从 3.5rem -> 1.8rem，看起来更精致 */
     h1 {
@@ -797,7 +841,6 @@ video {
     }
 
     
-
     /* --- 4. 交互组件优化 --- */
     summary {
         justify-content: flex-start !important; /* [核心] 取消居中，让箭头和文字靠左 */
@@ -876,7 +919,6 @@ video {
         word-wrap: break-word;  /* 防止长单词撑破屏幕 */
     }
 
-
     .download-btn {
         width: 100%;
         box-sizing: border-box;
@@ -887,7 +929,6 @@ video {
         font-size: 1.2rem;
     }
 
-
     /* [精准修复] 只修改 Resume 页面的标题距离，不影响其他页面 */
     .resume-subtitle {
         margin-bottom: 15px !important; /* 强制覆盖掉那 40px */
@@ -897,6 +938,18 @@ video {
     .download-section {
         margin-top: 10px !important;
         margin-bottom: 20px !important;
+    }
+
+
+    .project-summary {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .project-brief {
+        flex: 1;
+        margin-left: 20px;
+        text-align: right; /* 电脑上简介靠右，更有设计感 */
     }
 
 }
