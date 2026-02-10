@@ -3,94 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission Log: Projects</title>
-    
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Projects | Knut W.Y.Gu</title>
+
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* 项目页专用微调：视频容器 */
+        .media-container {
+            width: 100%;
+            margin: 15px 0;
+            border: 1px solid #333;
+            background: #000;
+        }
+        video {
+            width: 100%;
+            display: block;
+        }
+        /* 状态标签样式 */
+        .status-badge {
+            font-size: 0.7rem;
+            padding: 1px 6px;
+            border: 1px solid #ff00de;
+            color: #ff00de;
+            border-radius: 2px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
 
-    <img src="images/robot_top.png" alt="" class="mobile-top">
-    <img src="images/blueprint.png" alt="" class="bg-robot-img desktop-left">
-
+    <img src="images/robot-mobile.png" class="bg-robot-img mobile-top" alt="Mobile Robot">
+    <img src="images/robot-blueprint.png" class="bg-robot-img desktop-left" alt="Blueprint">
+    <img src="images/robot-fix.png" class="bg-robot-img desktop-right" alt="Repair">
+    
     <div class="container">
-        <h1>SIGNAL PROCESSING</h1>
         
-        <div class="subtitle">
+        <h1>SIGNAL PROCESSING</h1>
+        <div class="subtitle" style="margin-bottom: 40px;">
             Archive: <span class="highlight">ENGINEERING PORTFOLIO</span>
         </div>
 
-        <br><br>
+        <div class="content-block">
+            <div class="content-header">
+                [ <span class="highlight">MISSION_LOG</span> ]
+            </div>
+            <p style="line-height: 1.6; color: #ddd; margin-bottom: 0;">
+                Bridging the gap between <span class="highlight">Analog Theory</span> and <span class="highlight">Digital Reality</span>. <br>
+                Below is a catalogue of deployed systems and experimental builds.
+            </p>
+        </div>
 
-        <details class="project-card" open>
-            
-            <summary class="project-summary">
-                <div class="project-title">
-                    <span style="color:#0f0">▶</span> 
-                    LED_REACTIVE_SYS
+        <div class="content-block">
+            <div class="content-header">
+                [ <span class="highlight">DEPLOYED_UNITS</span> ]
+            </div>
+            <p style="color: #888; margin-bottom: 15px; font-size: 0.9rem;">
+                Click project ID to expand details:
+            </p>
+
+            <details open>
+                <summary>
+                    LED_REACTIVE_SYS 
                     <span class="status-badge">COMPLETED</span>
-                </div>
-                <div class="project-brief">
-                    Hybrid Analog/Digital visualizer. <br>
-                    <span style="color:#0f0">[ Op-Amp Pre-amp + STM32 DSP ]</span>
-                </div>
-            </summary>
+                </summary>
+                <div class="detail-content">
+                    <p style="margin-bottom: 15px;">
+                        <span class="theory-tag">OBJECTIVE</span> 
+                        <strong>Hybrid Music Visualizer.</strong><br>
+                        Designed a system to visualize audio transients in real-time, bridging Analog Signal Conditioning with Digital Signal Processing (DSP).
+                    </p>
 
-            <div class="project-details">
-                <p class="detail-content">
-                    <strong>OBJECTIVE:</strong> Designed a real-time music visualizer that bridges 
-                    <span class="highlight">Analog Signal Conditioning</span> and 
-                    <span class="highlight">Digital Signal Processing</span>.
-                </p>
+                    <div class="media-container">
+                        <video controls poster="images/project1_cover.jpg">
+                            <source src="videos/demo_led.mp4" type="video/mp4">
+                            [ERROR] VIDEO FEED NOT FOUND.
+                        </video>
+                    </div>
 
-                <div class="media-container">
-                    <video controls poster="images/project1_cover.jpg">
-                        <source src="videos/demo_led.mp4" type="video/mp4">
-                        [ERROR] SYSTEM VISUAL FEED NOT FOUND.
-                    </video>
-                    <p style="text-align:center; color:#555; font-size:0.8rem; padding:5px;">
-                        [ VIDEO FEED: FINAL SYSTEM DEMO ]
+                    <p>
+                        <span class="reality-tag">ACHIEVEMENT</span> 
+                        Unlike commercial modules, this build uses a custom Op-Amp preamplifier (LM358) feeding into an STM32 MCU for FFT analysis. <br>
+                        <span class="highlight">Result:</span> Latency < 10ms with dynamic gain control.
+                    </p>
+
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a href="docs/Project_Proposal.pdf" class="download-btn" target="_blank" style="font-size: 0.9rem; padding: 10px;">
+                            DOWNLOAD SPECS :: PDF
+                        </a>
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>
+                    PROJECT_02_PENDING
+                    <span class="status-badge" style="border-color:#555; color:#555;">TBD</span>
+                </summary>
+                <div class="detail-content">
+                    <p style="color:#888;">
+                        // SYSTEM LOG: This slot is reserved for future compilation.<br>
+                        // STATUS: Research & Development phase.
                     </p>
                 </div>
+            </details>
 
-                <p class="detail-content">
-                    <strong>ACHIEVEMENT:</strong> Unlike commercial "black box" visualizers, this system uses a custom-built 
-                    Op-Amp preamplifier (LM358) for gain control, feeding into an MCU for FFT analysis. 
-                    It successfully visualizes transients with < 10ms latency.
-                </p>
-
-                <div style="margin-top:20px; text-align:center;">
-                    <a href="docs/Project_Proposal.pdf" class="download-btn" target="_blank">
-                        ACCESS TECHNICAL DOCS :: PDF
-                    </a>
-                </div>
-            </div>
-        </details>
-
-
-        <details class="project-card">
-            <summary class="project-summary">
-                <div class="project-title">
-                    <span style="color:#555">▶</span> 
-                    PROJECT_02
-                    <span class="status-badge" style="border-color:#555; color:#555;">PENDING</span>
-                </div>
-                <div class="project-brief">
-                    Next generation embedded system. <br>
-                    <span style="color:#555">[ Awaiting Classification ]</span>
-                </div>
-            </summary>
-            
-            <div class="project-details">
-                <p class="detail-content" style="color:#888;">
-                    // SYSTEM LOG: This project slot is reserved for future uploads.<br>
-                    // STATUS: Research & Development phase.
-                </p>
-            </div>
-        </details>
-
+        </div>
 
         <div class="return-container">
             <a href="index.html" class="btn">
@@ -99,5 +122,6 @@
         </div>
 
     </div>
+
 </body>
 </html>
