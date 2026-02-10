@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Log: Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <style>
+        /* --- 项目页专用样式 (可以放在这里，也可以移到 style.css) --- */
+        
+        /* 项目卡片容器 */
+        .project-card {
+            border: 1px solid #0f0;
+            background: rgba(0, 20, 0, 0.4);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        /* 鼠标悬停时，卡片边缘发光 */
+        .project-card:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+            border-color: #fff;
+        }
+
+        /* 卡片标题/按钮区域 */
+        .project-summary {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column; /* 手机上垂直排列 */
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        /* 项目名称 */
+        .project-title {
+            font-size: 1.4rem;
+            color: #fff;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 状态标签 (Completed / In Progress) */
+        .status-badge {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border: 1px solid #ff00de;
+            color: #ff00de;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* 简介文字 */
+        .project-brief {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: left; /* 强制左对齐 */
+        }
+
+        /* 展开后的详细内容区 */
+        .project-details {
+            padding: 20px;
+            border-top: 1px dashed #333;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        /* 视频/图片容器 */
+        .media-container {
+            width: 100%;
+            margin: 20px 0;
+            border: 2px solid #333;
+            background: #000;
+            position: relative;
+        }
+
+        /* 视频本身 */
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 图片网格 (如果有图的话) */
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .image-grid img {
+            width: 100%;
+            border: 1px solid #0f0;
+            opacity: 0.8;
+            transition: 0.2s;
+        }
+        .image-grid img:hover {
+            opacity: 1;
+            transform: scale(1.02);
+        }
+
+        /* 电脑端优化：标题横向排列 */
+        @media screen and (min-width: 769px) {
+            .project-summary {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .project-brief {
+                flex: 1;
+                margin-left: 20px;
+                text-align: right; /* 电脑上简介靠右，更有设计感 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <img src="images/robot_top.png" alt="" class="mobile-top">
+    <img src="images/blueprint.png" alt="" class="bg-robot-img desktop-left">
+
+    <div class="container">
+        <h1>PROJECT LOGS</h1>
+        <div class="subtitle">ENGINEERING PORTFOLIO</div>
+
+        <br><br>
+
+        <details class="project-card" open> <summary class="project-summary">
+                <div class="project-title">
+                    <span style="color:#0f0">▶</span> 
+                    LED_REACTIVE_SYS
+                    <span class="status-badge">COMPLETED</span>
+                </div>
+                <div class="project-brief">
+                    Hybrid Analog/Digital visualizer. <br>
+                    <span style="color:#0f0">[ Op-Amp Pre-amp + STM32 DSP ]</span>
+                </div>
+            </summary>
+
+            <div class="project-details">
+                <p class="detail-content">
+                    <strong>OBJECTIVE:</strong> Designed a real-time music visualizer that bridges 
+                    <span class="highlight">Analog Signal Conditioning</span> and 
+                    <span class="highlight">Digital Signal Processing</span>.
+                </p>
+
+                <div class="media-container">
+                    <video controls poster="images/project1_cover.jpg">
+                        <source src="videos/demo_led.mp4" type="video/mp4">
+                        [ERROR] SYSTEM VISUAL FEED NOT FOUND.
+                    </video>
+                    <p style="text-align:center; color:#555; font-size:0.8rem; padding:5px;">
+                        [ VIDEO FEED: FINAL SYSTEM DEMO ]
+                    </p>
+                </div>
+
+                <p class="detail-content">
+                    <strong>ACHIEVEMENT:</strong> Unlike commercial "black box" visualizers, this system uses a custom-built 
+                    Op-Amp preamplifier (LM358) for gain control, feeding into an MCU for FFT analysis. 
+                    It successfully visualizes transients with < 10ms latency.
+                </p>
+
+                <div style="margin-top:20px; text-align:center;">
+                    <a href="docs/Project_Proposal.pdf" class="download-btn" target="_blank">
+                        ACCESS TECHNICAL DOCS :: PDF
+                    </a>
+                </div>
+            </div>
+        </details>
+
+
+        <details class="project-card">
+            <summary class="project-summary">
+                <div class="project-title">
+                    <span style="color:#555">▶</span> 
+                    PROJECT_02
+                    <span class="status-badge" style="border-color:#555; color:#555;">PENDING</span>
+                </div>
+                <div class="project-brief">
+                    Next generation embedded system. <br>
+                    <span style="color:#555">[ Awaiting Classification ]</span>
+                </div>
+            </summary>
+            
+            <div class="project-details">
+                <p class="detail-content" style="color:#888;">
+                    // SYSTEM LOG: This project slot is reserved for future uploads.<br>
+                    // STATUS: Research & Development phase.
+                </p>
+            </div>
+        </details>
+
+
+        <div class="return-container">
+            <a href="index.html" class="btn">
+                &lt; RETURN TO MAIN
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
