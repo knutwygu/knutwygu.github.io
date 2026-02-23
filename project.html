@@ -11,16 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
-    <div class="carousel-container">
-        <button class="carousel-btn prev" onclick="scrollCarousel(-1)">[ &lt; ]</button>
-                            
-        <div class="carousel-track" id="project00-carousel">
-            <img src="images/project1_cover.jpg" alt="Project Image 1" class="carousel-slide">
-            </div>
-                            
-        <button class="carousel-btn next" onclick="scrollCarousel(1)">[ &gt; ]</button>
-    </div>
-</head>
+    </head>
 <body>
 
     <img src="images/robot-mobile.png" class="bg-robot-img mobile-top" alt="Mobile Robot">
@@ -64,11 +55,14 @@
                 
                 <div class="detail-content">
                     
-                    <div class="media-container">
-                        <video controls poster="images/project1_cover.jpg">
-                            <source src="videos/demo_led.mp4" type="video/mp4">
-                            [ERROR] VISUAL FEED MISSING.
-                        </video>
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev" onclick="scrollCarousel(-1)">[ &lt; ]</button>
+                                                    
+                        <div class="carousel-track" id="project00-carousel">
+                            <img src="images/project1_cover.jpg" alt="Project Image 1" class="carousel-slide">
+                            </div>
+                                                    
+                        <button class="carousel-btn next" onclick="scrollCarousel(1)">[ &gt; ]</button>
                     </div>
 
                     <p style="margin-bottom: 10px; color: #fff; text-decoration: underline decoration-dotted #444;">
@@ -86,7 +80,7 @@
                             <strong>Signal Chain</strong> // Electret Mic -> Active Crossover -> ADC -> FFT -> WS2812B.
                         </li>
                         <li>
-                            <strong>Performance</strong> // < 10ms Latency with Transient Analysis.
+                            <strong>Performance</strong> // &lt; 10ms Latency with Transient Analysis.
                         </li>
                     </ul>
 
@@ -130,7 +124,7 @@
                 </div>
             </details> -->
 
-        </div>
+            </div>
 
         <div class="return-container">
             <a href="index.html" class="btn">
@@ -151,4 +145,5 @@
 </body>
 </html>
 
+            
 
