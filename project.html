@@ -11,18 +11,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
-    <style>
-        .media-container {
-            width: 100%;
-            margin: 20px 0;
-            border: 1px solid #333;
-            background: #000;
-        }
-        video {
-            width: 100%;
-            display: block;
-        }
-    </style>
+    <div class="carousel-container">
+        <button class="carousel-btn prev" onclick="scrollCarousel(-1)">[ &lt; ]</button>
+                            
+        <div class="carousel-track" id="project00-carousel">
+            <img src="images/project1_cover.jpg" alt="Project Image 1" class="carousel-slide">
+            </div>
+                            
+        <button class="carousel-btn next" onclick="scrollCarousel(1)">[ &gt; ]</button>
+    </div>
 </head>
 <body>
 
@@ -143,5 +140,15 @@
 
     </div>
 
+    <script>
+        function scrollCarousel(direction) {
+            const track = document.getElementById('project00-carousel');
+            const slideWidth = track.clientWidth;
+            // 每次滚动一个图片的宽度
+            track.scrollBy({ left: slideWidth * direction, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
+
+
