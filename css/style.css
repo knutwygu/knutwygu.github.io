@@ -729,27 +729,30 @@ video {
 /* 确保动画定义存在 (如果 style.css 里已经有这几行可以不复制) */
 
 
+
 /* =========================================
-   IMAGE CAROUSEL (项目页左右滑动图片展示)
+   IMAGE CAROUSEL (极简隐形箭头版)
    ========================================= */
 
+/* 1. 容器：去掉了黑底和虚线框，现在是透明的 */
 .carousel-container {
     position: relative;
     width: 100%;
     margin: 20px 0;
-    border: 1px dashed #333; /* 配合赛博朋克虚线框 */
-    background: #000;
+    /* [核心修改] 去掉背景和边框 */
+    background: transparent;
+    border: none;
     overflow: hidden;
+    /* 为了让箭头能定位在图片边缘，需要确保容器紧贴图片 */
+    line-height: 0; 
 }
 
-/* 滑动轨道 */
+/* 2. 滑动轨道 (保持不变) */
 .carousel-track {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory; /* 强制吸附，手机上滑动有段落感 */
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    
-    /* 隐藏滚动条 */
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -757,51 +760,63 @@ video {
     display: none;
 }
 
-/* 单张图片 */
+/* 3. 单张图片 (保持不变) */
 .carousel-slide {
     flex: 0 0 100%;
     width: 100%;
-    /* 建议锁定一个比例，防止图片高低不一导致页面跳动，contain 会保持图片完整，黑底填充 */
     aspect-ratio: 16 / 9; 
     object-fit: contain; 
     scroll-snap-align: center;
 }
 
-/* 电脑端左右箭头按钮 (精致优化版) */
+/* --- 4. 箭头按钮核心样式 --- */
+
+/* 默认状态：隐藏、无框、纯箭头 */
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    
-    /* [核心改动 1]：变小、变紧凑 */
-    font-size: 0.9rem;         /* 字体从 1.2rem 缩小到 0.9rem */
-    padding: 4px 8px;          /* 内边距减半，更精致 */
-    
-    /* [核心改动 2]：平时半透明 */
-    background: rgba(0, 20, 0, 0.3); /* 背景透明度大大增加，让底下的图透出来 */
-    color: rgba(0, 255, 0, 0.7);     /* 文字也稍微透明一点点，不那么刺眼 */
-    border: 1px solid rgba(0, 255, 0, 0.5); /* 边框也半透明 */
-    opacity: 0.6;                    /* 整体透明度降低，平时不抢戏 */
-
-    font-family: 'Share Tech Mono', monospace;
-    cursor: pointer;
     z-index: 10;
-    /* 加快过渡速度，让交互更灵敏 */
-    transition: all 0.15s ease-in-out;
-    /* 稍微一点点模糊背景，增加科技感 */
-    backdrop-filter: blur(1px);
+    cursor: pointer;
+
+    /* [核心修改] 去掉所有边框和背景盒子 */
+    background: transparent;
+    border: none;
+    padding: 0 15px; /* 给一点点左右内边距，增加点击范围，但不显形 */
+    
+    /* [核心修改] 样式：纯发光绿色文本 */
+    color: #0f0;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2rem; /* 箭头符号本身的大小 */
+    text-shadow: 0 0 5px #0f0; /* 基础发光 */
+    
+    /* [核心修改] 默认隐藏 (透明度为0) */
+    opacity: 0; 
+    transition: all 0.3s ease;
 }
 
-/* 鼠标悬停时的效果 (高亮显示) */
-.carousel-btn:hover {
-    /* [核心改动 3]：悬停时完全不透明、高亮 */
-    opacity: 1;                      /* 完全不透明 */
-    background: #0f0;                /* 背景变实心荧光绿 */
-    color: #000;                     /* 文字变黑 */
-    border-color: #0f0;
-    box-shadow: 0 0 10px #0f0;       /* 发光效果 */
-    transform: translateY(-50%) scale(1.05); /* 稍微放大一点点提示可点击 */
+/* 位置微调：让纯箭头更贴近边缘 */
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
+
+
+/* --- 5. 交互行为 (Magic Happens Here) --- */
+
+/* [关键交互] 当鼠标悬停在整个图片容器上时，让箭头现身 */
+/* 此时半透明显示，提示用户有东西 */
+.carousel-container:hover .carousel-btn {
+    opacity: 0.6; 
 }
+
+/* [关键交互] 当鼠标精准停在箭头按钮上时 */
+/* 箭头完全变亮，发光增强，稍微放大 */
+.carousel-btn:hover {
+    opacity: 1 !important; /* 强制不透明 */
+    text-shadow: 0 0 15px #0f0, 0 0 30px #0f0; /* 强烈发光 */
+    transform: translateY(-50%) scale(1.2); /* 稍微变大，有按压感 */
+}
+
+
 
 /* 按钮位置 */
 .carousel-btn.prev { left: 10px; }
