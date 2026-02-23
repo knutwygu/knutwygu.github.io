@@ -767,28 +767,40 @@ video {
     scroll-snap-align: center;
 }
 
-/* 电脑端左右箭头按钮 */
+/* 电脑端左右箭头按钮 (精致优化版) */
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 20, 0, 0.85); /* 半透明深绿色背景 */
-    color: #0f0;                      /* 荧光绿文字 */
-    border: 1px solid #0f0;
+    
+    /* [核心改动 1]：变小、变紧凑 */
+    font-size: 0.9rem;         /* 字体从 1.2rem 缩小到 0.9rem */
+    padding: 4px 8px;          /* 内边距减半，更精致 */
+    
+    /* [核心改动 2]：平时半透明 */
+    background: rgba(0, 20, 0, 0.3); /* 背景透明度大大增加，让底下的图透出来 */
+    color: rgba(0, 255, 0, 0.7);     /* 文字也稍微透明一点点，不那么刺眼 */
+    border: 1px solid rgba(0, 255, 0, 0.5); /* 边框也半透明 */
+    opacity: 0.6;                    /* 整体透明度降低，平时不抢戏 */
+
     font-family: 'Share Tech Mono', monospace;
-    font-size: 1.2rem;
-    padding: 8px 12px;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(2px);
+    /* 加快过渡速度，让交互更灵敏 */
+    transition: all 0.15s ease-in-out;
+    /* 稍微一点点模糊背景，增加科技感 */
+    backdrop-filter: blur(1px);
 }
 
+/* 鼠标悬停时的效果 (高亮显示) */
 .carousel-btn:hover {
-    background: #0f0;
-    color: #000;
-    box-shadow: 0 0 15px #0f0;
-    font-weight: bold;
+    /* [核心改动 3]：悬停时完全不透明、高亮 */
+    opacity: 1;                      /* 完全不透明 */
+    background: #0f0;                /* 背景变实心荧光绿 */
+    color: #000;                     /* 文字变黑 */
+    border-color: #0f0;
+    box-shadow: 0 0 10px #0f0;       /* 发光效果 */
+    transform: translateY(-50%) scale(1.05); /* 稍微放大一点点提示可点击 */
 }
 
 /* 按钮位置 */
