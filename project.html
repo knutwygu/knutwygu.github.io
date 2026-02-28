@@ -138,33 +138,118 @@
     </div>
 
     <script>
-        function scrollCarousel(direction) {
-            const track = document.getElementById('project00-carousel');
-            const slideWidth = track.clientWidth;
-            const totalSlides = track.children.length; // 获取总共有几张图片
-            
-            // 计算当前停留在第几张图 (从 0 开始算)
-            // 使用 Math.round 防止因为手动滑动产生小数点误差
-            let currentIndex = Math.round(track.scrollLeft / slideWidth);
-            
-            // 计算目标是第几张图
-            let targetIndex = currentIndex + direction;
-
-            // --- 核心循环逻辑 ---
-            if (targetIndex >= totalSlides) {
-                // 如果往右按，且已经超过最后一张图，就回到第一张 (索引 0)
-                targetIndex = 0;
-            } else if (targetIndex < 0) {
-                // 如果往左按，且已经是第一张图，就跳到最后一张
-                targetIndex = totalSlides - 1;
-            }
-
-            // 让轨道平滑滚动到目标图片的确切位置
-            track.scrollTo({ 
-                left: targetIndex * slideWidth, 
-                behavior: 'smooth' 
-            });
-        }
+      const track = document.getElementById('project00-carousel');
+    
+      let slideWidth = 0;
+      let realCount = 0;       // 真正图片数量（不含 clone）
+      let busy = false;
+    
+      function measure() {
+        slideWidth = track.clientWidth; // 你现在是一屏一张的布局，这样算 OK
+      }
+    
+      function setupInfiniteCarousel() {
+        // 防止重复初始化
+        if (track.dataset.infinite === "1") return;
+        track.dataset.infinite = "1";
+    
+        const slides = Array.from(track.children);
+        realCount = slides.length;
+        if (realCount <= 1) return;
+    
+        // 1) 克隆首尾
+        const firstClone = slides[0].cloneNode(true);
+        const lastClone  = slides[realCount - 1].cloneNode(true);
+    
+        firstClone.dataset.clone = "first";
+        lastClone.dataset.clone = "last";
+    
+        track.appendChild(firstClone);            // 最后追加一个“第一张clone”
+        track.insertBefore(lastClone, slides[0]); // 最前插入一个“最后一张clone”
+    
+        // 2) 初始位置：跳到“真正的第一张”（因为最前面多了 lastClone）
+        measure();
+        track.scrollLeft = slideWidth;
+    
+        // 3) 监听滚动结束：当滑到 clone 时，瞬间无动画校正回真图
+        track.addEventListener('scroll', onScroll, { passive: true });
+    
+        // 4) 处理窗口尺寸变化
+        window.addEventListener('resize', () => {
+          const currentIndex = getIndex();
+          measure();
+          // resize 后重新对齐到当前 index
+          jumpToIndex(currentIndex);
+        });
+      }
+    
+      let scrollEndTimer = null;
+      function onScroll() {
+        // 用一个很轻量的“滚动停止检测”
+        if (scrollEndTimer) clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(() => {
+          // 总长度 = realCount + 2（加了两张 clone）
+          const total = realCount + 2;
+          const maxIndex = total - 1;
+    
+          const index = Math.round(track.scrollLeft / slideWidth);
+    
+          // index=0 代表在最前面的 lastClone
+          if (index === 0) {
+            // 瞬间跳到“真正的最后一张”
+            track.style.scrollBehavior = 'auto';
+            track.scrollLeft = realCount * slideWidth;
+            track.offsetHeight; // 强制 reflow，确保行为生效
+            track.style.scrollBehavior = 'smooth';
+          }
+    
+          // index=maxIndex 代表在最后的 firstClone
+          if (index === maxIndex) {
+            // 瞬间跳到“真正的第一张”
+            track.style.scrollBehavior = 'auto';
+            track.scrollLeft = 1 * slideWidth;
+            track.offsetHeight;
+            track.style.scrollBehavior = 'smooth';
+          }
+    
+          busy = false;
+        }, 120);
+      }
+    
+      // 把“当前停留在第几张真图”映射出来：1..realCount
+      function getIndex() {
+        const raw = Math.round(track.scrollLeft / slideWidth); // 0..realCount+1
+        // raw=1 => 真第一张；raw=realCount => 真最后一张
+        // raw=0/realCount+1 是 clone
+        if (raw <= 0) return realCount;
+        if (raw >= realCount + 1) return 1;
+        return raw;
+      }
+    
+      function jumpToIndex(idx) {
+        // idx 是 1..realCount（真图 index）
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = idx * slideWidth;
+        track.offsetHeight;
+        track.style.scrollBehavior = 'smooth';
+      }
+    
+      function scrollCarousel(direction) {
+        if (busy) return;
+        busy = true;
+    
+        measure();
+        const rawIndex = Math.round(track.scrollLeft / slideWidth);
+        const targetRawIndex = rawIndex + direction;
+    
+        track.scrollTo({
+          left: targetRawIndex * slideWidth,
+          behavior: 'smooth'
+        });
+      }
+    
+      // 初始化
+      setupInfiniteCarousel();
     </script>
 </body>
 </html>
