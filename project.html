@@ -141,8 +141,29 @@
         function scrollCarousel(direction) {
             const track = document.getElementById('project00-carousel');
             const slideWidth = track.clientWidth;
-            // 每次滚动一个图片的宽度
-            track.scrollBy({ left: slideWidth * direction, behavior: 'smooth' });
+            const totalSlides = track.children.length; // 获取总共有几张图片
+            
+            // 计算当前停留在第几张图 (从 0 开始算)
+            // 使用 Math.round 防止因为手动滑动产生小数点误差
+            let currentIndex = Math.round(track.scrollLeft / slideWidth);
+            
+            // 计算目标是第几张图
+            let targetIndex = currentIndex + direction;
+
+            // --- 核心循环逻辑 ---
+            if (targetIndex >= totalSlides) {
+                // 如果往右按，且已经超过最后一张图，就回到第一张 (索引 0)
+                targetIndex = 0;
+            } else if (targetIndex < 0) {
+                // 如果往左按，且已经是第一张图，就跳到最后一张
+                targetIndex = totalSlides - 1;
+            }
+
+            // 让轨道平滑滚动到目标图片的确切位置
+            track.scrollTo({ 
+                left: targetIndex * slideWidth, 
+                behavior: 'smooth' 
+            });
         }
     </script>
 </body>
