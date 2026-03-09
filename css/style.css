@@ -827,6 +827,85 @@ video {
 
 
 
+/* =========================================
+   THEME OVERRIDE: AEROSPACE ELEGANCE 
+   (深空蓝 / 金属金 / 电光紫 / 纯白)
+   ========================================= */
+
+/* 1. 深空蓝背景 + 暗金色示波器网格 */
+body {
+    background-color: #060913 !important; /* 极深的深空蓝，几乎接近黑 */
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.08) 1px, transparent 1px) !important;
+    color: #d4af37 !important; /* 默认文字：香槟金 */
+}
+
+/* 边缘暗角加深，融入深蓝色 */
+body::after {
+    background: radial-gradient(circle, transparent 50%, #020308 100%) !important;
+}
+
+/* 2. 主体框：深蓝磨砂玻璃 + 金色边框 */
+.container {
+    border-color: #d4af37 !important; /* 边框变成劳力士金 */
+    background: rgba(6, 9, 19, 0.85) !important; 
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.15) !important;
+}
+
+/* 3. 标题与高亮 (紫金搭配) */
+h1 {
+    text-shadow: 3px 3px 0px #8a2be2 !important; /* 电光紫阴影，替代原来的粉色 */
+}
+.subtitle { color: #d4af37 !important; }
+.highlight { color: #8a2be2 !important; } /* 高亮词变成高级紫 */
+
+/* 主页的动态波形 */
+.wave-box { border-color: rgba(212, 175, 55, 0.3) !important; }
+.signal-line {
+    background: #d4af37 !important;
+    box-shadow: 0 0 10px #d4af37 !important;
+}
+
+/* 4. 主页导航按钮 (金字金框 -> 悬停紫白) */
+.btn {
+    color: #d4af37 !important;
+    border-color: #d4af37 !important;
+}
+.btn:hover {
+    background: #d4af37 !important;
+    color: #060913 !important; /* 悬停时字变深蓝，背景变金，非常奢华 */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5) !important;
+}
+.btn:hover::before {
+    color: #8a2be2 !important; /* 悬停时的箭头变成高贵紫 */
+}
+
+/* 5. 页脚与联系方式 */
+.footer { color: #7a6b3f !important; border-top-color: rgba(212, 175, 55, 0.2) !important; }
+.footer a { color: #8a2be2 !important; } /* 紫色链接 */
+.footer a:hover {
+    color: #fff !important; /* 悬停变纯白，最亮的强调 */
+    background-color: rgba(138, 43, 226, 0.2) !important;
+    box-shadow: 0 0 15px #8a2be2 !important;
+    border-bottom-color: #fff !important;
+}
+.footer a::before { color: #d4af37 !important; } /* 金色闪烁箭头 */
+.footer a:hover::before { color: #fff !important; }
+
+/* 6. 机器人全息投影魔法 (CSS 滤镜魔法) */
+.bg-robot-img {
+    /* 用 hue-rotate 直接把原来图片里的荧光绿，扭转成深空全息蓝！
+       这样你连图片都不用重新 PS 了 */
+    filter: hue-rotate(100deg) contrast(1.2) brightness(0.9) !important;
+    opacity: 0.4 !important;
+}
+
+
+
+
+
+
 
 
 
