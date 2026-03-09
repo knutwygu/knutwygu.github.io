@@ -828,98 +828,89 @@ video {
 
 
 /* =========================================
-   THEME OVERRIDE: AEROSPACE ELEGANCE 
-   (深空蓝 / 金属金 / 电光紫 / 纯白)
+   THEME OVERRIDE: NEBULA PLASMA (基于你上传的星云图)
+   (深空暗蓝背景 + 极光青 + 星云紫粉 + 冰川白)
    ========================================= */
 
-/* =========================================
-   THEME OVERRIDE: METALLIC AEGIS
-   (深邃蓝紫背景 + 真实反光金属金 + 纯白)
-   ========================================= */
-
-/* 1. 蓝紫渐变金属面板背景 */
+/* 1. 深空暗蓝背景 + 极其微弱的青色网格 */
 body {
-    /* 用径向渐变模拟光源打在深色金属面板上，中心是深紫，四周暗入深蓝黑 */
-    background: radial-gradient(circle at 50% 0%, #1a0b2e 0%, #0d0e1b 50%, #05060a 100%) !important;
-    color: #e0e6ed !important; /* 默认文字：偏冷的拉丝银白，比纯白更有高级感 */
-}
-
-/* 降低网格的亮度，做成隐隐约约的暗金线 */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #03050a !important; /* 极深的暗夜蓝黑 */
     background-image: 
-        linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px) !important;
-    background-size: 40px 40px; 
-    pointer-events: none;
-    z-index: 0;
+        radial-gradient(circle at 50% 50%, rgba(255, 0, 127, 0.03) 0%, rgba(0, 210, 255, 0.05) 50%, transparent 100%),
+        linear-gradient(rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 210, 255, 0.05) 1px, transparent 1px) !important;
+    color: #e0f0ff !important; /* 默认文字：冰川白/浅蓝白，非常干净 */
 }
 
-/* 2. 主体框：蓝紫磨砂玻璃 + 金属拉丝发光边框 */
+body::after {
+    background: radial-gradient(circle, transparent 40%, #010205 100%) !important;
+}
+
+/* 2. 主体框：深邃玻璃态 + 青紫双重微光 */
 .container {
-    border: 1px solid rgba(212, 175, 55, 0.4) !important; 
-    background: rgba(13, 14, 27, 0.7) !important; 
-    /* 外紫内金的辉光，制造厚度和立体感 */
-    box-shadow: 0 0 30px rgba(138, 43, 226, 0.2), inset 0 0 15px rgba(212, 175, 55, 0.1) !important; 
-    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(0, 210, 255, 0.3) !important; /* 极光青边框 */
+    background: rgba(3, 5, 10, 0.75) !important; 
+    /* 外层散发青光，内层透出微微的紫粉色，模拟图中两股能量交织 */
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.15), inset 0 0 20px rgba(255, 0, 127, 0.1) !important;
+    backdrop-filter: blur(12px) !important;
 }
 
-/* 3. 核心：真正的“抛光金属反光金”文字特效 */
-h1, .highlight {
-    /* 5个颜色节点，模拟高光(亮黄)和暗部(深褐)，这才是金属的核心 */
-    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%) !important;
+/* 3. 核心大标题：青紫渐变星云色 (对应图中发光的能量带) */
+h1 {
+    /* 从极光青过渡到星云紫，再到亮粉色 */
+    background: linear-gradient(135deg, #00d2ff 0%, #8a2be2 50%, #ff007f 100%) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
     color: transparent !important;
-    text-shadow: none !important; /* 金属字本身会反光，不需要外发光 */
+    text-shadow: none !important;
 }
 
-/* 副标题使用哑光金 */
+/* 副标题使用干净的极光青 */
 .subtitle { 
-    color: #d4af37 !important; 
-    letter-spacing: 2px !important;
+    color: #00d2ff !important; 
 }
 
-/* 4. 主页按钮：深蓝紫底 + 实体金属边缘 */
+/* 强调文字 (highlight) 变成发光的紫粉色 */
+.highlight { 
+    color: #ff007f !important; 
+    text-shadow: 0 0 10px rgba(255, 0, 127, 0.4) !important; 
+}
+
+/* 4. 按钮：青色边框 -> 悬停爆发紫粉色光芒 */
 .btn {
-    /* 按钮有了渐变深度 */
-    background: linear-gradient(180deg, rgba(26, 11, 46, 0.6) 0%, rgba(13, 14, 27, 0.9) 100%) !important;
-    border: 1px solid #bf953f !important;
-    color: #fcf6ba !important; /* 亮金色文字 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6) !important; /* 实体阴影产生厚度感 */
+    background: linear-gradient(180deg, rgba(0, 210, 255, 0.05) 0%, rgba(3, 5, 10, 0.8) 100%) !important;
+    border: 1px solid #00d2ff !important;
+    color: #00d2ff !important;
 }
 
-/* 按钮悬停：紫色能量爆发 + 金色边缘高亮 */
 .btn:hover {
-    background: linear-gradient(180deg, rgba(138, 43, 226, 0.4) 0%, rgba(26, 11, 46, 0.9) 100%) !important;
-    border-color: #fcf6ba !important;
-    color: #ffffff !important; /* 文字变为炽白 */
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.8), inset 0 0 10px rgba(212, 175, 55, 0.5) !important;
-    transform: translateY(-2px) !important; /* 物理按键的悬浮感 */
+    background: linear-gradient(180deg, rgba(255, 0, 127, 0.2) 0%, rgba(3, 5, 10, 0.9) 100%) !important;
+    border-color: #ff007f !important; /* 边框变粉 */
+    color: #ffffff !important; /* 文字变炽白 */
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.6), inset 0 0 10px rgba(0, 210, 255, 0.4) !important;
+    transform: translateY(-2px) !important;
 }
-.btn:hover::before {
-    color: #fcf6ba !important;
-}
+.btn:hover::before { color: #ffffff !important; }
 
-/* 5. 页脚链接 */
-.footer { color: #6a748f !important; border-top-color: rgba(138, 43, 226, 0.3) !important; }
-.footer a { color: #b38728 !important; } 
+/* 5. 小部件适配 (列表点、页脚) */
+.tech-list li::before { color: #00d2ff !important; } /* 列表的 :: 变成青色 */
+
+.footer { color: #4a6b8c !important; border-top-color: rgba(0, 210, 255, 0.2) !important; }
+.footer a { color: #ff007f !important; } 
 .footer a:hover {
-    color: #fcf6ba !important; 
-    background-color: rgba(138, 43, 226, 0.2) !important;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.8) !important;
-    border-bottom-color: #fcf6ba !important;
+    color: #ffffff !important; 
+    background-color: rgba(255, 0, 127, 0.2) !important;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.8) !important;
+    border-bottom-color: #ffffff !important;
 }
-.footer a::before { color: #8a2be2 !important; } /* 初始箭头是紫色 */
-.footer a:hover::before { color: #fcf6ba !important; } /* 悬停变亮金 */
+.footer a::before { color: #00d2ff !important; } 
+.footer a:hover::before { color: #ffffff !important; }
 
-/* 6. 机器人：映射成神秘紫金质感 */
+/* 6. 机器人全息投影 (一键变成极光青色) */
 .bg-robot-img {
-    /* 将绿色转成蓝紫色的冷酷金属光泽 */
-    filter: hue-rotate(220deg) contrast(1.5) brightness(0.9) drop-shadow(0 0 5px rgba(138,43,226,0.5)) !important;
+    /* Hue-rotate 把原本的绿色扭转到极光青色，完美融入背景 */
+    filter: hue-rotate(80deg) brightness(1.2) drop-shadow(0 0 8px rgba(0, 210, 255, 0.6)) !important;
     opacity: 0.5 !important;
 }
 
