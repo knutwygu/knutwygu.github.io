@@ -827,78 +827,7 @@ video {
 
 
 
-/* =========================================
-   THEME OVERRIDE: ROYAL METALLIC 
-   (深蓝紫主色调 + 抛光金属金搭配)
-   ========================================= */
 
-/* 1. 极致深邃的蓝紫底色 (带有一点点金属光泽的哑光感) */
-body {
-    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #0f0c29 100%) !important; 
-    color: #e2dced !important; /* 默认文字：偏紫的灰白色，看起来更高档 */
-    background-image: none !important; /* 去掉之前的绿色网格，保持背景干净纯粹 */
-}
-
-/* 2. 主体框：深蓝紫玻璃 + 精致暗金边框 */
-.container {
-    background: rgba(20, 15, 38, 0.85) !important; /* 稍微透出底色的深紫色 */
-    border: 1px solid rgba(212, 175, 55, 0.4) !important; /* 哑光金边 */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(212, 175, 55, 0.05) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-/* 3. 核心：真实的“抛光金属金”文字 (H1, 高亮, 副标题) */
-/* 使用多重渐变模拟光线打在曲面金属上的反光效果 */
-h1, .highlight, .subtitle {
-    background: linear-gradient(to right, #bf953f 0%, #fcf6ba 30%, #b38728 50%, #fbf5b7 70%, #aa771c 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-    color: transparent !important;
-    text-shadow: none !important; /* 金属靠反光，不需要外层光晕 */
-}
-
-/* 4. 按钮：暗金描边 -> 悬停亮金反光 */
-.btn {
-    background: rgba(191, 149, 63, 0.05) !important; /* 微微的金色底蕴 */
-    border: 1px solid #bf953f !important; /* 暗金边框 */
-    color: #fcf6ba !important; /* 亮金文字 */
-}
-
-.btn:hover {
-    background: linear-gradient(180deg, rgba(191, 149, 63, 0.15) 0%, rgba(191, 149, 63, 0.3) 100%) !important;
-    border-color: #fcf6ba !important; /* 边框高亮 */
-    color: #ffffff !important; /* 字体泛白，模拟强光反射 */
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3) !important;
-    transform: translateY(-2px) !important;
-}
-.btn:hover::before { color: #fcf6ba !important; }
-
-/* 5. 小部件与折叠菜单 */
-.tech-list li::before { color: #bf953f !important; } /* :: 变成暗金色 */
-
-/* 折叠菜单标题的颜色层级 */
-summary { color: #e2dced !important; } /* 默认灰白 */
-summary:hover { 
-    color: #fcf6ba !important; /* 悬停亮金 */
-    text-shadow: 0 0 8px rgba(212, 175, 55, 0.4) !important; 
-}
-details[open] summary { color: #bf953f !important; } /* 展开后固定为稳重的暗金 */
-
-/* 6. 页脚 */
-.footer { color: #837b9c !important; border-top-color: rgba(212, 175, 55, 0.2) !important; }
-.footer a { color: #bf953f !important; } 
-.footer a:hover {
-    color: #fcf6ba !important; 
-    background-color: rgba(212, 175, 55, 0.1) !important;
-    border-bottom-color: #fcf6ba !important;
-}
-
-/* 7. 机器人投影：将原本的绿色染成淡淡的铜金色，融入背景 */
-.bg-robot-img {
-    filter: sepia(1) hue-rotate(10deg) saturate(1.5) brightness(0.7) !important;
-    opacity: 0.25 !important; /* 降低透明度，让它变得更低调高级 */
-}
 
 
 
