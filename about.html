@@ -1,77 +1,73 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Specs | Knut W.Y.Gu</title>
-
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>About | Knut W.Y. Gu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <img src="images/robot-mobile.png" class="bg-robot-img mobile-top" alt="Mobile Robot">
-    <img src="images/robot-blueprint.png" class="bg-robot-img desktop-left" alt="Blueprint">
-    <img src="images/robot-fix.png" class="bg-robot-img desktop-right" alt="Repair">
-    
-    <div class="container">
-        
-        <h1>SYSTEM SPECS</h1>
-        <div class="subtitle" style="margin-bottom: 40px;">
-            Unit ID: <span class="highlight">KNUT_WYGU</span>
-        </div>
-
-        <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">CORE_SPECS</span> ]
-            </div>
-            <ul class="tech-list">
-                <li>Location: <strong>UC Irvine (California, US)</strong></li>
-                <li>Model: <strong>Electrical Engineering (EE)</strong></li>
-                <li>Core Arch: <strong class="highlight">DSP Specialization</strong></li>
-                <li>Status: <span class="highlight">Running...</span></li>
-            </ul>
-        </div>
-
-        <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">BACKGROUND_PROCESSES</span> ]
-            </div>
-            <ul class="tech-list">
-                <li>
-                    <strong>LEGO Builder</strong> // Structural Assembly
-                </li>
-                <li>
-                    <strong>Lana Del Rey</strong> // Audio Stream Input
-                </li>
-                <li>
-                    <strong>Formula 1</strong> // High-Velocity Telemetry
-                </li>
-            </ul>
-        </div>
-
-        <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">MISSION_OBJECTIVES</span> ]
-            </div>
-            <ul class="tech-list">
-                <li>Targeting: <strong class="highlight">Generative AI</strong></li>
-                <li>Mission: <strong>Integrating GenAI with Signal Processing...</strong></li>
-            </ul>
-        </div>
-
-        <div class="return-container">
-            <a href="index.html" class="btn">
-                &lt; RETURN TO MAIN
+    <div class="page-wrapper">
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <svg class="back-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+                <span>Back to Home</span>
             </a>
-        </div>
+            <div class="header-right">
+                <span class="logo-text">DSP.lab</span>
+            </div>
+        </header>
 
+        <main class="content-page">
+            <div class="content-container">
+                <div class="page-title-group">
+                    <span class="page-num">01 / About</span>
+                    <h1 class="page-title">An analog mind in a <span class="italic-cyan">discrete</span> world.</h1>
+                </div>
+
+                <div class="prose">
+                    <p>
+                        Hello, I'm Knut. I am an Electrical Engineering undergraduate at UC Irvine with a deep fascination for digital signal processing, circuit design, and the mathematics that bridge the physical and digital realms.
+                    </p>
+                    
+                    <p>
+                        My focus lies in extracting order from noise. I find a unique kind of satisfaction in understanding how continuous, chaotic physical signals can be tamed, sampled, and manipulated into discrete systems. Whether it's applying Fourier and Laplace transforms to analyze frequency domains, or designing hardware filters from scratch, I enjoy the entire pipeline of signal flow.
+                    </p>
+
+                    <p>
+                        Currently, my work revolves around bridging theoretical math with physical reality—from exploring edge detection through spatial and temporal high-pass filters, to building analog circuits like music-reactive hardware systems. I believe that good engineering, much like a well-designed filter, should shape signals with precision and style.
+                    </p>
+                    <h2 class="skills-title" style="margin-top: 3rem;">// Beyond the Lab & What's Next</h2>
+                    <p>
+                        When I'm not analyzing transforms or debugging circuits, my interests still reflect a love for complex systems and sensory experiences. I'm a massive Formula 1 fan—endlessly fascinated by the real-time telemetry, sensor networks, and extreme engineering that define the sport. I also enjoy the tactile, modular satisfaction of building with LEGO, and you'll almost always find me listening to the cinematic soundscapes of Lana Del Rey while I work.
+                    </p>
+                    <p>
+                        Looking ahead, I want to apply my foundation in DSP and hardware to solve real-world challenges. I’m especially drawn to industries focused on multimodal perception and intelligent sensing, such as audio and speech technologies, autonomous systems, and applied machine learning. My ultimate goal is to build systems that help machines perceive, process, and interact with the physical world more elegantly.
+                    </p>
+                </div>
+
+                <div class="skills-section">
+                    <h2 class="skills-title">// Core Stack & Interests</h2>
+                    <ul class="skills-list">
+                        <li>Digital Signal Processing (DSP)</li>
+                        <li>Analog & Digital Filter Design</li>
+                        <li>Fourier & Laplace Transforms</li>
+                        <li>Circuit Analysis & Hardware Prototyping</li>
+                        <li>System Modeling (MATLAB / C)</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <span class="footer-left">// nerdy but make it cute</span>
+            <span class="footer-right">*occasionally debugging at 3am</span>
+        </footer>
     </div>
-
-    
-
 </body>
 </html>
