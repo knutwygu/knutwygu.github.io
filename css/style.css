@@ -1,4 +1,4 @@
-/* 定义全局变量，完美还原 v0 的颜色 */
+/* 全局变量：更新为 Geist 字体 */
 :root {
     --bg-dark: #0a0f14;
     --text-main: #f0f4f8;
@@ -7,9 +7,9 @@
     --cyan: #4fd1c5;
     --yellow: #fbbf24;
     
-    /* 替换为刚引入的 Google Fonts */
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    /* 完美还原 v0 的核心字体 */
+    --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, monospace;
 }
 
 body {
@@ -20,17 +20,6 @@ body {
     font-family: var(--font-sans);
     overflow-x: hidden;
     min-height: 100vh;
-}
-
-/* 离散波形 Canvas */
-#waveCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 0;
 }
 
 /* 页面主容器 */
@@ -133,6 +122,7 @@ main {
 .italic-cyan {
     color: var(--cyan);
     font-style: italic;
+    font-weight: 300;
 }
 
 .hero-subtitle {
@@ -141,6 +131,7 @@ main {
     margin: 0 0 4rem 0;
     max-width: 32rem;
     line-height: 1.625;
+    font-weight: 400;
 }
 
 .yellow-star { color: var(--yellow); }
@@ -197,6 +188,7 @@ main {
     margin-left: auto;
     transition: color 0.3s ease;
     display: none;
+    font-weight: 400;
 }
 
 @media (min-width: 768px) {
@@ -236,4 +228,4 @@ footer {
 }
 
 .footer-left { font-family: var(--font-mono); color: var(--text-dim); }
-.footer-right { color: var(--yellow); }
+.footer-right { color: var(--yellow); font-family: var(--font-mono); }
