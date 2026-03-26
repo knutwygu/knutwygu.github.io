@@ -1,67 +1,127 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knut W.Y.Gu | DSP Engineer</title>
-
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/style.css">
+    <title>Knut W.Y. Gu | DSP.lab</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
-    <img src="images/robot-mobile.png" class="bg-robot-img mobile-top" alt="Mobile Robot">
+    <canvas id="waveCanvas"></canvas>
 
     <div class="container">
-        
-        <h1>KNUT W.Y. GU</h1>
-        
-        <div class="subtitle">
-            DSP Engineer <span style="color:#666">|</span> <span class="highlight">FFT</span> Wizard
-        </div>
+        <header>
+            <div class="logo-area">
+                <div class="logo"><span class="dot"></span> DSP.lab</div>
+                <div class="name">Knut W.Y. Gu</div>
+            </div>
+            <div class="top-right">
+                <div class="tagline">Electrical Engineering @ UCI | DSP</div>
+                <a href="mailto:hello@example.com" class="email-link">✉️ Drop a line ↗</a>
+            </div>
+        </header>
 
-        <div class="wave-box">
-            <div class="signal-line"></div>
-        </div>
+        <section class="hero">
+            <h1>Making <i>signals</i><br>behave nicely</h1>
+            <p class="subtitle">
+                Electrical Engineering student. Turning math into physical reality through circuit design and Fourier transforms. <span class="asterisk">*</span>
+            </p>
+        </section>
 
-        <p style="color: #ccc; font-size: 0.95rem; line-height: 1.5;">
-            Filtering noise from reality.<br>
-            <span class="highlight">Sampling Rate: 24/7</span>
-        </p>
-
-        <div class="btn-group">
-            <a href="about.html" class="btn">
-                <span class="btn-desc">System Specifications</span> [About]
-            </a>
-            <a href="access.html" class="btn">
-                <span class="btn-desc">Open Access</span> [Inclusion]
-            </a>
-            <a href="project.html" class="btn">
-                <span class="btn-desc">Signal Processing</span> [Project]
-            </a>
-            <a href="resume.html" class="btn">
-                <span class="btn-desc">Impulse Response</span> [Resume]
-            </a>
-        </div>
-
-        <div class="footer">
-            System Status: Stable <br>
-            <a href="mailto:knutwygu@gmail.com">Input Signal (Contact)</a>
-        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="about.html" class="nav-link">
+                    <div class="nav-left">
+                        <span class="nav-num">01</span>
+                        <span class="nav-title">About</span>
+                    </div>
+                    <div class="nav-right">
+                        <span class="nav-desc">an analog mind in a discrete world</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="inclusion.html" class="nav-link">
+                    <div class="nav-left">
+                        <span class="nav-num">02</span>
+                        <span class="nav-title">Inclusion</span>
+                    </div>
+                    <div class="nav-right">
+                        <span class="nav-desc">designing accessible tech & hardware</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="project.html" class="nav-link">
+                    <div class="nav-left">
+                        <span class="nav-num">03</span>
+                        <span class="nav-title">Project</span>
+                    </div>
+                    <div class="nav-right">
+                        <span class="nav-desc">filter design, transforms & reactive systems</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="resume.html" class="nav-link">
+                    <div class="nav-left">
+                        <span class="nav-num">04</span>
+                        <span class="nav-title">Resume</span>
+                    </div>
+                    <div class="nav-right">
+                        <span class="nav-desc">coursework, skills & lab experience</span>
+                        <span class="arrow">→</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </div>
 
-    <img src="images/robot-blueprint.png" class="bg-robot-img desktop-left" alt="Blueprint">
-    <img src="images/robot-fix.png" class="bg-robot-img desktop-right" alt="Repair">
+    <script>
+        const canvas = document.getElementById('waveCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drawWave(); // 窗口调整时重绘
+        }
+        window.addEventListener('resize', resize);
+        
+        function drawWave() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // 将波形稍微下移，避开主要文字区
+            const centerY = canvas.height * 0.65; 
+            const width = canvas.width;
+            
+            // 绘制离散点
+            for(let x = 0; x < width; x += 18) { // 点距
+                const y1 = centerY + Math.sin(x * 0.004) * 70;
+                const y2 = centerY + Math.sin(x * 0.007 + 2) * 50;
+                
+                // 计算透明度：中间清晰，向两侧渐隐融入黑色
+                const distFromCenter = Math.abs(x - width/2);
+                const opacity = Math.max(0, 1 - (distFromCenter / (width * 0.6)));
+                
+                // 青色波形
+                ctx.beginPath();
+                ctx.arc(x, y1, 1.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(92, 192, 181, ${opacity * 0.5})`;
+                ctx.fill();
 
-    
-
-
-    
-
+                // 黄色波形
+                ctx.beginPath();
+                ctx.arc(x, y2, 1.5, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(212, 184, 104, ${opacity * 0.4})`;
+                ctx.fill();
+            }
+        }
+        
+        // 初始化
+        resize();
+    </script>
 </body>
 </html>
