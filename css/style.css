@@ -1,11 +1,4 @@
-/* 全局变量：更新为 Geist 字体 */
-/* 1. 直接通过稳定的 CDN 引入 Geist 和 Geist Mono 字体包 */
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/index.min.css');
-@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.0.1/index.min.css');
-
-/* 2. 更新全局变量，强行指定刚引入的字体 */
-
-
+/* 更新全局变量，强行指定 IBM Plex 字体 */
 :root {
     --bg-dark: #0a0f14;
     --text-main: #f0f4f8;
@@ -14,9 +7,9 @@
     --cyan: #4fd1c5;
     --yellow: #fbbf24;
     
-    /* 完美还原 v0 的核心字体 */
-    --font-sans: 'Geist Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
-    --font-mono: 'Geist Mono', ui-monospace, monospace;
+    /* 核心改动：应用 IBM Plex */
+    --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 body {
@@ -28,6 +21,7 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
 }
+
 
 /* 页面主容器 */
 .page-wrapper {
