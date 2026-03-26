@@ -230,3 +230,130 @@ footer {
 
 .footer-left { font-family: var(--font-mono); color: var(--text-dim); }
 .footer-right { color: var(--yellow); font-family: var(--font-mono); }
+
+
+
+/* =========================================
+   Sub-pages Specific Styles (About, Project, etc.)
+   ========================================= */
+
+/* 子页面 Header */
+.page-header {
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .page-header { padding: 3rem 4rem; margin-bottom: 4rem; }
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--cyan);
+}
+
+.back-arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover .back-arrow {
+    transform: translateX(-4px); /* Hover 时箭头向左微移 */
+}
+
+/* 子页面主体容器 */
+.content-page {
+    padding-top: 0;
+}
+
+.page-title-group {
+    margin-bottom: 4rem;
+}
+
+.page-num {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--cyan);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+    .page-title { font-size: 3.5rem; }
+}
+
+/* 正文排版 (Prose) */
+.prose {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 42rem;
+}
+
+.prose p {
+    margin-bottom: 2rem;
+}
+
+.prose p:last-child {
+    margin-bottom: 0;
+}
+
+/* 技能标签区 */
+.skills-section {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(240, 244, 248, 0.05);
+}
+
+.skills-title {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--yellow);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skills-list li {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-main);
+    background-color: rgba(79, 209, 197, 0.05);
+    border: 1px solid rgba(79, 209, 197, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+}
+
+.skills-list li:hover {
+    background-color: rgba(79, 209, 197, 0.1);
+    border-color: var(--cyan);
+}
