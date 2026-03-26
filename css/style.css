@@ -1,4 +1,11 @@
 /* 全局变量：更新为 Geist 字体 */
+/* 1. 直接通过稳定的 CDN 引入 Geist 和 Geist Mono 字体包 */
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-sans@5.0.1/index.min.css');
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/geist-mono@5.0.1/index.min.css');
+
+/* 2. 更新全局变量，强行指定刚引入的字体 */
+
+
 :root {
     --bg-dark: #0a0f14;
     --text-main: #f0f4f8;
@@ -8,7 +15,7 @@
     --yellow: #fbbf24;
     
     /* 完美还原 v0 的核心字体 */
-    --font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-sans: 'Geist Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: 'Geist Mono', ui-monospace, monospace;
 }
 
