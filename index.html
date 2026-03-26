@@ -9,75 +9,72 @@
 <body>
     <canvas id="waveCanvas"></canvas>
 
-    <div class="container">
+    <div class="page-wrapper">
         <header>
-            <div class="logo-area">
-                <div class="logo"><span class="dot"></span> DSP.lab</div>
-                <div class="name">Knut W.Y. Gu</div>
+            <div class="header-left">
+                <div class="pulse-dot"></div>
+                <span class="logo-text">DSP.lab</span>
             </div>
-            <div class="top-right">
-                <div class="tagline">Electrical Engineering @ UCI | DSP</div>
+            <div class="header-right">
+                <span class="tagline">Electrical Engineering @ UCI | DSP</span>
                 <a href="mailto:hello@example.com" class="email-link">✉️ Drop a line ↗</a>
             </div>
         </header>
 
-        <section class="hero">
-            <h1>Making <i>signals</i><br>behave nicely</h1>
-            <p class="subtitle">
-                Electrical Engineering student. Turning math into physical reality through circuit design and Fourier transforms. <span class="asterisk">*</span>
-            </p>
-        </section>
+        <main>
+            <div class="content-container">
+                <p class="name-tag">Knut W.Y. Gu</p>
 
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="about.html" class="nav-link">
-                    <div class="nav-left">
+                <h1 class="hero-title">
+                    Making <span class="italic-cyan">signals</span><br>
+                    behave nicely
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Electrical Engineering student. Turning math into physical reality through circuit design and Fourier transforms.<span class="yellow-star"> *</span>
+                </p>
+
+                <nav class="nav-list">
+                    <a href="about.html" class="nav-item">
                         <span class="nav-num">01</span>
                         <span class="nav-title">About</span>
-                    </div>
-                    <div class="nav-right">
                         <span class="nav-desc">an analog mind in a discrete world</span>
-                        <span class="arrow">→</span>
-                    </div>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="inclusion.html" class="nav-link">
-                    <div class="nav-left">
+                        <svg class="nav-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                    <a href="inclusion.html" class="nav-item">
                         <span class="nav-num">02</span>
                         <span class="nav-title">Inclusion</span>
-                    </div>
-                    <div class="nav-right">
                         <span class="nav-desc">designing accessible tech & hardware</span>
-                        <span class="arrow">→</span>
-                    </div>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="project.html" class="nav-link">
-                    <div class="nav-left">
+                        <svg class="nav-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                    <a href="project.html" class="nav-item">
                         <span class="nav-num">03</span>
                         <span class="nav-title">Project</span>
-                    </div>
-                    <div class="nav-right">
                         <span class="nav-desc">filter design, transforms & reactive systems</span>
-                        <span class="arrow">→</span>
-                    </div>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="resume.html" class="nav-link">
-                    <div class="nav-left">
+                        <svg class="nav-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                    <a href="resume.html" class="nav-item">
                         <span class="nav-num">04</span>
                         <span class="nav-title">Resume</span>
-                    </div>
-                    <div class="nav-right">
                         <span class="nav-desc">coursework, skills & lab experience</span>
-                        <span class="arrow">→</span>
-                    </div>
-                </a>
-            </li>
-        </ul>
+                        <svg class="nav-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </nav>
+            </div>
+        </main>
+
+        <footer>
+            <span class="footer-left">// nerdy but make it cute</span>
+            <span class="footer-right">*occasionally debugging at 3am</span>
+        </footer>
     </div>
 
     <script>
@@ -85,43 +82,47 @@
         const ctx = canvas.getContext('2d');
         
         function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            drawWave(); // 窗口调整时重绘
+            canvas.width = window.innerWidth * 2;
+            canvas.height = window.innerHeight * 2;
+            canvas.style.width = window.innerWidth + 'px';
+            canvas.style.height = window.innerHeight + 'px';
+            ctx.scale(2, 2);
         }
-        window.addEventListener('resize', resize);
         
-        function drawWave() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            // 将波形稍微下移，避开主要文字区
-            const centerY = canvas.height * 0.65; 
-            const width = canvas.width;
+        window.addEventListener('resize', resize);
+        resize();
+
+        let frame = 0;
+        function animate() {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            ctx.clearRect(0, 0, w, h);
             
-            // 绘制离散点
-            for(let x = 0; x < width; x += 18) { // 点距
-                const y1 = centerY + Math.sin(x * 0.004) * 70;
-                const y2 = centerY + Math.sin(x * 0.007 + 2) * 50;
-                
-                // 计算透明度：中间清晰，向两侧渐隐融入黑色
-                const distFromCenter = Math.abs(x - width/2);
-                const opacity = Math.max(0, 1 - (distFromCenter / (width * 0.6)));
-                
-                // 青色波形
+            const step = 16; // 离散点间距
+
+            for (let x = 0; x < w; x += step) {
+                const distFromCenter = Math.abs(x - w / 2);
+                const opacity = Math.max(0, 1 - (distFromCenter / (w * 0.6)));
+
+                // 青色离散点波形
+                const y1 = h * 0.65 + Math.sin((x * 0.006) + (frame * 0.02)) * 35;
                 ctx.beginPath();
                 ctx.arc(x, y1, 1.5, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(92, 192, 181, ${opacity * 0.5})`;
+                ctx.fillStyle = `rgba(79, 209, 197, ${opacity * 0.6})`;
                 ctx.fill();
 
-                // 黄色波形
+                // 黄色离散点波形
+                const y2 = h * 0.35 + Math.sin((x * 0.004) - (frame * 0.015)) * 25;
                 ctx.beginPath();
-                ctx.arc(x, y2, 1.5, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(212, 184, 104, ${opacity * 0.4})`;
+                ctx.arc(x, y2, 1.2, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(251, 191, 36, ${opacity * 0.4})`;
                 ctx.fill();
             }
+
+            frame++;
+            requestAnimationFrame(animate);
         }
-        
-        // 初始化
-        resize();
+        animate();
     </script>
 </body>
 </html>
