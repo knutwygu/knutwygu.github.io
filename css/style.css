@@ -275,6 +275,7 @@ footer {
 /* 子页面主体容器 */
 .content-page {
     padding-top: 0;
+    justify-content: flex-start; /* 增加这一行：强制靠上对齐，无视内容高度 */
 }
 
 .page-title-group {
@@ -394,15 +395,17 @@ footer {
 .project-title-area {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.25rem;
+    flex: 1; /* 让标题区域拥有弹性伸缩权 */
 }
 
 .project-meta {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.2rem;
-    min-width: 80px; /* 保证编号区域宽度固定，对齐更美观 */
+    gap: 0.1rem;
+    min-width: 75px; /* 保证编号区域宽度固定，对齐更美观 */
+    flex-shrink: 0; /* 核心：防止编号被挤压变形 */
 }
 
 .project-id {
@@ -421,6 +424,7 @@ footer {
     font-size: 1.5rem;
     font-weight: 300;
     margin: 0;
+    line-height: 1.3;
     color: var(--text-main);
     transition: color 0.3s ease;
 }
@@ -432,9 +436,10 @@ footer {
 /* 标签 */
 .project-tags {
     display: flex;
-    gap: 0.75rem;
-    margin-left: auto;
-    margin-right: 2rem;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1.5rem;
+    justify-content: flex-end;
 }
 
 .project-tags span {
@@ -444,6 +449,7 @@ footer {
     border: 1px solid rgba(240, 244, 248, 0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 1rem;
+    white-space: nowrap; /* 核心：让方框里的字绝对不换行 */
 }
 
 .toggle-icon {
@@ -588,5 +594,18 @@ footer {
 
 @media (max-width: 768px) {
     .hidden-mobile { display: none; }
-    .project-title-area { flex-direction: column; gap: 0.2rem; }
+    
+    .project-title-area { 
+        flex-direction: column; 
+        align-items: flex-start; /* 核心修复：手机端强制完美左对齐 */
+        gap: 0.5rem; 
+    }
+    
+    /* 手机端把 Project_0 和年份横向并排，更节省空间且整洁 */
+    .project-meta {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.75rem;
+        min-width: auto;
+    }
 }
