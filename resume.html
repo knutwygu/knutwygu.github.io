@@ -3,101 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Knut W.Y.Gu</title>
-
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Resume | Knut W.Y. Gu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <img src="images/robot-mobile.png" class="bg-robot-img mobile-top" alt="Mobile Robot">
-    <img src="images/robot-blueprint.png" class="bg-robot-img desktop-left" alt="Blueprint">
-    <img src="images/robot-fix.png" class="bg-robot-img desktop-right" alt="Repair">
-    
-    <div class="container">
-        
-        <h1>IMPULSE RESPONSE</h1>
-        <div class="subtitle resume-subtitle" style="margin-bottom: 40px;">
-            Profile: <span class="highlight">DSP & EMBEDDED ENGINEER</span>
-        </div>
-
-        <div class="download-section">
-            <a href="files/Resume.pdf" class="download-btn" target="_blank">
-                [ FULL_RESUME.PDF ]
+    <div class="page-wrapper">
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <svg class="back-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+                <span>Back to Home</span>
             </a>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">
-                // Updated: Mar 2026 | Format: PDF
-            </p>
-        </div>
-
-        <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">EDUCATION</span> ]
+            <div class="header-right">
+                <span class="logo-text">Knut W.Y. Gu</span>
             </div>
-            <ul class="tech-list">
-                <!-- <li>
-                    <strong>M.S. Electrical Engineering</strong> // UC Irvine
-                    <br><span class="comment">Focus: Digital Signal Processing (GPA: 3.8/4.0)</span>
-                </li> -->
-                <li>
-                    <strong>B.S. Electrical Engineering</strong> // UC Irvine
-                    <br><span class="comment">Focus: Digital Signal Processing (GPA: 3.8/4.0)</span>
-                    <br><span class="comment">Award: Dean's List</span>
-                    <br><span class="comment">Honor Society: IEEE-Eta Kappa Nu (HKN)</span>
-                </li>
-                <li>
-                    <strong>A.S. Engineering</strong> // Cañada College
-                    <br><span class="comment">GPA: 4.0/4.0</span>
-                    <br><span class="comment">Award: <em>Valedictorian</em> at Commencement, <em>Summa Cum Laude</em>, Dean's List</span>
-                    <br><span class="comment">Honor Society: Phi Theta Kappa</span>
-                </li>
-            </ul>
-        </div>
+        </header>
 
-        <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">TECHNICAL_SKILLS</span> ]
+        <main class="content-page">
+            <div class="content-container">
+                <div class="page-title-group">
+                    <span class="page-num">04 / Resume</span>
+                    <h1 class="page-title">Background & <span class="italic-cyan">Expertise</span>.</h1>
+                </div>
+
+                <div class="resume-wrapper">
+                    <section class="resume-section">
+                        <h2 class="skills-title">// Education</h2>
+                        
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-date">2025 — Pres.</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">University of California, Irvine</h3>
+                                <p class="resume-degree">B.S. in Electrical Engineering</p>
+                                <p class="resume-detail">Specialization: Digital Signal Processing • GPA: 3.69/4.0</p>
+                            </div>
+                        </div>
+
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-date">2022 — 2025</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">Cañada College</h3>
+                                <p class="resume-degree">A.S. in Engineering</p>
+                                <p class="resume-detail">Valedictorian & Summa Cum Laude • GPA: 4.0/4.0</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="resume-section">
+                        <h2 class="skills-title">// Technical Skills</h2>
+                        
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-category">Hardware</span>
+                            </div>
+                            <div class="resume-content">
+                                <ul class="skills-list">
+                                    <li>Analog Circuit Design</li>
+                                    <li>Op-Amps & Active Filters</li>
+                                    <li>Microcontroller Integration (ADC, I2C)</li>
+                                    <li>Soldering / Perfboard</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="resume-item" style="margin-top: 1.5rem;">
+                            <div class="resume-meta">
+                                <span class="resume-category">Software</span>
+                            </div>
+                            <div class="resume-content">
+                                <ul class="skills-list">
+                                    <li>Python & MATLAB</li>
+                                    <li>C / C++ (Arduino)</li>
+                                    <li>SolidWorks & Onshape</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="resume-section">
+                        <h2 class="skills-title">// Highlights & Awards</h2>
+                        
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-date">2026</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">IEEE-Eta Kappa Nu (HKN)</h3>
+                                <p class="resume-detail">Honor Society Member</p>
+                            </div>
+                        </div>
+
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-date">2023</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">Phi Theta Kappa</h3>
+                                <p class="resume-detail">Honor Society Member</p>
+                            </div>
+                        </div>
+
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-date">2025</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">Valedictorian & Summa Cum Laude</h3>
+                                <p class="resume-detail">Cañada College</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="download-section">
+                    <p class="download-text">For full professional experience, projects, and detailed background.</p>
+                    <a href="Resume.pdf" target="_blank" class="download-btn">
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download Full Resume (PDF)
+                    </a>
+                </div>
+
             </div>
-            <ul class="tech-list">
-                <li>
-                    <strong>Programming:</strong> Python, MATLAB
-                </li>
-                <li>
-                    <strong>Hardware:</strong> Arduino, PCB Design
-                </li>
-                <li>
-                    <strong>Tools:</strong> SOLIDWORKS, LTSpice, Onshape
-                </li>
-            </ul>
-        </div>
+        </main>
 
-        <!-- <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">EXPERIENCE_HIGHLIGHTS</span> ]
+        <footer>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; width: 100%;">
+                <div style="display: flex; justify-content: space-between; width: 100%; border-top: 1px solid rgba(240,244,248,0.1); padding-top: 1.5rem;">
+                    <span class="footer-left">// system specifications</span>
+                    
+                </div>
             </div>
-            <ul class="tech-list">
-                <li>
-                    <strong>Firmware Engineer Intern</strong> // Tech Company A
-                    <br><span class="comment">Optimized DSP algorithms for audio devices.</span>
-                </li>
-                <li>
-                    <strong>Graduate Researcher</strong> // UCI Lab
-                    <br><span class="comment">Developing AI-driven signal filtering systems.</span>
-                </li>
-            </ul>
-        </div> -->
-
-        <div class="return-container">
-            <a href="index.html" class="btn">
-                &lt; RETURN TO MAIN
-            </a>
-        </div>
-
+        </footer>
     </div>
-
-    
 </body>
 </html>
