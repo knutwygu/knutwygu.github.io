@@ -3,256 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Knut W.Y.Gu</title>
-
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Project | Knut W.Y. Gu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
-    </head>
+</head>
 <body>
-
-    <img src="images/robot-mobile.png" class="bg-robot-img mobile-top" alt="Mobile Robot">
-    <img src="images/robot-blueprint.png" class="bg-robot-img desktop-left" alt="Blueprint">
-    <img src="images/robot-fix.png" class="bg-robot-img desktop-right" alt="Repair">
-    
-    <div class="container">
-        
-        <h1>SIGNAL PROCESSING</h1>
-        <div class="subtitle" style="margin-bottom: 40px;">
-            Archive: <span class="highlight">ENGINEERING_LOGS</span>
-        </div>
-
-        <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">MISSION_STATEMENT</span> ]
-            </div>
-            <ul class="tech-list">
-                <li>
-                    <strong>Objective</strong> // Bridge the gap between Circuit Theory and Embedded Systems.
-                </li>
-                <li>
-                    <strong>Focus</strong> // Analog Signal Conditioning & Real-time DSP.
-                </li>
-            </ul>
-        </div>
-
-        <div class="content-block">
-            <div class="content-header">
-                [ <span class="highlight">DEPLOYED_UNITS</span> ]
-            </div>
-            
-            <p style="color: #888; margin-bottom: 15px; font-size: 0.9rem;">
-                Select unit to expand schematics:
-            </p>
-
-            <details>
-                <summary>
-                    PROJECT_00 // Music Reactive LED System
-                </summary>
-                
-                <div class="detail-content">
-                    
-                    <div class="carousel-container">
-                        <button class="carousel-btn prev" onclick="scrollCarousel(-1)">&lt;</button>
-                                                    
-                        <div class="carousel-track" id="project00-carousel">
-                            <img src="images/Project00_1.jpeg" alt="Project Image 1" class="carousel-slide">
-                            <img src="images/Mode_0.PNG" alt="Project Image 2" class="carousel-slide">
-                            <img src="images/Mode_1.PNG" alt="Project Image 3" class="carousel-slide">
-                            <img src="images/Mode_2.PNG" alt="Project Image 4" class="carousel-slide">
-                            </div>
-                                                    
-                        <button class="carousel-btn next" onclick="scrollCarousel(1)">&gt;</button>
-                    </div>
-
-                    <p style="margin-bottom: 10px; color: #fff; text-decoration: underline decoration-dotted #444;">
-                        [ SYSTEM_ARCHITECTURE ]
-                    </p>
-                    
-                    <ul class="tech-list">
-                        <li>
-                            <strong>Core Concept</strong> // Hybrid Analog-Digital Processing.
-                        </li>
-                        <li>
-                            <strong>Analog Front-End</strong> // Custom LM358 Op-Amp Pre-amplifier.
-                        </li>
-                        <li>
-                            <strong>Signal Chain</strong> // Electret Mic -> Active Crossover -> ADC -> FFT -> WS2812B.
-                        </li>
-                        <li>
-                            <strong>Features</strong> // 3 Encoder-Switchable Modes: Spectrum Analyzer, Waveform Monitor & Reactive Strobe.
-                        </li>
-                    </ul>
-
-                    <p style="margin-bottom: 10px; margin-top: 20px; color: #fff; text-decoration: underline decoration-dotted #444;">
-                        [ EXECUTION_LOG ]
-                    </p>
-
-                    <ul class="tech-list">
-                        <li>
-                            <strong>Phase 1</strong> // Analog Filter Design & Simulation (LTSpice).
-                        </li>
-                        <li>
-                            <strong>Phase 2</strong> // Breadboard Prototyping & DSP Firmware.
-                        </li>
-                        <li>
-                            <strong>Phase 3</strong> // DSP Parameter Tuning & Signal Calibration.
-                        </li>
-                    </ul>
-
-                    <div style="margin-top: 25px; text-align: center;">
-                        <a href="docs/Proposal_0.pdf" class="proposal-btn" target="_blank">
-                            PROJ PROPOSAL_0 :: PDF
-                        </a>
-                    </div>
-                </div>
-            </details>
-
-            <!-- <details>
-                <summary>
-                    PROJECT_01 // [ PENDING ]
-                </summary>
-                <div class="detail-content">
-                    <ul class="tech-list">
-                        <li>
-                            <strong>Status</strong> // Research & Development.
-                        </li>
-                        <li>
-                            <strong>ETA</strong> // Pending Compilation...
-                        </li>
-                    </ul>
-                </div>
-            </details> -->
-
-            </div>
-
-        <div class="return-container">
-            <a href="index.html" class="btn">
-                &lt; RETURN TO MAIN
+    <div class="page-wrapper">
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <svg class="back-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+                <span>Back to Home</span>
             </a>
-        </div>
+            <div class="header-right">
+                <span class="logo-text">Knut W.Y. Gu</span>
+            </div>
+        </header>
 
+        <main class="content-page">
+            <div class="content-container">
+                <div class="page-title-group">
+                    <span class="page-num">03 / Project</span>
+                    <h1 class="page-title">Hardware & <span class="italic-cyan">Signals</span>.</h1>
+                </div>
+
+                <div class="project-list">
+                    
+                    <div class="project-item active"> <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-area">
+                                <span class="project-year">2026</span>
+                                <h2 class="project-name">Music Reactive LED System</h2>
+                            </div>
+                            <div class="project-tags hidden-mobile">
+                                <span>Mixed-Signal</span>
+                                <span>Analog Filters</span>
+                                <span>Embedded C++</span>
+                            </div>
+                            <svg class="toggle-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="carousel-container">
+                                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                                <div class="carousel-track-wrapper">
+                                    <ul class="carousel-track">
+                                        <li class="carousel-slide"><img src="images/Project00_1.jpeg" alt="Circuit Board"></li>
+                                        <li class="carousel-slide"><img src="images/Mode_0.PNG" alt="Spectrum Mode"></li>
+                                        <li class="carousel-slide"><img src="images/Mode_1.PNG" alt="Waveform Mode"></li>
+                                        <li class="carousel-slide"><img src="images/Mode_2.PNG" alt="Reactive Strobe Mode"></li>
+                                    </ul>
+                                </div>
+                                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                            </div>
+
+                            <div class="project-desc">
+                                <p>This project aims to design and build a real-time music reactive LED system that combines analog audio circuits with embedded digital control[cite: 6]. It was developed as a mixed-signal design project at UC Irvine[cite: 2, 18].</p>
+                                
+                                <ul>
+                                    <li><strong>Analog Front-End:</strong> Features a custom preamplifier circuit designed using an LM358 operational amplifier to process millivolt-level electret condenser microphone outputs[cite: 20, 21].</li>
+                                    <li><strong>Hardware Frequency Separation:</strong> Implements a 3-band active analog filter network to cleanly separate the audio spectrum into bass, midrange, and treble components before digitization[cite: 22, 23].</li>
+                                    <li><strong>Embedded Control:</strong> Uses an Arduino Mega running non-blocking embedded C/C++ firmware to sample signals and map them to a WS2812B RGB LED strip in real-time[cite: 26, 27, 31, 36, 65].</li>
+                                    <li><strong>Interactive UI:</strong> Includes a 0.96-inch OLED display and a rotary encoder allowing users to switch between Spectrum Mode, Waveform Mode, and Reactive Strobe Mode[cite: 34, 39, 43, 44].</li>
+                                </ul>
+
+                                <a href="docs/Proposal_0.pdf" target="_blank" class="download-btn">
+                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    Download Proposal_0 (PDF)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+            </div>
+        </main>
+
+        <footer>
+            <span class="footer-left">// building physical reality</span>
+            
+        </footer>
     </div>
 
     <script>
-      const track = document.getElementById('project00-carousel');
-    
-      let slideWidth = 0;
-      let realCount = 0;       // 真正图片数量（不含 clone）
-      let busy = false;
-    
-      function measure() {
-        slideWidth = track.clientWidth; // 你现在是一屏一张的布局，这样算 OK
-      }
-    
-      function setupInfiniteCarousel() {
-        // 防止重复初始化
-        if (track.dataset.infinite === "1") return;
-        track.dataset.infinite = "1";
-    
-        const slides = Array.from(track.children);
-        realCount = slides.length;
-        if (realCount <= 1) return;
-    
-        // 1) 克隆首尾
-        const firstClone = slides[0].cloneNode(true);
-        const lastClone  = slides[realCount - 1].cloneNode(true);
-    
-        firstClone.dataset.clone = "first";
-        lastClone.dataset.clone = "last";
-    
-        track.appendChild(firstClone);            // 最后追加一个“第一张clone”
-        track.insertBefore(lastClone, slides[0]); // 最前插入一个“最后一张clone”
-    
-        // 2) 初始位置：跳到“真正的第一张”（因为最前面多了 lastClone）
-        measure();
-        track.scrollLeft = slideWidth;
-    
-        // 3) 监听滚动结束：当滑到 clone 时，瞬间无动画校正回真图
-        track.addEventListener('scroll', onScroll, { passive: true });
-    
-        // 4) 处理窗口尺寸变化
-        window.addEventListener('resize', () => {
-          const currentIndex = getIndex();
-          measure();
-          // resize 后重新对齐到当前 index
-          jumpToIndex(currentIndex);
-        });
-      }
-    
-      let scrollEndTimer = null;
-      function onScroll() {
-        // 用一个很轻量的“滚动停止检测”
-        if (scrollEndTimer) clearTimeout(scrollEndTimer);
-        scrollEndTimer = setTimeout(() => {
-          // 总长度 = realCount + 2（加了两张 clone）
-          const total = realCount + 2;
-          const maxIndex = total - 1;
-    
-          const index = Math.round(track.scrollLeft / slideWidth);
-    
-          // index=0 代表在最前面的 lastClone
-          if (index === 0) {
-            // 瞬间跳到“真正的最后一张”
-            track.style.scrollBehavior = 'auto';
-            track.scrollLeft = realCount * slideWidth;
-            track.offsetHeight; // 强制 reflow，确保行为生效
-            track.style.scrollBehavior = 'smooth';
-          }
-    
-          // index=maxIndex 代表在最后的 firstClone
-          if (index === maxIndex) {
-            // 瞬间跳到“真正的第一张”
-            track.style.scrollBehavior = 'auto';
-            track.scrollLeft = 1 * slideWidth;
-            track.offsetHeight;
-            track.style.scrollBehavior = 'smooth';
-          }
-    
-          busy = false;
-        }, 120);
-      }
-    
-      // 把“当前停留在第几张真图”映射出来：1..realCount
-      function getIndex() {
-        const raw = Math.round(track.scrollLeft / slideWidth); // 0..realCount+1
-        // raw=1 => 真第一张；raw=realCount => 真最后一张
-        // raw=0/realCount+1 是 clone
-        if (raw <= 0) return realCount;
-        if (raw >= realCount + 1) return 1;
-        return raw;
-      }
-    
-      function jumpToIndex(idx) {
-        // idx 是 1..realCount（真图 index）
-        track.style.scrollBehavior = 'auto';
-        track.scrollLeft = idx * slideWidth;
-        track.offsetHeight;
-        track.style.scrollBehavior = 'smooth';
-      }
-    
-      function scrollCarousel(direction) {
-        if (busy) return;
-        busy = true;
-    
-        measure();
-        const rawIndex = Math.round(track.scrollLeft / slideWidth);
-        const targetRawIndex = rawIndex + direction;
-    
-        track.scrollTo({
-          left: targetRawIndex * slideWidth,
-          behavior: 'smooth'
-        });
-      }
-    
-      // 初始化
-      setupInfiniteCarousel();
+        // 1. 手风琴折叠面板逻辑
+        function toggleProject(headerElement) {
+            const item = headerElement.parentElement;
+            // 切换 active 类名来展开/收起
+            item.classList.toggle('active');
+            
+            // 如果你希望每次只展开一个项目，可以加上下面这端代码：
+            // document.querySelectorAll('.project-item').forEach(el => {
+            //     if(el !== item) el.classList.remove('active');
+            // });
+        }
+
+        // 2. 无限循环滑动轮播图逻辑
+        function moveSlide(btn, direction) {
+            const container = btn.parentElement;
+            const track = container.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            if(slides.length <= 1) return; // 只有一张图不需要滑动
+
+            // 找到当前显示的 slide 索引 (通过寻找 left 为 0 的元素)
+            // 为了实现"无限循环"最简单的视觉效果，我们每次点击时，直接将 DOM 元素剪切并移动到最后/最前面
+            
+            if (direction === 1) { // 向右滑动 (Next)
+                track.style.transition = 'transform 0.3s ease-in-out';
+                track.style.transform = 'translateX(-100%)'; // 滑动到第二张
+                
+                // 等待滑动动画结束后，把第一张图瞬间移到最后，并恢复轨道位置
+                setTimeout(() => {
+                    track.style.transition = 'none';
+                    track.appendChild(slides[0]); // 移到末尾
+                    track.style.transform = 'translateX(0)';
+                }, 300);
+                
+            } else if (direction === -1) { // 向左滑动 (Prev)
+                // 先把最后一张图瞬间移到最前面，并把轨道往左偏移
+                track.style.transition = 'none';
+                track.insertBefore(slides[slides.length - 1], slides[0]);
+                track.style.transform = 'translateX(-100%)';
+                
+                // 强制重绘，然后开启滑动动画归位
+                track.offsetHeight; 
+                track.style.transition = 'transform 0.3s ease-in-out';
+                track.style.transform = 'translateX(0)';
+            }
+        }
     </script>
 </body>
 </html>
-
-            
-
