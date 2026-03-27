@@ -239,8 +239,15 @@ footer {
 
 /* 子页面 Header */
 .page-header {
+    position: sticky;       /* 核心：让它粘在屏幕顶部 */
+    top: 0;                 /* 贴紧顶部边缘 */
+    z-index: 100;           /* 确保它永远覆盖在文字上方 */
+    background: rgba(10, 15, 20, 0.75); /* 深色半透明背景，和你的主题色融合 */
+    backdrop-filter: blur(12px);        /* 开启高级毛玻璃模糊效果 */
+    -webkit-backdrop-filter: blur(12px);/* 兼容苹果 Safari 浏览器 */
     padding: 2.5rem 2rem;
     margin-bottom: 2rem;
+    transition: all 0.3s ease;
 }
 
 @media (min-width: 768px) {
