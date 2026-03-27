@@ -411,7 +411,7 @@ footer {
 .project-id {
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    color: var(--cyan);
+    color: var(--yellow);
 }
 
 .project-year {
