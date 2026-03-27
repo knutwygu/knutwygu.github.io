@@ -393,14 +393,28 @@ footer {
 
 .project-title-area {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 1.5rem;
+}
+
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    min-width: 80px; /* 保证编号区域宽度固定，对齐更美观 */
+}
+
+.project-id {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--cyan);
 }
 
 .project-year {
     font-family: var(--font-mono);
-    font-size: 0.875rem;
-    color: var(--yellow);
+    font-size: 0.75rem;
+    color: var(--text-dim);
 }
 
 .project-name {
