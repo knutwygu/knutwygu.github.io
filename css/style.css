@@ -41,7 +41,16 @@ header {
 }
 
 @media (min-width: 768px) {
-    header { padding: 2rem 4rem; }
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 2rem 1.5rem;
+    }
+
+.header-right {
+    align-items: flex-start; /* 让右上角的文字在手机上也左对齐，整齐划一 */
+    gap: 0.5rem;
 }
 
 .header-left {
@@ -225,11 +234,17 @@ footer {
 }
 
 @media (min-width: 768px) {
-    footer { padding: 1.5rem 4rem; }
-}
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 2rem 1.5rem;
+    }
 
 .footer-left { font-family: var(--font-mono); color: var(--text-dim); }
 .footer-right { color: var(--yellow); font-family: var(--font-mono); }
+
+    
 
 
 
