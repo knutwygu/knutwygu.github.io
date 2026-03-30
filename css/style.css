@@ -1,4 +1,6 @@
-/* 更新全局变量，强行指定 IBM Plex 字体 */
+/* =========================================
+   全局变量与基础设置 (Global Variables & Base)
+   ========================================= */
 :root {
     --bg-dark: #0a0f14;
     --text-main: #f0f4f8;
@@ -22,7 +24,6 @@ body {
     min-height: 100vh;
 }
 
-
 /* 页面主容器 */
 .page-wrapper {
     position: relative;
@@ -32,7 +33,9 @@ body {
     flex-direction: column;
 }
 
-/* --- Header --- */
+/* =========================================
+   通用 Header 与 Footer (电脑端基础样式)
+   ========================================= */
 header {
     display: flex;
     justify-content: space-between;
@@ -41,16 +44,7 @@ header {
 }
 
 @media (min-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1.25rem;
-        padding: 2rem 1.5rem;
-    }
-
-.header-right {
-    align-items: flex-start; /* 让右上角的文字在手机上也左对齐，整齐划一 */
-    gap: 0.5rem;
+    header { padding: 2rem 4rem; }
 }
 
 .header-left {
@@ -91,7 +85,25 @@ header {
 .email-link { color: var(--cyan); text-decoration: none; transition: opacity 0.3s; }
 .email-link:hover { opacity: 0.7; }
 
-/* --- Main Content --- */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    footer { padding: 1.5rem 4rem; }
+}
+
+.footer-left { font-family: var(--font-mono); color: var(--text-dim); }
+.footer-right { color: var(--yellow); font-family: var(--font-mono); }
+
+
+/* =========================================
+   主页专属样式 (Home Page)
+   ========================================= */
 main {
     flex: 1;
     display: flex;
@@ -146,7 +158,6 @@ main {
 
 .yellow-star { color: var(--yellow); }
 
-/* --- Navigation List --- */
 .nav-list {
     display: flex;
     flex-direction: column;
@@ -165,9 +176,7 @@ main {
     cursor: pointer;
 }
 
-.nav-item:hover {
-    border-color: rgba(79, 209, 197, 0.5);
-}
+.nav-item:hover { border-color: rgba(79, 209, 197, 0.5); }
 
 .nav-num {
     font-family: var(--font-mono);
@@ -188,9 +197,7 @@ main {
     .nav-title { font-size: 1.5rem; }
 }
 
-.nav-item:hover .nav-title {
-    transform: translateX(8px);
-}
+.nav-item:hover .nav-title { transform: translateX(8px); }
 
 .nav-desc {
     font-size: 0.875rem;
@@ -224,42 +231,17 @@ main {
     transform: translateX(4px);
 }
 
-/* --- Footer --- */
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    font-size: 0.75rem;
-}
-
-@media (min-width: 768px) {
-    footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 2rem 1.5rem;
-    }
-
-.footer-left { font-family: var(--font-mono); color: var(--text-dim); }
-.footer-right { color: var(--yellow); font-family: var(--font-mono); }
-
-    
-
-
 
 /* =========================================
-   Sub-pages Specific Styles (About, Project, etc.)
+   子页面通用样式 (Sub-pages Common)
    ========================================= */
-
-/* 子页面 Header */
 .page-header {
-    position: sticky;       /* 核心：让它粘在屏幕顶部 */
-    top: 0;                 /* 贴紧顶部边缘 */
-    z-index: 100;           /* 确保它永远覆盖在文字上方 */
-    background: rgba(10, 15, 20, 0.75); /* 深色半透明背景，和你的主题色融合 */
-    backdrop-filter: blur(12px);        /* 开启高级毛玻璃模糊效果 */
-    -webkit-backdrop-filter: blur(12px);/* 兼容苹果 Safari 浏览器 */
+    position: sticky;       
+    top: 0;                 
+    z-index: 100;           
+    background: rgba(10, 15, 20, 0.75); 
+    backdrop-filter: blur(12px);        
+    -webkit-backdrop-filter: blur(12px);
     padding: 2.5rem 2rem;
     margin-bottom: 2rem;
     transition: all 0.3s ease;
@@ -280,9 +262,7 @@ footer {
     transition: color 0.3s ease;
 }
 
-.back-link:hover {
-    color: var(--cyan);
-}
+.back-link:hover { color: var(--cyan); }
 
 .back-arrow {
     width: 1.25rem;
@@ -290,19 +270,14 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.back-link:hover .back-arrow {
-    transform: translateX(-4px); /* Hover 时箭头向左微移 */
-}
+.back-link:hover .back-arrow { transform: translateX(-4px); }
 
-/* 子页面主体容器 */
 .content-page {
     padding-top: 0;
-    justify-content: flex-start; /* 增加这一行：强制靠上对齐，无视内容高度 */
+    justify-content: flex-start; /* 强制靠上对齐 */
 }
 
-.page-title-group {
-    margin-bottom: 4rem;
-}
+.page-title-group { margin-bottom: 4rem; }
 
 .page-num {
     font-family: var(--font-mono);
@@ -324,7 +299,7 @@ footer {
     .page-title { font-size: 3.5rem; }
 }
 
-/* 正文排版 (Prose) */
+/* About 页面文字 */
 .prose {
     font-size: 1.125rem;
     line-height: 1.8;
@@ -332,16 +307,9 @@ footer {
     font-weight: 300;
     max-width: 42rem;
 }
+.prose p { margin-bottom: 2rem; }
+.prose p:last-child { margin-bottom: 0; }
 
-.prose p {
-    margin-bottom: 2rem;
-}
-
-.prose p:last-child {
-    margin-bottom: 0;
-}
-
-/* 技能标签区 */
 .skills-section {
     margin-top: 3.5rem;
     padding-top: 2rem;
@@ -382,11 +350,9 @@ footer {
 }
 
 
-
 /* =========================================
-   Project Page Specific Styles
+   Project 页面专属样式 (Project Specific)
    ========================================= */
-
 .project-list {
     display: flex;
     flex-direction: column;
@@ -400,7 +366,6 @@ footer {
     overflow: hidden;
 }
 
-/* 标题栏 */
 .project-header {
     display: flex;
     align-items: center;
@@ -410,15 +375,13 @@ footer {
     transition: all 0.3s ease;
 }
 
-.project-header:hover {
-    color: var(--cyan);
-}
+.project-header:hover { color: var(--cyan); }
 
 .project-title-area {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    flex: 1; /* 让标题区域拥有弹性伸缩权 */
+    flex: 1; 
 }
 
 .project-meta {
@@ -426,14 +389,14 @@ footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.1rem;
-    min-width: 75px; /* 保证编号区域宽度固定，对齐更美观 */
-    flex-shrink: 0; /* 核心：防止编号被挤压变形 */
+    min-width: 75px; 
+    flex-shrink: 0; 
 }
 
 .project-id {
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    color: var(--yellow);
+    color: var(--cyan); /* 修改回了青色，搭配暗黄色的年份 */
 }
 
 .project-year {
@@ -451,11 +414,8 @@ footer {
     transition: color 0.3s ease;
 }
 
-.project-header:hover .project-name {
-    color: var(--cyan);
-}
+.project-header:hover .project-name { color: var(--cyan); }
 
-/* 标签 */
 .project-tags {
     display: flex;
     gap: 0.5rem;
@@ -471,7 +431,7 @@ footer {
     border: 1px solid rgba(240, 244, 248, 0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 1rem;
-    white-space: nowrap; /* 核心：让方框里的字绝对不换行 */
+    white-space: nowrap; 
 }
 
 .toggle-icon {
@@ -481,7 +441,6 @@ footer {
     transition: transform 0.3s ease;
 }
 
-/* 展开状态 */
 .project-item.active .toggle-icon {
     transform: rotate(180deg);
     color: var(--cyan);
@@ -495,12 +454,12 @@ footer {
 }
 
 .project-item.active .project-content {
-    max-height: 2000px; /* 足够大的值以容纳内容 */
+    max-height: 2000px; 
     opacity: 1;
     padding: 1rem 0 3rem 0;
 }
 
-/* --- 轮播图 (Carousel) --- */
+/* 轮播图 */
 .carousel-container {
     position: relative;
     width: 100%;
@@ -521,7 +480,7 @@ footer {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%; /* JS 控制偏移 */
+    width: 100%; 
 }
 
 .carousel-slide {
@@ -540,11 +499,8 @@ footer {
     transition: opacity 0.3s;
 }
 
-.carousel-slide img:hover {
-    opacity: 1;
-}
+.carousel-slide img:hover { opacity: 1; }
 
-/* 轮播图左右按钮 */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -572,7 +528,6 @@ footer {
 .carousel-btn.prev { left: 1rem; }
 .carousel-btn.next { right: 1rem; }
 
-/* 项目文案与下载按钮 */
 .project-desc {
     color: var(--text-muted);
     font-size: 1rem;
@@ -580,19 +535,9 @@ footer {
     font-weight: 300;
 }
 
-.project-desc ul {
-    margin-top: 1.5rem;
-    padding-left: 1.5rem;
-}
-
-.project-desc li {
-    margin-bottom: 0.8rem;
-}
-
-.project-desc strong {
-    color: var(--text-main);
-    font-weight: 500;
-}
+.project-desc ul { margin-top: 1.5rem; padding-left: 1.5rem; }
+.project-desc li { margin-bottom: 0.8rem; }
+.project-desc strong { color: var(--text-main); font-weight: 500; }
 
 .download-btn {
     display: inline-flex;
@@ -614,29 +559,10 @@ footer {
     transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
-    .hidden-mobile { display: none; }
-    
-    .project-title-area { 
-        flex-direction: column; 
-        align-items: flex-start; /* 核心修复：手机端强制完美左对齐 */
-        gap: 0.5rem; 
-    }
-    
-    /* 手机端把 Project_0 和年份横向并排，更节省空间且整洁 */
-    .project-meta {
-        flex-direction: row;
-        align-items: baseline;
-        gap: 0.75rem;
-        min-width: auto;
-    }
-}
-
 
 /* =========================================
-   Resume Page Specific Styles
+   Resume 页面专属样式 (Resume Specific)
    ========================================= */
-
 .resume-wrapper {
     display: flex;
     flex-direction: column;
@@ -655,9 +581,7 @@ footer {
     margin-bottom: 2rem;
 }
 
-.resume-item:last-child {
-    margin-bottom: 0;
-}
+.resume-item:last-child { margin-bottom: 0; }
 
 @media (min-width: 768px) {
     .resume-item {
@@ -666,24 +590,18 @@ footer {
     }
 }
 
-/* 左侧元数据区 (年份/类别) */
 .resume-meta {
     flex-shrink: 0;
     width: 120px;
     font-family: var(--font-mono);
     font-size: 0.875rem;
     color: var(--text-dim);
-    padding-top: 0.2rem; /* 与右侧标题对齐 */
+    padding-top: 0.2rem; 
 }
 
-.resume-category {
-    color: var(--cyan);
-}
+.resume-category { color: var(--cyan); }
 
-/* 右侧内容区 */
-.resume-content {
-    flex: 1;
-}
+.resume-content { flex: 1; }
 
 .resume-institution {
     font-size: 1.25rem;
@@ -705,7 +623,6 @@ footer {
     line-height: 1.6;
 }
 
-/* 下载区域 */
 .download-section {
     margin-top: 5rem;
     padding-top: 3rem;
@@ -717,4 +634,47 @@ footer {
     font-size: 0.875rem;
     color: var(--text-dim);
     margin-bottom: 1.5rem;
+}
+
+
+/* =========================================
+   移动端全局终极适配 (Mobile Responsive - 必须放在最底层)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Header 修复 */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .header-right {
+        align-items: flex-start; 
+        gap: 0.5rem;
+    }
+
+    /* Footer 修复 */
+    footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 2rem 1.5rem;
+    }
+
+    /* Project 列表修复 */
+    .hidden-mobile { display: none; }
+    
+    .project-title-area { 
+        flex-direction: column; 
+        align-items: flex-start; 
+        gap: 0.5rem; 
+    }
+    
+    .project-meta {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.75rem;
+        min-width: auto;
+    }
 }
