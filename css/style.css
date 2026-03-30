@@ -396,7 +396,7 @@ main {
 .project-id {
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    color: var(--cyan); /* 修改回了青色，搭配暗黄色的年份 */
+    color: var(--yellow); /* 修改回了青色，搭配暗黄色的年份 */
 }
 
 .project-year {
