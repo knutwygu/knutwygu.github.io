@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Knowledge | Knut W.Y. Gu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <svg class="back-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+                <span>Back to Home</span>
+            </a>
+            <div class="header-right">
+                <span class="logo-text">Knut W.Y. Gu</span>
+            </div>
+        </header>
+
+        <main class="content-page">
+            <div class="content-container">
+                <div class="page-title-group">
+                    <span class="page-num">02 / Open Knowledge</span>
+                    <h1 class="page-title">Engineering for <span class="italic-cyan">everyone</span>.</h1>
+                </div>
+
+                <div class="prose" style="margin-bottom: 4rem;">
+                    <p style="font-size: 1.25rem; color: var(--text-main); font-weight: 400;">
+                        True inclusion in tech means taking the magic out of the "black box." You shouldn't need an engineering degree to understand the invisible signals that run our daily lives. 
+                    </p>
+                    <p>
+                        Instead of treating engineering as an exclusive club, this page is dedicated to open-source knowledge. Here are a few ways to apply fundamental physics, signal processing, and circuit theories to solve everyday annoyances.
+                    </p>
+                </div>
+
+                <div class="resume-wrapper">
+                    
+                    <section class="resume-section">
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-category">Audio & Signals</span>
+                                <span style="display: block; font-size: 0.75rem; margin-top: 0.25rem;">Tip_01</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">Why your speakers buzz (and how to fix it)</h3>
+                                <p class="resume-detail" style="margin-bottom: 1rem;">
+                                    Ever hear a low, annoying hum coming from your desktop speakers or guitar amp? That’s usually a <strong>60Hz Ground Loop or Electromagnetic Interference (EMI)</strong>. The AC power flowing through your wall cables creates an invisible magnetic field. If your audio cables run parallel to your power cables, they act like antennas, absorbing that 60Hz power signal as audio noise.
+                                </p>
+                                <div style="background: rgba(79, 209, 197, 0.05); border-left: 2px solid var(--cyan); padding: 1rem; border-radius: 0 4px 4px 0;">
+                                    <strong style="color: var(--text-main); font-size: 0.875rem;">// The Engineer's Fix:</strong>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; color: var(--text-muted);">
+                                        Never zip-tie your audio cables and power cables together. If they must cross, make sure they cross at a <strong>90-degree right angle</strong>. This physical geometry minimizes magnetic coupling and instantly kills the buzz.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="resume-section">
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-category">Electromagnetics</span>
+                                <span style="display: block; font-size: 0.75rem; margin-top: 0.25rem;">Tip_02</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">Treat your Wi-Fi like a flashlight</h3>
+                                <p class="resume-detail" style="margin-bottom: 1rem;">
+                                    Wi-Fi is literally just invisible light (Radio Frequency waves). Yet, most people hide their routers behind TVs or inside metal cabinets. High-frequency signals (like 5GHz Wi-Fi) carry a lot of data but are incredibly fragile—they easily get absorbed by water, concrete, and metal.
+                                </p>
+                                <div style="background: rgba(79, 209, 197, 0.05); border-left: 2px solid var(--cyan); padding: 1rem; border-radius: 0 4px 4px 0;">
+                                    <strong style="color: var(--text-main); font-size: 0.875rem;">// The Engineer's Fix:</strong>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; color: var(--text-muted);">
+                                        Put your router <strong>as high up as possible</strong> and out in the open. RF waves propagate downward and outward. If your router is on the floor, half of your signal is uselessly reflecting off the ground.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="resume-section">
+                        <div class="resume-item">
+                            <div class="resume-meta">
+                                <span class="resume-category">Hardware Physics</span>
+                                <span style="display: block; font-size: 0.75rem; margin-top: 0.25rem;">Tip_03</span>
+                            </div>
+                            <div class="resume-content">
+                                <h3 class="resume-institution">Stop murdering your phone battery</h3>
+                                <p class="resume-detail" style="margin-bottom: 1rem;">
+                                    Lithium-ion batteries have one absolute enemy: <strong>Heat</strong>. When you use a modern "Fast Charger," you are pushing high current ($I$) into the battery. According to Joule's law ($P = I^2R$), increasing current generates heat exponentially. Thick phone cases act as thermal insulators, trapping that heat and physically degrading the battery's chemistry.
+                                </p>
+                                <div style="background: rgba(79, 209, 197, 0.05); border-left: 2px solid var(--cyan); padding: 1rem; border-radius: 0 4px 4px 0;">
+                                    <strong style="color: var(--text-main); font-size: 0.875rem;">// The Engineer's Fix:</strong>
+                                    <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem; color: var(--text-muted);">
+                                        If you plug your phone into a 30W+ fast charger, <strong>take off the thick case</strong>, or at least don't charge it under your pillow. Letting the hardware dissipate heat naturally will double the lifespan of your battery.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; width: 100%;">
+                <div style="display: flex; justify-content: space-between; width: 100%; border-top: 1px solid rgba(240,244,248,0.1); padding-top: 1.5rem;">
+                    <span class="footer-left">// open-source knowledge</span>
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
