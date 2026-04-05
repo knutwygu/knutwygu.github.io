@@ -626,7 +626,7 @@ main {
 .download-section {
     margin-top: 5rem;
     padding-top: 3rem;
-    border-top: 1px solid rgba(240, 244, 248, 0.08);
+    border-top: 1px solid rgba(240, 244, 248, 0.05);
     text-align: left;
 }
 
