@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Knut W.Y. Gu</title>
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="page-header">
+            <a href="index.html" class="back-link">
+                <svg class="back-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                </svg>
+                <span>Back to Home</span>
+            </a>
+            <div class="header-right">
+                <span class="logo-text">Knut W.Y. Gu</span>
+            </div>
+        </header>
+
+        <main class="content-page">
+            <div class="content-container">
+                <div class="page-title-group">
+                    <span class="page-num">04 / Research</span>
+                    <h1 class="page-title">Systems & <span class="italic-cyan">Theory</span>.</h1>
+                </div>
+
+                <div class="project-list">
+                    
+                    <div class="project-item">
+                        <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-area">
+                                <div class="project-meta">
+                                    <span class="project-id">6ICPH Conference</span>
+                                    <span class="project-year">2026</span>
+                                </div>
+                                <h2 class="project-name">Agentic Affordance: Why LLMs Invite the Intentional Stance</h2>
+                            </div>
+                            <div class="project-tags hidden-mobile">
+                                <span>Philosophy of AI</span>
+                                <span>Affordance Theory</span>
+                                <span>Human-AI Interaction</span>
+                            </div>
+                            <svg class="toggle-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-desc" style="margin-top: 1rem;">
+                                <h3>Abstract</h3>
+                                <p>This paper develops the concept of <strong>"agentic affordance"</strong> to explain why humans naturally attribute intentions, beliefs, and desires to Large Language Models (LLMs). Building on ecological psychology, we argue that this tendency is neither a mere illusion nor solely dependent on understanding the model's internal mechanics.</p>
+                                
+                                <p>Instead, intentionality emerges from the interactive relation between the human user and the model's context-sensitive responsiveness. This account offers a middle path between strong internalism and deflationary illusionism, providing practical implications for AI safety, welfare, and regulation.</p>
+
+                                <a href="docs/6ICPH_Submission.pdf" target="_blank" class="download-btn" style="margin-top: 2rem;">
+                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    Read Full Paper (PDF)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <span class="footer-left">// advancing engineering and theory</span>
+        </footer>
+    </div>
+
+    <script>
+        // Research 页面只需要保留最简单的手风琴折叠逻辑，去掉了图片滑动的 JS
+        function toggleProject(headerElement) {
+            const item = headerElement.parentElement;
+            item.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
