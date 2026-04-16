@@ -33,12 +33,66 @@
                 </div>
 
                 <div class="project-list">
+
+                    <div class="project-item">
+                        <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-area">
+                                <div class="project-meta">
+                                    <span class="project-id">Project_01</span>
+                                    <span class="project-year">2026</span>
+                                </div>
+                                <h2 class="project-name">Spatial vs. Temporal Edge Detection</h2>
+                            </div>
+                            <div class="project-tags hidden-mobile">
+                                <span>Signal Processing</span>
+                                <span>Computer Vision</span>
+                                <span>Python</span>
+                            </div>
+                            <svg class="toggle-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="carousel-container">
+                                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                                <div class="carousel-track-wrapper">
+                                    <ul class="carousel-track">
+                                        <li class="carousel-slide"><img src="images/Project01_1.png" alt="Original Image"></li>
+                                        <li class="carousel-slide"><img src="images/Project01_2.png" alt="Sobel Spatial Detection"></li>
+                                        <li class="carousel-slide"><img src="images/Project01_3.png" alt="Temporal Event Detection"></li>
+                                        <li class="carousel-slide"><img src="images/Project01_4.png" alt="experimental setup"></li>
+                                    </ul>
+                                </div>
+                                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                            </div>
+
+                            <div class="project-desc">
+                                <p>A comparative study of two Linear Time-Invariant (LTI) systems performing edge detection in different domains, bridging abstract DSP theory with modern event-based vision technology.</p>
+                                
+                                <ul>
+                                    <li><strong>System A (Spatial Filtering):</strong> Implemented 2D convolution using Sobel operators. Extracted all high-frequency spatial components, including redundant background textures.</li>
+                                    <li><strong>System B (Temporal Filtering):</strong> Simulated an Event Camera (DVS) using a discrete-time difference equation. Acted as a temporal high-pass filter, successfully suppressing static backgrounds and isolating moving objects.</li>
+                                    <li><strong>Core Finding:</strong> Demonstrated that temporal edge detection is significantly more efficient for motion-tracking tasks by producing a sparser signal and reducing redundant data processing.</li>
+                                </ul>
+
+                                <a href="docs/Project_Final_Report.pdf" target="_blank" class="download-btn">
+                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    Download Final Report_01 (PDF)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
                     
                     <div class="project-item">
                         <div class="project-header" onclick="toggleProject(this)">
                             <div class="project-title-area">
                                 <div class="project-meta">
-                                    <span class="project-id">Project_0</span>
+                                    <span class="project-id">Project_00</span>
                                     <span class="project-year">2026</span>
                                 </div>
                                 <h2 class="project-name">Music Reactive LED System</h2>
@@ -81,7 +135,7 @@
                                     <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                     </svg>
-                                    Download Proposal_0 (PDF)
+                                    Download Proposal_00 (PDF)
                                 </a>
                             </div>
                         </div>
