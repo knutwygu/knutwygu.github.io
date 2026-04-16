@@ -600,8 +600,8 @@ main {
     font-size: 0.75rem;
     color: var(--text-dim);
     border: 1px solid rgba(240, 244, 248, 0.1);
-    padding: 0rem 0.6rem;
-    border-radius: 1rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0rem;
     white-space: nowrap; 
 }
 
