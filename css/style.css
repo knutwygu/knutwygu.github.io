@@ -565,7 +565,7 @@ main {
    ========================================= */
 .research-title-area {
    display: flex;
-   align-items: flex-start; /* 顶部对齐，保证左右两边的第一行平齐 */
+   align-items: center; /* 顶部对齐，保证左右两边的第一行平齐 */
    gap: 2rem; /* 左边 Meta 和右边标题区域的间距，可自行微调 */
    flex-grow: 1;
 }
@@ -590,9 +590,9 @@ main {
 .research-tags {
     display: flex;
     gap: 0.5rem;
-    margin-left: 1rem;
-    margin-right: 1.5rem;
-    justify-content: flex-end;
+    margin-left: 0.1rem;
+    justify-content: flex-start; /* 核心修改：从 flex-end 改为 flex-start */
+    flex-wrap: wrap; /* 建议加上，防止屏幕较小时标签超出边界 */
 }
 
 .research-tags span {
@@ -601,16 +601,15 @@ main {
     color: var(--text-dim);
     border: 1px solid rgba(240, 244, 248, 0.1);
     padding: 0.2rem 0.6rem;
-    border-radius: 0rem;
+    border-radius: 1rem;
     white-space: nowrap; 
 }
-
-
-        
+      
 .research-header {
    display: flex;
    justify-content: space-between;
-   align-items: flex-start;
+   align-items: center;
+   cursor: pointer;
 }
 
 .research-header:hover .project-name { color: var(--cyan); }
