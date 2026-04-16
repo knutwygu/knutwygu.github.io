@@ -561,6 +561,47 @@ main {
 
 
 /* =========================================
+   Research 页面专属样式 (Research Specific)
+   ========================================= */
+.research-title-area {
+   display: flex;
+   align-items: flex-start; /* 顶部对齐，保证左右两边的第一行平齐 */
+   gap: 2rem; /* 左边 Meta 和右边标题区域的间距，可自行微调 */
+   flex-grow: 1;
+}
+
+/* 左边的 block：分两行 */
+.research-meta {
+   display: flex;
+   flex-direction: column; /* 纵向排列 */
+   gap: 0.25rem; /* 会议名和年份的上下间距 */
+   flex-shrink: 0;
+   min-width: 140px; /* 给左侧一个固定基础宽度，保证多个项目时右侧文字对齐 */
+}
+
+/* 右边的 block：分两行 */
+.research-details {
+   display: flex;
+   flex-direction: column; /* 纵向排列 */
+   gap: 0.5rem; /* 标题和下方标签的上下间距 */
+}
+
+/* 标签水平排列 */
+.research-tags {
+   display: flex;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+}
+        
+.research-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+
+
+
+/* =========================================
    Resume 页面专属样式 (Resume Specific)
    ========================================= */
 .resume-wrapper {
