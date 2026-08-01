@@ -10,6 +10,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* 标题内的年份只在桌面端出现；手机端仍用 .project-meta 里原来那个 */
+        .project-header .project-name .project-year { display: none; }
+
+        /* ≥769px：条目头部改成三列 grid。
+           ≤768px 不受影响，完全沿用原有手机布局（编号+年份一行，标题占满，无标签）。 */
+        @media (min-width: 769px) {
+            .project-header {
+                display: grid;
+                /* 首列 96px，窗口收窄时按容器比例缩放（96/768 = 12.5%），
+                   下限为编号自身宽度，保证 Project_XX 不被压断 */
+                grid-template-columns: minmax(min-content, min(96px, 12.5%)) minmax(0, 1fr) auto;
+                align-items: center;
+                column-gap: min(1.5rem, 3.125%);
+            }
+
+            /* 让编号和标题直接成为 header 的 grid 项 */
+            .project-header .project-title-area,
+            .project-header .project-meta { display: contents; }
+
+            .project-header .project-id   { grid-column: 1; grid-row: 1; }
+            .project-header .project-name { grid-column: 2; grid-row: 1; }
+            .project-header .toggle-icon  { grid-column: 3; grid-row: 1; }
+
+            /* 年份改为紧跟标题同一行 */
+            .project-header .project-meta > .project-year { display: none; }
+            .project-header .project-name .project-year {
+                display: inline;
+                margin-left: 0.75rem;
+            }
+
+            /* 标签独占第二行，与标题左对齐 */
+            .project-header .project-tags {
+                grid-column: 2;
+                grid-row: 2;
+                margin-top: 1rem;
+                margin-left: 0;
+                margin-right: 0;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="page-wrapper">
@@ -41,7 +84,7 @@
                                     <span class="project-id">Project_02</span>
                                     <span class="project-year">2026</span>
                                 </div>
-                                <h2 class="project-name">Jamming-Resilient Multi-Camera Evidence</h2>
+                                <h2 class="project-name">Jamming-Resilient Multi-Camera Evidence<span class="project-year">2026</span></h2>
                             </div>
                             <div class="project-tags hidden-mobile">
                                 <span>Coded Computing</span>
@@ -97,7 +140,7 @@
                                     <span class="project-id">Project_01</span>
                                     <span class="project-year">2026</span>
                                 </div>
-                                <h2 class="project-name">Spatial vs. Temporal Edge Detection</h2>
+                                <h2 class="project-name">Spatial vs. Temporal Edge Detection<span class="project-year">2026</span></h2>
                             </div>
                             <div class="project-tags hidden-mobile">
                                 <span>Signal Processing</span>
@@ -151,7 +194,7 @@
                                     <span class="project-id">Project_00</span>
                                     <span class="project-year">2026</span>
                                 </div>
-                                <h2 class="project-name">Music Reactive LED System</h2>
+                                <h2 class="project-name">Music Reactive LED System<span class="project-year">2026</span></h2>
                             </div>
                             <div class="project-tags hidden-mobile">
                                 <span>Mixed-Signal</span>
