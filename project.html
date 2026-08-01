@@ -38,6 +38,62 @@
                         <div class="project-header" onclick="toggleProject(this)">
                             <div class="project-title-area">
                                 <div class="project-meta">
+                                    <span class="project-id">Project_02</span>
+                                    <span class="project-year">2026</span>
+                                </div>
+                                <h2 class="project-name">Jamming-Resilient Multi-Camera Evidence</h2>
+                            </div>
+                            <div class="project-tags hidden-mobile">
+                                <span>Coded Computing</span>
+                                <span>Wireless Security</span>
+                                <span>Python</span>
+                            </div>
+                            <svg class="toggle-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="carousel-container">
+                                <button class="carousel-btn prev" onclick="moveSlide(this, -1)">&#10094;</button>
+                                <div class="carousel-track-wrapper">
+                                    <ul class="carousel-track">
+                                        <li class="carousel-slide"><img src="images/Project02_1.png" alt="Layered Coding Scheme"></li>
+                                        <li class="carousel-slide"><img src="images/Project02_2.png" alt="Recovery Thresholds"></li>
+                                        <li class="carousel-slide"><img src="images/Project02_3.png" alt="Evidence Yield Under Jamming"></li>
+                                        <li class="carousel-slide"><img src="images/Project02_4.png" alt="Multi-Camera Fusion"></li>
+                                        <li class="carousel-slide"><img src="images/Project02_5.png" alt="Encoding and Decoding Cost"></li>
+                                    </ul>
+                                </div>
+                                <button class="carousel-btn next" onclick="moveSlide(this, 1)">&#10095;</button>
+                            </div>
+
+                            <div class="project-desc">
+                                <p>Burglars now arrive carrying Wi-Fi jammers, so home cameras keep recording while their uploads silently die. This project applies coded computing before the loss happens, so that fragments surviving across several unevenly jammed cameras can be recovered and fused back into a usable account of the break-in.</p>
+
+                                <ul>
+                                    <li><strong>Layering:</strong> Each record splits into a 9-symbol coarse layer carrying a silhouette and a 22-symbol fine layer carrying the detail, encoded as two polynomials sharing one packet stream.</li>
+                                    <li><strong>Thresholds:</strong> Any 24 of 60 packets rebuild the record in full and any 11 rebuild the silhouette, so graceful degradation falls out of the polynomial degrees rather than any added machinery.</li>
+                                    <li><strong>Yield:</strong> Under identical jamming the layered code keeps 94% of the evidence usable, against 60% for an all-or-nothing code at matched overhead and 36% uncoded.</li>
+                                    <li><strong>Fusion:</strong> Combining partial records across five cameras beats the best single camera on both accuracy (0.93 m route RMS) and timeline coverage (42 of 48 steps).</li>
+                                    <li><strong>Cost:</strong> Resilience runs a 3.9&times; transmission overhead with roughly 1 ms encoding and 6 ms decoding per record.</li>
+                                </ul>
+
+                                <a href="docs/Final_Report_02.pdf" target="_blank" class="download-btn">
+                                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    Download Final_Report_02 (PDF)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="project-item">
+                        <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-area">
+                                <div class="project-meta">
                                     <span class="project-id">Project_01</span>
                                     <span class="project-year">2026</span>
                                 </div>
